@@ -1,0 +1,22 @@
+.header{
+    /* border: 1px solid black; */
+    min-width: 1300px;
+    height: 150px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 25px;
+}
+.logo{
+    width: 300px;
+    height: 55px;
+    background-image: url(src/assets/images/logo.png);
+    background-size: cover;
+}
+.phone{
+    width: 300px;
+    height: 100px;
+}
+.worksHour{
+    width: 300px;
+    height: 100px;
+}
