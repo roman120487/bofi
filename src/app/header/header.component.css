@@ -2,7 +2,7 @@
     /* border: 1px solid black; */
     width: 1300px;
     margin: 0px auto;
-    height: 150px;
+    height: 100px;
     display: flex;
     justify-content: space-around;
     padding-top: 25px;
@@ -33,6 +33,7 @@
 }
 
 .nav1 {
+    /* height: 30px; */
     width: 1300px;
     margin: 0px auto;
     display: flex;
@@ -42,8 +43,21 @@
     border-bottom: 1px solid lightgrey;
     font-weight: bold;
     color: #253982;
+    /* padding-top: 0; */
 }
 
 .active {
     color: #D62D26;
+}
+.slider{
+    width: 100%;
+    height: 200px;
+    /* background-image: url(src/assets/images/kotel11.jpg); */
+    /* background-size: cover; */
+}
+h5{
+    font-size: 100px;
+}
+.slider p{
+    font-size: 35px;
 }

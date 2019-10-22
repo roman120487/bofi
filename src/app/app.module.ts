@@ -12,6 +12,10 @@ import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+// import { NgbdCarouselBasic } from './carousel-basic';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,12 +26,17 @@ import { FooterComponent } from './footer/footer.component';
     BrendsComponent,
     AdminComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    // NgbdCarouselBasic
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserModule,
+    NgbModule
   ],
+  // exports: [NgbdCarouselBasic],
   providers: [],
   bootstrap: [AppComponent]
 })
