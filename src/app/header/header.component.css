@@ -31,7 +31,16 @@
     background-color: rgba(214,45,38,0.2);
     /* border: 1px solid black; */
 }
-
+.sliderHeader{
+    width: 100%;
+    height: 300px;
+}
+h5{
+    font-size: 70px;
+}
+.sliderHeader p{
+    font-size: 35px;
+}
 .nav1 {
     /* height: 30px; */
     width: 1300px;
@@ -41,23 +50,12 @@
     font-size: 20px;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: #253982;
     /* padding-top: 0; */
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .active {
     color: #D62D26;
-}
-.slider{
-    width: 100%;
-    height: 200px;
-    /* background-image: url(src/assets/images/kotel11.jpg); */
-    /* background-size: cover; */
-}
-h5{
-    font-size: 100px;
-}
-.slider p{
-    font-size: 35px;
 }
