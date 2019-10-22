@@ -1,9 +1,22 @@
 footer{
     width: 100vw;
     height: 150px;
-    background-color:#253982 ;
+    background-color:rgba(37,57,130,0.2) ;
     position: absolute;
     bottom: 0px;
     left: 0px;
+    /* color: white; */
+}
+.containerFooter{
+    width: 1300px;
+    margin: 0px auto;
+}
+.copiryte{
+    width: 100%;
+    background-color: black;
     color: white;
+    height: 30px;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
 }
