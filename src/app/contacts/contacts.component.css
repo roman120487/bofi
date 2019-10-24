@@ -25,6 +25,7 @@ p{
 }
 .infoBlaBla{
     width: 40%;
+    border: 1px solid lightgray;
     /* border: 1px solid black; */
 }
 .map{

@@ -24,6 +24,7 @@
 }
 
 .catProd:hover {
+    transition: 0.5s;
     border: 1px solid lightgrey;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background-color:whitesmoke;
@@ -38,6 +39,9 @@
     /* border: 1px solid lightgrey; */
     font-size: 20px;
     justify-content: center;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    padding-top: 5px;
 }
 .subscribe input{
     width: 400px;
@@ -63,9 +67,11 @@ li{
     list-style-type: none;
     width: 200px;
     height: 300px;
+    border:1px solid transparent;
 }
 li:hover{
-    border: 1px solid lightgrey;
+    transition: 0.5s;
+    /* border: 1px solid lightgrey; */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background-color:whitesmoke;
 }
