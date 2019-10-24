@@ -69,12 +69,22 @@
     <li class="nav-item">
       <a class="nav-link" routerLink="about-us" routerLinkActive='active'>Про нас</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="products" routerLinkActive='active'>Продукція</a>
-    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Продукція
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="nav-link" routerLink="cotels" routerLinkActive='active'>Системи опалення</a>
+          <a class="nav-link" routerLink="ventilation" routerLinkActive='active'>Вентиляційні системи</a>
+          <a class="nav-link" routerLink="frozen" routerLinkActive='active'>Холодильне обладнання</a>
+          <!-- <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+      </li>
     <li class="nav-item">
       <a class="nav-link" routerLink="brends" routerLinkActive='active'>Бренди</a>
     </li>
+    
     <li class="nav-item">
       <a class="nav-link" routerLink="contacts" routerLinkActive='active'>Контакти</a>
     </li>

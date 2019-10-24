@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
-import { ProductsComponent } from './products/products.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { BrendsComponent } from './brends/brends.component';
@@ -13,6 +12,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CotelsComponent } from './products/cotels/cotels.component';
+import { VentilationComponent } from './products/ventilation/ventilation.component';
+import { FrozenComponent } from './products/frozen/frozen.component';
 
 // import { NgbdCarouselBasic } from './carousel-basic';
 
@@ -20,13 +22,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     MainComponent,
-    ProductsComponent,
     AboutUsComponent,
     ContactsComponent,
     BrendsComponent,
     AdminComponent,
     HeaderComponent,
     FooterComponent,
+    CotelsComponent,
+    VentilationComponent,
+    FrozenComponent,
     // NgbdCarouselBasic
     
   ],
