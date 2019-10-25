@@ -1,0 +1,14 @@
+.adminContainer{
+    text-align: center;
+    padding: 50px;
+}
+p{
+    text-decoration: line-through;
+}
+.img{
+    width: 400px;
+    height: 250px;
+    background-image: url(src/assets/images/adminImg.svg);
+    background-size: contain;
+    margin: 10px auto;
+}
