@@ -16,6 +16,11 @@
     <i class="fas fa-clock fa-lg"></i>
     <p>Працюємо: пн-птн 9:00 - 18:00</p>
   </div>
+  <div class="signIn">
+    <p>Кабінет Користувача:</p>
+    <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signInModal">Увійти</button>
+    <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signUpModal">Зарееструватись</button>
+  </div>
 </div>
 
 <div class="sliderHeader">
@@ -30,7 +35,7 @@
         <div class="carousel-item active">
           <img src="assets/images/kotel11.jpg" class="d-block w-100" alt="Опалювальне оладнання">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Опалювальне оладнання</h5>
+            <h4>Опалювальне оладнання</h4>
             <p>Твердопаливні та газові котли</p>
           </div>
         </div>
@@ -70,26 +75,100 @@
       <a class="nav-link" routerLink="about-us" routerLinkActive='active'>Про нас</a>
     </li>
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle"  routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Продукція
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="nav-link" routerLink="cotels" routerLinkActive='active'>Системи опалення</a>
-          <a class="nav-link" routerLink="ventilation" routerLinkActive='active'>Вентиляційні системи</a>
-          <a class="nav-link" routerLink="frozen" routerLinkActive='active'>Холодильне обладнання</a>
-          <!-- <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a> -->
-        </div>
-      </li>
+      <a class="nav-link dropdown-toggle" routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Продукція
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="nav-link" routerLink="cotels" routerLinkActive='active'>Системи опалення</a>
+        <a class="nav-link" routerLink="ventilation" routerLinkActive='active'>Вентиляційні системи</a>
+        <a class="nav-link" routerLink="frozen" routerLinkActive='active'>Холодильне обладнання</a>
+      </div>
+    </li>
     <li class="nav-item">
       <a class="nav-link" routerLink="brends" routerLinkActive='active'>Бренди</a>
     </li>
-    
+
     <li class="nav-item">
       <a class="nav-link" routerLink="contacts" routerLinkActive='active'>Контакти</a>
     </li>
-    <!-- <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Адмінка</a>
-        </li> -->
+    <li class="nav-item" *ngIf="enterAdmin">
+      <a class="nav-link" routerLink="admin" routerLinkActive='active'>Адмінка</a>
+    </li>
   </ul>
 </div>
+
+
+<!------------------------------------------------------------- Modal Sign In ------------------------->
+<div class="modal" tabindex="-1" role="dialog" id="signInModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Вхід</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Електронна пошта:</label>
+              <input type="email" [(ngModel)]="emailValid" name="emailValid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="введіть вашу email адресу...">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">введіть пароль...</label>
+              <input type="password" [(ngModel)]="passValid" name="passValid" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="emptyPlace" *ngIf="isEmptyPlace">Some input is empty</div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="validUser()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+
+
+  <!-------------------------------------------------------------- Modal Sign Up ----------------------->
+<div class="modal" tabindex="-1" role="dialog" id="signUpModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Реестрація користувача</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputUserName">Ім'я користувача: </label>
+              <input type="text" [(ngModel)]="userName" name="userName" class="form-control" id="exampleInputUserName"
+                aria-describedby="emailHelp" placeholder="введіть ваше ім'я...">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail2">Електронна пошта: </label>
+              <input type="email" [(ngModel)]="userEmail" name="userEmail" class="form-control" id="exampleInputEmail2"
+                aria-describedby="emailHelp" placeholder="введіть вашу email адресу...">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Пароль: </label>
+              <input type="password" [(ngModel)]="userPassword" name="userPassword" class="form-control"
+                id="exampleInputPassword1" placeholder="введіть пароль...">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="createNewUser()">Підтвердити</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  -->

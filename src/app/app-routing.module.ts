@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'brends', component: BrendsComponent },
   { path: 'contacts', component: ContactsComponent },
-  { path: 'admin', component: AdminComponent }
+  { path: 'admin', component: AdminComponent}
  
 ];
 
