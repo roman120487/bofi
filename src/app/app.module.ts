@@ -16,6 +16,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CotelsComponent } from './products/cotels/cotels.component';
 import { VentilationComponent } from './products/ventilation/ventilation.component';
 import { FrozenComponent } from './products/frozen/frozen.component';
+import { AdminBrendsComponent } from './admin/admin-brends/admin-brends.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminPowerComponent } from './admin/admin-power/admin-power.component';
+import { AdminCallbackComponent } from './admin/admin-callback/admin-callback.component';
+import { AdminCountryComponent } from './admin/admin-country/admin-country.component';
 
 // import { NgbdCarouselBasic } from './carousel-basic';
 
@@ -32,6 +37,11 @@ import { FrozenComponent } from './products/frozen/frozen.component';
     CotelsComponent,
     VentilationComponent,
     FrozenComponent,
+    AdminBrendsComponent,
+    AdminProductsComponent,
+    AdminPowerComponent,
+    AdminCallbackComponent,
+    AdminCountryComponent,
     // NgbdCarouselBasic
     
   ],

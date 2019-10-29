@@ -19,3 +19,6 @@ p{
     background-size: contain;
     margin: 10px auto;
 }
+.adminRoute{
+    width: 100%;
+}
