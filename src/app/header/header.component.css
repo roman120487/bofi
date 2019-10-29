@@ -86,10 +86,11 @@ h4 {
     color: #D62D26;
 }
 
-.signIn button:nth-child(3) {
+.signIn button:nth-child(3), .signIn button:nth-child(4) {
     margin-left: 10px;
 }
-.emptyPlace{
+
+.emptyPlace {
     padding: 10px 15px;
     border: 1px solid red;
     text-align: center;

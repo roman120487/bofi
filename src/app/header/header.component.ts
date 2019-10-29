@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/classes/user';
+import { AdminService } from '../shared/services/admin.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
   isEmptyPlace: boolean;
   enterAdmin: boolean;
   arrUsers: Array<User>;
-  constructor() {
+  constructor(private adminServece: AdminService) {
     this.arrUsers = [
       {
         id: 1,
@@ -34,5 +35,12 @@ export class HeaderComponent implements OnInit {
     } else if (this.emailValid === this.arrUsers[0].email && this.passValid === this.arrUsers[0].password) {
       this.enterAdmin = true;
     }
+  }
+
+  routeAdmin(): void {
+    console.log(this.adminServece.adminActivate);
+    this.adminServece.adminActivate = true;
+    console.log(this.adminServece.adminActivate);
+    
   }
 }

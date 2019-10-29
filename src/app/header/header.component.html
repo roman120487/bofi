@@ -20,6 +20,7 @@
     <p>Кабінет Користувача:</p>
     <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signInModal">Увійти</button>
     <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signUpModal">Зарееструватись</button>
+    <button *ngIf="enterAdmin" type="button" class="btn btn-outline-dark" (click)="routeAdmin() " routerLink="admin" >Admin</button>
   </div>
 </div>
 
@@ -92,9 +93,9 @@
     <li class="nav-item">
       <a class="nav-link" routerLink="contacts" routerLinkActive='active'>Контакти</a>
     </li>
-    <li class="nav-item" *ngIf="enterAdmin">
+    <!-- <li class="nav-item" *ngIf="enterAdmin">
       <a class="nav-link" routerLink="admin" routerLinkActive='active'>Адмінка</a>
-    </li>
+    </li> -->
   </ul>
 </div>
 
