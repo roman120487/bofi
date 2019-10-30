@@ -15,6 +15,8 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminPowerComponent } from './admin/admin-power/admin-power.component';
 import { AdminCallbackComponent } from './admin/admin-callback/admin-callback.component';
 import { AdminCountryComponent } from './admin/admin-country/admin-country.component';
+import { ReferenceComponent } from './reference/reference.component';
+import { HotPumpsComponent } from './products/hot-pumps/hot-pumps.component';
 
 
 
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'frozen', component: FrozenComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'brends', component: BrendsComponent },
+  { path: 'reference', component: ReferenceComponent },
+  { path: 'hotPumps', component: HotPumpsComponent },
   { path: 'contacts', component: ContactsComponent },
   {
     path: 'admin', component: AdminComponent, children: [

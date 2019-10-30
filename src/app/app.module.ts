@@ -2,6 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -21,6 +27,8 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminPowerComponent } from './admin/admin-power/admin-power.component';
 import { AdminCallbackComponent } from './admin/admin-callback/admin-callback.component';
 import { AdminCountryComponent } from './admin/admin-country/admin-country.component';
+import { ReferenceComponent } from './reference/reference.component';
+import { HotPumpsComponent } from './products/hot-pumps/hot-pumps.component';
 
 // import { NgbdCarouselBasic } from './carousel-basic';
 
@@ -42,6 +50,8 @@ import { AdminCountryComponent } from './admin/admin-country/admin-country.compo
     AdminPowerComponent,
     AdminCallbackComponent,
     AdminCountryComponent,
+    ReferenceComponent,
+    HotPumpsComponent,
     // NgbdCarouselBasic
     
   ],
@@ -50,7 +60,11 @@ import { AdminCountryComponent } from './admin/admin-country/admin-country.compo
     AppRoutingModule,
     BrowserModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'bofi'), // imports firebase/app needed for everything
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
   // exports: [NgbdCarouselBasic],
   providers: [],
