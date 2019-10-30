@@ -1,5 +1,5 @@
 <div class="containerBrands">
-    <div class="brends">
+    <!-- <div class="brends">
         <div class="logo">
             <a href="https://www.acv.com/belgie/customer"><img src="assets/images/acvLogo.png" alt=""></a>
         </div>
@@ -13,7 +13,7 @@
             <a href="http://www.thermostahlsolar.com/"><img src="assets/images/TermoSolarLogo.png" alt=""></a>
         </div>
         <div class="brandInfo">
-            <p>Твердопаливні котли  Термосталь  ( Греція ) </p>
+            <p>Твердопаливні котли Термосталь ( Греція ) </p>
         </div>
     </div>
 
@@ -22,7 +22,7 @@
             <a href="https://www.klimor.pl/"><img src="assets/images/klimorLogo.png" alt=""></a>
         </div>
         <div class="brandInfo">
-            <p>Вентиляційне обладнання   Klimor  ( Польща ) </p>
+            <p>Вентиляційне обладнання Klimor ( Польща ) </p>
         </div>
     </div>
 
@@ -40,7 +40,7 @@
             <a href="http://www.chiller-frigoriferi.it/2/"><img src="assets/images/chillerLogo.png" alt=""></a>
         </div>
         <div class="brandInfo">
-            <p>Холодильне обладнання -  Chiller Frigorigeri ( Італія ) </p>
+            <p>Холодильне обладнання - Chiller Frigorigeri ( Італія ) </p>
         </div>
     </div>
     <div class="brends">
@@ -48,7 +48,7 @@
             <a href="https://schako.com/en/products/"><img src="assets/images/schakoLogo.png" alt=""></a>
         </div>
         <div class="brandInfo">
-            <p>Повітророзподільчі пристрої  Schako ( Німеччина ) </p>
+            <p>Повітророзподільчі пристрої Schako ( Німеччина ) </p>
         </div>
     </div>
 
@@ -57,7 +57,7 @@
             <a href="http://begreen.kiev.ua/"><img src="assets/images/begreenLogo.png" alt=""></a>
         </div>
         <div class="brandInfo">
-            <p>Теплові насоси BeGreen ( Україна )  </p>
+            <p>Теплові насоси BeGreen ( Україна ) </p>
         </div>
     </div>
 
@@ -75,7 +75,22 @@
             <a href="https://jeven.fi/en/"><img src="assets/images/jevenLogo.png" alt=""></a>
         </div>
         <div class="brandInfo">
-            <p>Рекуперація  повітря  в гарячих цехах   закладів   громадського харчування</p>
+            <p>Рекуперація повітря в гарячих цехах закладів громадського харчування</p>
+        </div>
+    </div> -->
+
+
+
+
+
+
+    <div class="brends" *ngFor="let brend of uploadLogoBrend.brends">
+        <div class="logo">
+            <a href="{{brend.link}}"><img src="{{brend.logourl}}" alt=""></a>
+        </div>
+        <div class="brandInfo">
+            <h4>{{brend.title}}</h4>
+            <p>{{brend.text}}</p>
         </div>
     </div>
 </div>

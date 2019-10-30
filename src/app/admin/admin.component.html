@@ -1,29 +1,24 @@
 <div *ngIf="adminService.adminActivate" class="adminContainer">
-  <div class="header">
 
-    <h3>Адмінка</h3>
+  <h3>Адмінка</h3>
 
 
-    <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a routerLink="admin-brends" class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" role="tab"
-          aria-controls="nav-home" aria-selected="true">Бренди</a>
-        <a routerLink="admin-country" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile"
-          aria-selected="false">Країна виробник</a>
-        <a routerLink="admin-power" class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" role="tab" aria-controls="nav-contact"
-          aria-selected="false">Потужність</a>
-        <a routerLink="admin-products" class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" role="tab" aria-controls="nav-contact"
-          aria-selected="false">Товар</a>
-        <a routerLink="admin-callback" class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" role="tab" aria-controls="nav-contact"
-          aria-selected="false">Хто замовив дзвінок</a>
-        <button type="button" class="btn btn-outline-dark" (click)="exitAdmin()">Вихід</button>
-      </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-      <div class="adminRoute">
-        <router-outlet> </router-outlet>
-      </div>
-
-      <!-- <h3>тут може бути Ваша <p>реклама</p> адмінка</h3> -->
-      <div class="img"></div>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a routerLink="admin-brends" class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" role="tab"
+        aria-controls="nav-home" aria-selected="true">Бренди</a>
+      <a routerLink="admin-country" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" role="tab"
+        aria-controls="nav-profile" aria-selected="false">Країна виробник</a>
+      <a routerLink="admin-power" class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" role="tab"
+        aria-controls="nav-contact" aria-selected="false">Потужність</a>
+      <a routerLink="admin-products" class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" role="tab"
+        aria-controls="nav-contact" aria-selected="false">Товар</a>
+      <a routerLink="admin-callback" class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" role="tab"
+        aria-controls="nav-contact" aria-selected="false">Хто замовив дзвінок</a>
+      <button type="button" class="btn btn-outline-dark" (click)="exitAdmin()">Вихід</button>
     </div>
+
+  <div class="tab-content adminRoute" id="nav-tabContent">
+      <router-outlet> </router-outlet>
+  </div>
+  <div class="img"></div>
+</div>

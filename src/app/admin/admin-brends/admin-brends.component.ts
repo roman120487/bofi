@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { UploadLogoBrendService } from 'src/app/shared/services/upload-logo-brend.service';
 import { IBrend } from 'src/app/shared/interfaces/brend.interface';
-import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
-import { Observable } from 'rxjs';
-import { finalize, map } from 'rxjs/operators';
+import { NgForm } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-admin-brends',
@@ -10,34 +11,44 @@ import { finalize, map } from 'rxjs/operators';
   styleUrls: ['./admin-brends.component.css']
 })
 export class AdminBrendsComponent implements OnInit {
+  // id: string = '123';
+  // brend: string;
+  formData: IBrend;
 
-  brends: Array<IBrend>;
-  brendImage: string;
-
-  ref: AngularFireStorageReference;
-  task: AngularFireUploadTask;
-  uploadProgress: Observable<number>;
-  downloadURL: Observable<string>;
-  urlImage: string;
-  constructor(private firestorage: AngularFireStorage) { }
+  constructor(private uploadLogoBrend: UploadLogoBrendService, private firestore: AngularFirestore) { }
 
   ngOnInit() {
   }
+  public resetForm(form?: NgForm): void {
+    if (form != null) {
+      form.resetForm();
+    }
+    this.formData = {
+      id: null,
+      title: '',
+      text: '',
+      brend: '',
+      logoUrl: '',
+      link: ''
 
-  public upload(event): void {
-    const id = Math.random().toString(36).substring(2);
-    this.ref = this.firestorage.ref(`brendsLogo/${id}`);
-    this.task = this.ref.put(event.target.files[0]);
-    this.uploadProgress = this.task.percentageChanges();
-    this.task.snapshotChanges().pipe(
-      finalize(() => {
-        this.downloadURL = this.ref.getDownloadURL()
-        this.downloadURL.subscribe(url => this.brendImage = url);
-      })
-    ).subscribe();
+    };
+  }
 
-    console.log(this.brends);
-    
+  // addBrend(): void {
+
+
+  // }
+
+  public onSubmit(form: NgForm) {
+    const data = Object.assign({}, form.value);
+    delete data.id;
+    if (form.value.id == null) {
+      this.firestore.collection('brends').add(data);
+    } else {
+      this.firestore.doc('brends/' + form.value.id).update(data);
+    }
+    console.log(this.formData);
+    this.resetForm();
   }
 
 }

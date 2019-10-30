@@ -3,11 +3,12 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    /* align-items: center; */
 }
 
 
 input[type=text], textarea {
-    width: 50%;
+    width: 100%;
     min-width: 200px;
     /* height: 150px; */
     border: 1px solid lightgray;
@@ -20,6 +21,6 @@ input[type=text], textarea {
 textarea{
     height: 150px;
 }
-.uploadBrendLogo{
-    width: 50%;
+button{
+    width: 150px;
 }
