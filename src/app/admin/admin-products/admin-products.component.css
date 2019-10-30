@@ -1,0 +1,25 @@
+.dataPlace{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+
+input[type=text], textarea, select {
+    width: 50%;
+    min-width: 200px;
+    /* height: 150px; */
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding-left: 15px;
+    margin: 15px;
+    height: 50px;
+    font-size: 25px;
+}
+textarea{
+    height: 150px;
+}
+.uploadBrendLogo{
+    width: 50%;
+}

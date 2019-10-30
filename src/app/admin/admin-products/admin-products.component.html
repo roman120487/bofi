@@ -1,0 +1,37 @@
+<div class="dataPlace">
+        <select class="custom-select" id="selectCategory">
+            <option selected>Виберіть категорію товару...</option>
+            <option value="1">Системи опалення</option>
+            <option value="1">Теплові насоси</option>
+            <option value="2">Вентиляційні системи</option>
+            <option value="3">Холодильне обладнання</option>
+        </select>
+    <input type="text" placeholder="Введіть назву товару...">
+    <textarea name="" id="" cols="30" rows="0" placeholder="Введіть опис товару..."></textarea>
+
+
+
+
+
+
+    <!-- upload image -->
+    <div class="form-group row uploadBrendLogo">
+        <div class="card-body">
+            <h5 class="card-title">Виберіть логотип бренду:</h5>
+            <input type="file" (change)="upload($event)" accept=".png,.jpg" value="Виберіть файл" />
+            <br><br>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                    [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <br>
+            <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+                File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+            </div>
+            <br>
+        </div>
+    </div>
+    <!-- ------- -->
+
+</div>

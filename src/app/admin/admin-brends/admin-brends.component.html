@@ -1,0 +1,38 @@
+<div class="dataPlace">
+    <form action="" #form='ngForm' autocomplete="off" (submit)="onSubmit(form)">
+        <div class="form-group">
+            <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id">
+        </div>
+        <input #brend='ngModel' type="text" placeholder="Введіть назву бренду..." [(ngModel)]="formData.brend" name="brand">
+        <input #link='ngModel' type="text" placeholder="Введіть посилання на сайт..." [(ngModel)]="formData.link" name="link">
+        <input #title='ngModel' type="text" placeholder="Заголовок до опису бренду..." [(ngModel)]="formData.title" name="title">
+        <textarea #text='ngModel' id="" cols="30" rows="0" placeholder="Опис бренду..." [(ngModel)]="formData.text"
+            name="text"></textarea>
+            <div class="form-group">
+                <input type="hidden" name="logoUrl" #logoUrl="ngModel" [(ngModel)]="formData.logoUrl" value="{{downloadSrc}}">
+            </div>
+        
+        <!-- upload image -->
+        <div class="form-group row uploadBrendLogo">
+            <div class="card-body">
+                <h5 class="card-title">Виберіть логотип бренду:</h5>
+                <input type="file" (change)="uploadLogoBrend.upload($event)" accept=".png,.jpg" value="Виберіть файл" />
+                <br><br>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                        [style.width]="(uploadLogoBrend.uploadProgress | async) + '%'"
+                        [attr.aria-valuenow]="(uploadLogoBrend.uploadProgress | async)" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                </div>
+                <br>
+                <div *ngIf="uploadLogoBrend.downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+                    File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+
+                </div>
+                <br>
+            </div>
+        </div>
+        <!-- ------- -->
+        <button type="submit" class="btn btn-outline-dark">Додати</button>
+    </form>
+</div>
