@@ -7,18 +7,17 @@ import { AdminService } from '../shared/services/admin.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-<<<<<<< HEAD
+
   adminActive: boolean;
-  constructor() { }
-=======
+
   // adminActivate: boolean = true;
   constructor(private adminService: AdminService) { }
->>>>>>> 7c6fa25e5277bfee8704994c03b927618bbb3cef
+
 
   ngOnInit() {
   }
 
-  exitAdmin(): void{
+  exitAdmin(): void {
     this.adminService.adminActivate = false;
   }
 }
