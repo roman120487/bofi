@@ -24,3 +24,9 @@ textarea{
 button{
     width: 150px;
 }
+/* .uploadBrendLogo{
+    border: 1px solid black;
+} */
+.card-body{
+    padding: 0;
+}

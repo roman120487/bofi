@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   emailValid: string;
   passValid: string;
   isEmptyPlace: boolean;
-  enterAdmin: boolean;
+  // enterAdmin: boolean;
   arrUsers: Array<User>;
   constructor(private adminServece: AdminService) {
     this.arrUsers = [
@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
     if (this.emailValid === '' && this.passValid === '') {
       this.isEmptyPlace = true;
     } else if (this.emailValid === this.arrUsers[0].email && this.passValid === this.arrUsers[0].password) {
-      this.enterAdmin = true;
+      this.adminServece.enterAdmin = true;
     }
   }
 

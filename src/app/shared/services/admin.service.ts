@@ -5,6 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class AdminService {
   adminActivate: boolean = false;
-
+  enterAdmin: boolean;
   constructor() { }
 }

@@ -20,7 +20,7 @@
     <p>Кабінет Користувача:</p>
     <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signInModal">Увійти</button>
     <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signUpModal">Зарееструватись</button>
-    <button *ngIf="enterAdmin" type="button" class="btn btn-outline-dark" (click)="routeAdmin() " routerLink="admin" >Admin</button>
+    <button *ngIf="adminServece.enterAdmin" type="button" class="btn btn-outline-dark" (click)="routeAdmin() " routerLink="admin" >Admin</button>
   </div>
 </div>
 

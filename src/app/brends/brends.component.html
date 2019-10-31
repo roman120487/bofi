@@ -86,11 +86,15 @@
 
     <div class="brends" *ngFor="let brend of uploadLogoBrend.brends">
         <div class="logo">
-            <a href="{{brend.link}}"><img src="{{brend.logourl}}" alt=""></a>
+            <a href="https://{{brend.link}}" target="_blank"><img src="{{brend.logoUrl}}" alt=""></a>
         </div>
         <div class="brandInfo">
             <h4>{{brend.title}}</h4>
             <p>{{brend.text}}</p>
+        </div>
+        <div class="editBrends" *ngIf="adminServece.enterAdmin">
+            <button type="button" class="btn btn-warning">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button>
         </div>
     </div>
 </div>

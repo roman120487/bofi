@@ -12,10 +12,15 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class AdminBrendsComponent implements OnInit {
   // id: string = '123';
-  // brend: string;
-  formData: IBrend;
+  brend: string;
+  link: string;
+  text: string;
+  title: string;
+  logoUrl: string;
+  // formData: IBrend;
 
-  constructor(private uploadLogoBrend: UploadLogoBrendService, private firestore: AngularFirestore) { }
+  constructor(private uploadLogoBrend: UploadLogoBrendService, private firestore: AngularFirestore) {
+  }
 
   ngOnInit() {
   }
@@ -23,23 +28,22 @@ export class AdminBrendsComponent implements OnInit {
     if (form != null) {
       form.resetForm();
     }
-    this.formData = {
-      id: null,
-      title: '',
-      text: '',
-      brend: '',
-      logoUrl: '',
-      link: ''
+    // this.id = null,
+    this.title = '';
+    this.text = '';
+    this.brend = '';
+    this.logoUrl = '';
+    this.link = '';
 
-    };
   }
 
-  // addBrend(): void {
-
-
-  // }
+  addBrend(): void {
+    console.log(this.uploadLogoBrend.urlImage);
+    this.logoUrl = this.uploadLogoBrend.urlImage;
+  }
 
   public onSubmit(form: NgForm) {
+
     const data = Object.assign({}, form.value);
     delete data.id;
     if (form.value.id == null) {
@@ -47,7 +51,7 @@ export class AdminBrendsComponent implements OnInit {
     } else {
       this.firestore.doc('brends/' + form.value.id).update(data);
     }
-    console.log(this.formData);
+    // console.log(this.formData);
     this.resetForm();
   }
 
