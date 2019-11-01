@@ -8,25 +8,14 @@
     right: 0;
     z-index: 99;
     background-color: white;
-    /* display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start; */
-    /* border: 1px solid black; */
-
 }
 p{
     text-decoration: line-through;
 }
 h3{
     width: 100%;
-    /* border: 1px solid black; */
     height: 30px;
     text-align: center;
-}
-.nav{
-    /* width: 70%; */
-    /* border: 1px solid black; */
-    /* float: left; */
 }
 .img{
     width: 400px;
@@ -35,16 +24,9 @@ h3{
     background-size: contain;
     margin: 10px auto;
     float: right;
-    /* border: 1px solid black; */
+
 }
 .adminRoute{
     width: 60%;
-    /* border: 1px solid black; */
     float: left;
 }
-/* nav{
-    width: 100%;
-}
-h3{
-    text-align: center;
-} */

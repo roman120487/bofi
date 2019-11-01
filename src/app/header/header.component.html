@@ -18,9 +18,13 @@
   </div>
   <div class="signIn">
     <p>Кабінет Користувача:</p>
-    <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signInModal">Увійти</button>
-    <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signUpModal">Зарееструватись</button>
-    <button *ngIf="adminServece.enterAdmin" type="button" class="btn btn-outline-dark" (click)="routeAdmin() " routerLink="admin" >Admin</button>
+    <button *ngIf="!trueValid" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signInModal">Увійти</button>
+    <button *ngIf="!trueValid" type="button" class="btn btn-outline-dark" data-toggle="modal"
+      data-target="#signUpModal">Зарееструватись</button>
+    <div *ngIf="trueValid" class="btn btn-outline-dark">{{usernameActive}}</div>
+      <button *ngIf="trueValid" type="button" class="btn btn-outline-dark" (click)="exit() ">Вийти</button>
+      <button *ngIf="adminServece.enterAdmin" type="button" class="btn btn-outline-dark" (click)="routeAdmin() "
+      routerLink="admin">Увійти в адмінку</button>
   </div>
 </div>
 
@@ -106,74 +110,77 @@
 
 <!------------------------------------------------------------- Modal Sign In ------------------------->
 <div class="modal" tabindex="-1" role="dialog" id="signInModal">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Вхід</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Електронна пошта:</label>
-              <input type="email" [(ngModel)]="emailValid" name="emailValid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="введіть вашу email адресу...">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">введіть пароль...</label>
-              <input type="password" [(ngModel)]="passValid" name="passValid" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="emptyPlace" *ngIf="isEmptyPlace">Some input is empty</div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="validUser()">Submit</button>
-        </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Вхід</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Електронна пошта:</label>
+            <input type="email" [(ngModel)]="emailValid" name="emailValid" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp" placeholder="введіть вашу email адресу...">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">введіть пароль...</label>
+            <input type="password" [(ngModel)]="passValid" name="passValid" class="form-control"
+              id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="emptyPlace" *ngIf="isEmptyPlace">Some input is empty</div>
+          <div class="emptyPlace" *ngIf="notValid">Неправильно введений логін або пароль</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="validUser()">Submit</button>
       </div>
     </div>
   </div>
-  <!--  -->
+</div>
+<!--  -->
 
 
-  <!-------------------------------------------------------------- Modal Sign Up ----------------------->
+<!-------------------------------------------------------------- Modal Sign Up ----------------------->
 <div class="modal" tabindex="-1" role="dialog" id="signUpModal">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Реестрація користувача</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="exampleInputUserName">Ім'я користувача: </label>
-              <input type="text" [(ngModel)]="userName" name="userName" class="form-control" id="exampleInputUserName"
-                aria-describedby="emailHelp" placeholder="введіть ваше ім'я...">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail2">Електронна пошта: </label>
-              <input type="email" [(ngModel)]="userEmail" name="userEmail" class="form-control" id="exampleInputEmail2"
-                aria-describedby="emailHelp" placeholder="введіть вашу email адресу...">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Пароль: </label>
-              <input type="password" [(ngModel)]="userPassword" name="userPassword" class="form-control"
-                id="exampleInputPassword1" placeholder="введіть пароль...">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="createNewUser()">Підтвердити</button>
-        </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Реестрація користувача</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form #form='ngForm' autocomplete="off" (submit)="createNewUser(form)">
+          <div class="form-group">
+            <label for="exampleInputUserName">Ім'я користувача: </label>
+            <input type="text" [(ngModel)]="userName" name="userName" class="form-control" id="exampleInputUserName"
+              aria-describedby="emailHelp" placeholder="введіть ваше ім'я...">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail2">Електронна пошта: </label>
+            <input type="email" [(ngModel)]="userEmail" name="userEmail" class="form-control" id="exampleInputEmail2"
+              aria-describedby="emailHelp" placeholder="введіть вашу email адресу...">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Пароль: </label>
+            <input type="password" [(ngModel)]="userPassword" name="userPassword" class="form-control"
+              id="exampleInputPassword1" placeholder="введіть пароль...">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+            <button type="submit" class="btn btn-primary" (click)="addUser()">Підтвердити</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  <!--  -->
+</div>
+<!--  -->

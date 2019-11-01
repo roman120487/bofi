@@ -20,4 +20,6 @@ export class BrendsComponent implements OnInit {
     // console.log(this.uploadLogoBrend.brends);
   }
 
+ 
+
 }

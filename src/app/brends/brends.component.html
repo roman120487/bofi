@@ -1,100 +1,16 @@
 <div class="containerBrands">
-    <!-- <div class="brends">
-        <div class="logo">
-            <a href="https://www.acv.com/belgie/customer"><img src="assets/images/acvLogo.png" alt=""></a>
-        </div>
-        <div class="brandInfo">
-            <p>Газові котли АСВ ( Бельгія ) </p>
-        </div>
-    </div>
-
-    <div class="brends">
-        <div class="logo">
-            <a href="http://www.thermostahlsolar.com/"><img src="assets/images/TermoSolarLogo.png" alt=""></a>
-        </div>
-        <div class="brandInfo">
-            <p>Твердопаливні котли Термосталь ( Греція ) </p>
-        </div>
-    </div>
-
-    <div class="brends">
-        <div class="logo">
-            <a href="https://www.klimor.pl/"><img src="assets/images/klimorLogo.png" alt=""></a>
-        </div>
-        <div class="brandInfo">
-            <p>Вентиляційне обладнання Klimor ( Польща ) </p>
-        </div>
-    </div>
-
-    <div class="brends">
-        <div class="logo">
-            <a href="https://www.al-ko.com/ru/sistemy-sentiljacii"><img src="assets/images/alkoLogo.png" alt=""></a>
-        </div>
-        <div class="brandInfo">
-            <p>Вентиляційне обладнання AL-KO ( Німеччина ) </p>
-        </div>
-    </div>
-
-    <div class="brends">
-        <div class="logo">
-            <a href="http://www.chiller-frigoriferi.it/2/"><img src="assets/images/chillerLogo.png" alt=""></a>
-        </div>
-        <div class="brandInfo">
-            <p>Холодильне обладнання - Chiller Frigorigeri ( Італія ) </p>
-        </div>
-    </div>
-    <div class="brends">
-        <div class="logo">
-            <a href="https://schako.com/en/products/"><img src="assets/images/schakoLogo.png" alt=""></a>
-        </div>
-        <div class="brandInfo">
-            <p>Повітророзподільчі пристрої Schako ( Німеччина ) </p>
-        </div>
-    </div>
-
-    <div class="brends">
-        <div class="logo">
-            <a href="http://begreen.kiev.ua/"><img src="assets/images/begreenLogo.png" alt=""></a>
-        </div>
-        <div class="brandInfo">
-            <p>Теплові насоси BeGreen ( Україна ) </p>
-        </div>
-    </div>
-
-    <div class="brends">
-        <div class="logo">
-            <a href="https://www.getair.eu/en"><img src="assets/images/getairLogo.png" alt=""></a>
-        </div>
-        <div class="brandInfo">
-            <p>Побутова вентиляція Getair ( Німеччина ) </p>
-        </div>
-    </div>
-
-    <div class="brends">
-        <div class="logo">
-            <a href="https://jeven.fi/en/"><img src="assets/images/jevenLogo.png" alt=""></a>
-        </div>
-        <div class="brandInfo">
-            <p>Рекуперація повітря в гарячих цехах закладів громадського харчування</p>
-        </div>
-    </div> -->
-
-
-
-
-
-
-    <div class="brends" *ngFor="let brend of uploadLogoBrend.brends">
+      <div class="brends" *ngFor="let brend of uploadLogoBrend.brends">
         <div class="logo">
             <a href="https://{{brend.link}}" target="_blank"><img src="{{brend.logoUrl}}" alt=""></a>
         </div>
         <div class="brandInfo">
+            <!-- <h4>{{brend.id}}</h4> -->
             <h4>{{brend.title}}</h4>
             <p>{{brend.text}}</p>
         </div>
         <div class="editBrends" *ngIf="adminServece.enterAdmin">
             <button type="button" class="btn btn-warning">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-danger" (click)="uploadLogoBrend.onDelete(brend.id)">Delete</button>
         </div>
     </div>
 </div>

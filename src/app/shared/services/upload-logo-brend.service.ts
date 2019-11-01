@@ -51,7 +51,11 @@ export class UploadLogoBrendService {
     );
   }
 
- 
+  onDelete(id: string) {
+    if (confirm('Are you sure to delete this record')) {
+      this.firestore.doc('brends/' + id).delete();
+    }
+  }
 
 
 
