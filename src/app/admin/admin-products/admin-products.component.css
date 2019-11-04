@@ -3,11 +3,12 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    /* padding-left: 15px; */
 }
 
 
 input[type=text], textarea, select {
-    width: 50%;
+    width: 95%;
     min-width: 200px;
     /* height: 150px; */
     border: 1px solid lightgray;
@@ -25,4 +26,26 @@ textarea{
 }
 .tableProdAdmin{
     width: 100%;
+    margin-top: 25px;
+}
+img{
+    width: 150px;
+    height: auto;
+}
+td, th{
+ vertical-align: middle;
+}
+button[type=submit]{
+    width: 150px;
+    margin-left: 40%;
+}
+form{
+    width: 100%;
+    /* border: 1px solid black; */
+}
+.card-body{
+    padding: 0;
+}
+.row{
+    width: 100%;padding-left: 15px;
 }

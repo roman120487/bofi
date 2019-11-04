@@ -48,6 +48,8 @@
                 <th scope="col">Опис</th>
                 <th scope="col">Категорія</th>
                 <th scope="col">фото</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -57,6 +59,11 @@
                 <td>{{product.subscribe}}</td>
                 <td>{{product.category}}</td>
                 <td><img src="{{product.imgUrl}}" alt=""></td>
+                <td>
+                    <button type="button" class="btn btn-warning">Edit</button>
+                </td>
+                <td><button type="button" class="btn btn-danger"
+                        (click)="uploadLogoBrend.onDelete(brend.id)">Delete</button></td>
             </tr>
         </tbody>
     </table>
