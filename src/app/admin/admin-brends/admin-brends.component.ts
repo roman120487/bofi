@@ -3,6 +3,7 @@ import { UploadLogoBrendService } from 'src/app/shared/services/upload-logo-bren
 import { IBrend } from 'src/app/shared/interfaces/brend.interface';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AdminService } from 'src/app/shared/services/admin.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class AdminBrendsComponent implements OnInit {
   logoUrl: string;
   // formData: IBrend;
 
-  constructor(private uploadLogoBrend: UploadLogoBrendService, private firestore: AngularFirestore) {
+  constructor(private uploadLogoBrend: UploadLogoBrendService, private firestore: AngularFirestore, private adminServece: AdminService) {
   }
 
   ngOnInit() {

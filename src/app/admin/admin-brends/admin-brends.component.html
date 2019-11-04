@@ -34,4 +34,23 @@
         <!-- ------- -->
         <button type="submit" class="btn btn-outline-dark" (click)='addBrend()'>Додати</button>
     </form>
+
+
+
+
+    
+    <div class="brends" *ngFor="let brend of uploadLogoBrend.brends">
+        <div class="logo">
+            <a href="https://{{brend.link}}" target="_blank"><img src="{{brend.logoUrl}}" alt=""></a>
+        </div>
+        <div class="brandInfo">
+            <!-- <h4>{{brend.id}}</h4> -->
+            <h4>{{brend.title}}</h4>
+            <p>{{brend.text}}</p>
+        </div>
+        <div class="editBrends">
+            <button type="button" class="btn btn-warning">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="uploadLogoBrend.onDelete(brend.id)">Delete</button>
+        </div>
+    </div>
 </div>
