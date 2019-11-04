@@ -1,5 +1,5 @@
 <div class="dataPlace">
-    <form action="" #form='ngForm' autocomplete="off" (submit)="onSubmit(form)">
+    <form action="" #form='ngForm' autocomplete="off" (submit)="prodService.onSubmit(form)">
         <select class="custom-select" id="selectCategory" [(ngModel)]="prodService.category" name="category">
             <option selected>Виберіть категорію товару...</option>
             <option value="opalenya">Системи опалення</option>
@@ -10,6 +10,9 @@
         <input type="text" placeholder="Введіть назву товару..." [(ngModel)]="prodService.title" name="title">
         <textarea name="" id="" cols="30" rows="0" placeholder="Введіть опис товару..."
             [(ngModel)]="prodService.subscribe" name="subscribe"></textarea>
+        <div class="form-group">
+            <input type="hidden" name="imgUrl" [(ngModel)]="prodService.imgUrl">
+        </div>
 
         <!-- upload image -->
         <div class="form-group row uploadBrendLogo">
@@ -30,14 +33,14 @@
             </div>
         </div>
         <!-- ------- -->
-        <button type="submit" class="btn btn-outline-dark" (click)='addProduct()'>Додати</button>
+        <button type="submit" class="btn btn-outline-dark" (click)='prodService.addProduct()'>Додати</button>
     </form>
 
 
 
 
 
-    <table class="table">
+    <table class="table tableProdAdmin">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
@@ -48,11 +51,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+            <tr *ngFor="let product of prodService.arrProduct; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{product.title}}</td>
+                <td>{{product.subscribe}}</td>
+                <td>{{product.category}}</td>
+                <td><img src="{{product.imgUrl}}" alt=""></td>
             </tr>
         </tbody>
     </table>

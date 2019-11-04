@@ -55,9 +55,9 @@ export class HeaderComponent implements OnInit {
           this.usernameActive = val.userName;
           this.trueValid = true;
 
-          console.log('ok');
+          // console.log('ok');
         } else {
-          console.log('not ok');
+          // console.log('not ok');
         }
       });
     }
@@ -72,9 +72,9 @@ export class HeaderComponent implements OnInit {
   }
 
   routeAdmin(): void {
-    console.log(this.adminServece.adminActivate);
+    // console.log(this.adminServece.adminActivate);
     this.adminServece.adminActivate = true;
-    console.log(this.adminServece.adminActivate);
+    // console.log(this.adminServece.adminActivate);
 
   }
 
@@ -109,7 +109,7 @@ export class HeaderComponent implements OnInit {
             ...brend.payload.doc.data()
           } as IUser;
         });
-        console.log(this.arrUsers);
+        // console.log(this.arrUsers);
       }
     );
   }

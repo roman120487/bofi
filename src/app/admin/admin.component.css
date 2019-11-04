@@ -8,6 +8,7 @@
     right: 0;
     z-index: 99;
     background-color: white;
+    height: 100%;
 }
 p{
     text-decoration: line-through;
@@ -27,6 +28,6 @@ h3{
 
 }
 .adminRoute{
-    width: 60%;
+    width: 70%;
     float: left;
 }

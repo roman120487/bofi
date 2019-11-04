@@ -39,7 +39,7 @@ export class AdminBrendsComponent implements OnInit {
   }
 
   addBrend(): void {
-    console.log(this.uploadLogoBrend.urlImage);
+    // console.log(this.uploadLogoBrend.urlImage);
     this.logoUrl = this.uploadLogoBrend.urlImage;
   }
 
