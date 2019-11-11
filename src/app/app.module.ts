@@ -29,6 +29,10 @@ import { AdminCallbackComponent } from './admin/admin-callback/admin-callback.co
 import { AdminCountryComponent } from './admin/admin-country/admin-country.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { HotPumpsComponent } from './products/hot-pumps/hot-pumps.component';
+import { CotelPipe } from './shared/pipes/cotel.pipe';
+import { FrozenPipe } from './shared/pipes/frozen.pipe';
+import { HotpumpsPipe } from './shared/pipes/hotpumps.pipe';
+import { AirPipe } from './shared/pipes/air.pipe';
 
 // import { NgbdCarouselBasic } from './carousel-basic';
 
@@ -52,6 +56,10 @@ import { HotPumpsComponent } from './products/hot-pumps/hot-pumps.component';
     AdminCountryComponent,
     ReferenceComponent,
     HotPumpsComponent,
+    CotelPipe,
+    FrozenPipe,
+    HotpumpsPipe,
+    AirPipe,
     // NgbdCarouselBasic
     
   ],

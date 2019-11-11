@@ -1,0 +1,23 @@
+tr {
+    border: 1px solid black;
+    text-align: center;
+   
+}
+
+tr:nth-child(1) {
+    height: 50px;
+    font-weight: bold;
+    /* padding-top: 25px; */
+    font-size: 22px;
+}
+tr:nth-child(3) button{
+    /* height: 50px; */
+    /* font-weight: bold; */
+    margin: 15px;
+    font-size: 22px;
+}
+.product table img {
+    max-width: 250px;
+    max-height: 200px;
+    /* border: 1px solid black; */
+}

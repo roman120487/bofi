@@ -12,12 +12,13 @@
     border: 1px solid lightgray;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .product {
     width: 250px;
     height: 300px;
-    border: 1px solid lightgray;
+    margin: 35px 25px;
 }
 
 .leftSideBar {
@@ -66,4 +67,31 @@ h4 {
 }
 .brendsFilter{
     height: 170px;
+}
+
+tr {
+    
+    border: 1px solid black;
+    text-align: center;
+   
+}
+table{
+    width: 250px;
+}
+tr:nth-child(1) {
+    height: 50px;
+    font-weight: bold;
+    /* padding-top: 25px; */
+    font-size: 22px;
+}
+tr:nth-child(3) button{
+    /* height: 50px; */
+    /* font-weight: bold; */
+    margin: 15px;
+    font-size: 22px;
+}
+.product table img {
+    max-width: 250px;
+    max-height: 200px;
+    /* border: 1px solid black; */
 }

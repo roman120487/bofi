@@ -31,9 +31,17 @@
                 </div>
         </div>
         <div class="products">
-            <div class="product"></div>
-            <div class="product"></div>
-            <div class="product"></div>
+            <div class="product" *ngFor="let product of prodService.arrProduct | frozen">
+                <table>
+                    <tr>{{product.title}}</tr>
+                    <!-- <tr>{{product.subscribe}}</tr> -->
+                    <!-- <tr>{{product.category}}</tr> -->
+                    <!-- <tr style="background-image: url({{product.imgUrl}});"></tr> -->
+                    <tr><img src="{{product.imgUrl}}" alt=""></tr>
+                    <tr><button type="button" class="btn btn-success">Детальніше</button></tr>
+                </table>
+                
+            </div>
         </div>
     
     </div>

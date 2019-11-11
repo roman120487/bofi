@@ -12,21 +12,17 @@
     border: 1px solid lightgray;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .product {
     width: 250px;
     height: 300px;
-    border: 1px solid lightgray;
+    margin: 35px 25px;
 }
 
 .leftSideBar {
     width: 19%;
-    /* border: 1px solid lightgray; */
-}
-.product table img{
-    width: 250px;
-    /* border: 1px solid black; */
 }
 
 .priceFilter {
@@ -38,21 +34,6 @@
 .priceFilter div {
     display: flex;
     flex-wrap: nowrap;
-}
-
-.priceFilter input {
-    width: 80px;
-    height: 25px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    padding-left: 7px;
-}
-
-.priceFilter p {
-    margin-left: 10px;
-    margin-right: 5px;
-    line-height: 0.7;
-    margin-top: 5px;
 }
 
 h4 {
@@ -67,4 +48,29 @@ h4 {
     padding-left: 7px;
     padding-top: 10px;
     border-bottom: 1px solid lightgray;
+}
+
+tr {
+    border: 1px solid black;
+    text-align: center;
+}
+
+tr:nth-child(1) {
+    height: 50px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+tr:nth-child(3) button {
+    margin: 15px;
+    font-size: 22px;
+}
+
+.product table img {
+    max-width: 250px;
+    max-height: 200px;
+}
+
+table {
+    width: 250px;
 }
