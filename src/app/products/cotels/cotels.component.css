@@ -24,6 +24,10 @@
     width: 19%;
     /* border: 1px solid lightgray; */
 }
+.product table img{
+    width: 250px;
+    /* border: 1px solid black; */
+}
 
 .priceFilter {
     width: 100%;
