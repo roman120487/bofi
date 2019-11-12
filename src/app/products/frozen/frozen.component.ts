@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
+import { DetailsProdService } from 'src/app/shared/services/details-prod.service';
 
 @Component({
   selector: 'app-frozen',
@@ -8,9 +9,11 @@ import { ProductService } from 'src/app/shared/services/product.service';
 })
 export class FrozenComponent implements OnInit {
 
-  constructor(private prodService: ProductService) { }
+  constructor(private prodService: ProductService, private productDetails: DetailsProdService) { }
 
   ngOnInit() {
   }
+
+
 
 }
