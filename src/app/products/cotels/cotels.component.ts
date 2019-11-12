@@ -13,4 +13,8 @@ export class CotelsComponent implements OnInit {
   ngOnInit() {
   }
 
+  showProdDetails(): void{
+    console.log('work');
+    
+  }
 }

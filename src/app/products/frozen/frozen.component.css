@@ -9,7 +9,7 @@
 
 .products {
     width: 80%;
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -70,18 +70,14 @@ h4 {
 }
 
 tr {
-    border: 1px solid black;
-    text-align: center;
-   
-}
-tr {
     
-    border: 1px solid black;
+    /* border: 1px solid black; */
     text-align: center;
    
 }
 table{
     width: 250px;
+    border: 1px solid lightgray;
 }
 tr:nth-child(1) {
     height: 50px;
