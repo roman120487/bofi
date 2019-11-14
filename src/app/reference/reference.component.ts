@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UploadLogoBrendService } from '../shared/services/upload-logo-brend.service';
 
 @Component({
   selector: 'app-reference',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReferenceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private uploadLogoBrend: UploadLogoBrendService) { }
 
   ngOnInit() {
   }

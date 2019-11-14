@@ -1,1 +1,8 @@
-<p>reference works!</p>
+<div class="containerReferences">
+    <div class="brends" *ngFor="let brend of uploadLogoBrend.brends">
+        <div class="logo">
+            <a href="https://{{brend.link}}" target="_blank"><img src="{{brend.logoUrl}}" alt=""></a>
+        </div>
+        <button type="button" class="btn btn-primary">Перейти до галереї</button>
+    </div>
+</div>

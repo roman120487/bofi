@@ -33,6 +33,7 @@ import { CotelPipe } from './shared/pipes/cotel.pipe';
 import { FrozenPipe } from './shared/pipes/frozen.pipe';
 import { HotpumpsPipe } from './shared/pipes/hotpumps.pipe';
 import { AirPipe } from './shared/pipes/air.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { NgbdCarouselBasic } from './carousel-basic';
 
@@ -72,7 +73,7 @@ import { AirPipe } from './shared/pipes/air.pipe';
     AngularFireModule.initializeApp(environment.firebase, 'bofi'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+    AngularFireStorageModule, BrowserAnimationsModule // imports firebase/storage only needed for storage features
   ],
   // exports: [NgbdCarouselBasic],
   providers: [],

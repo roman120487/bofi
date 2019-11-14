@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CallbackService } from 'src/app/shared/services/callback.service';
 
 @Component({
   selector: 'app-admin-callback',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminCallbackComponent implements OnInit {
 
-  constructor() { }
+  constructor(private callbackService: CallbackService) { }
 
   ngOnInit() {
   }
