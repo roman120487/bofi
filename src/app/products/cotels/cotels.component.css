@@ -63,7 +63,7 @@ tr:nth-child(1) {
 }
 
 tr:nth-child(3) button {
-    margin: 15px;
+    /* margin: 15px; */
     font-size: 22px;
 }
 

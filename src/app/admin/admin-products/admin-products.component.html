@@ -60,12 +60,69 @@
                 <td>{{product.category}}</td>
                 <td><img src="{{product.imgUrl}}" alt=""></td>
                 <td>
-                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-warning" (click)="prodService.editeProd(product.id)"
+                        data-toggle="modal" data-target="#prodEdit">Edit</button>
                 </td>
                 <td><button type="button" class="btn btn-danger"
-                        (click)="uploadLogoBrend.onDelete(brend.id)">Delete</button></td>
+                        (click)="prodService.onDelete(product.id)">Delete</button></td>
             </tr>
         </tbody>
     </table>
 
 </div>
+
+
+<!------------------ Modal ---------------->
+
+<div class="modal fade modalProdEdit" id="prodEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Редагування товару</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" #form2='ngForm' autocomplete="off" (submit)="prodService.saveEditeProduct(form2)">
+                    <input type="text" name="title" [(ngModel)]="prodService.titleEdit">
+                    <textarea class="subscribe" id="" cols="30" rows="10" name="subscribe"
+                        [(ngModel)]="prodService.subscribeEdit"></textarea>
+                    <div class="imageEdite"><img src="{{prodService.urlImgEdite}}" alt=""></div>
+                    <input type="hidden" name="imgUrl" [(ngModel)]="prodService.urlImgEdite">
+
+                    <!-- upload image -->
+                    <div class="form-group row uploadImmageEdit">
+                        <div class="card-body">
+                            <h5 class="card-title">Виберіть картинку як що потрібно замінити:</h5>
+                            <input type="file" (change)="prodService.upload($event)" accept=".png,.jpg"
+                                value="Виберіть файл" />
+                            <br><br>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                    [style.width]="(prodService.uploadProgress | async) + '%'"
+                                    [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0"
+                                    aria-valuemax="100">
+                                </div>
+                            </div>
+                            <br>
+                            <div *ngIf="prodService.downloadURL | async; let downloadSrc" class="alert alert-info"
+                                role="alert">
+                                File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <!-- ------- -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+                        <button type="submit" class="btn btn-primary">Зберегти</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- ----------------------------------- -->

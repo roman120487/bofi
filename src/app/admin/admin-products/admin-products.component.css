@@ -1,11 +1,10 @@
-.dataPlace{
+.dataPlace {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     /* padding-left: 15px; */
 }
-
 
 input[type=text], textarea, select {
     width: 95%;
@@ -18,34 +17,59 @@ input[type=text], textarea, select {
     height: 50px;
     font-size: 25px;
 }
-textarea{
+
+textarea {
     height: 150px;
 }
-.uploadBrendLogo{
+
+.uploadBrendLogo {
     width: 50%;
 }
-.tableProdAdmin{
+
+.tableProdAdmin {
     width: 100%;
     margin-top: 25px;
 }
-img{
+
+img {
     width: 150px;
     height: auto;
 }
-td, th{
- vertical-align: middle;
+
+td, th {
+    vertical-align: middle;
 }
-button[type=submit]{
+
+button[type=submit] {
     width: 150px;
     margin-left: 40%;
 }
-form{
+
+form {
     width: 100%;
     /* border: 1px solid black; */
 }
-.card-body{
+
+.card-body {
     padding: 0;
 }
-.row{
-    width: 100%;padding-left: 15px;
+
+.row {
+    width: 100%;
+    padding-left: 15px;
+}
+
+.subscribe{
+    font-size: 20px;
+}
+.imageEdite{
+    width: 98%;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+.imageEdite img{
+    margin: 5px auto;
+}
+.uploadImmageEdit{
+    margin-top: 20px;
 }

@@ -1,4 +1,4 @@
-.adminContainer{
+.adminContainer {
     /* text-align: center; */
     padding: 50px;
     position: absolute;
@@ -6,28 +6,32 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 99;
+    /* z-index: -5; */
     background-color: white;
-    height: 100%;
+    min-height: 100%;
+    height: fit-content;
 }
-p{
+
+p {
     text-decoration: line-through;
 }
-h3{
+
+h3 {
     width: 100%;
     height: 30px;
     text-align: center;
 }
-.img{
+
+.img {
     width: 400px;
     height: 250px;
     background-image: url(src/assets/images/adminImg.svg);
     background-size: contain;
     margin: 10px auto;
     float: right;
-
 }
-.adminRoute{
+
+.adminRoute {
     width: 70%;
     float: left;
 }

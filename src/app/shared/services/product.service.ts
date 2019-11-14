@@ -11,6 +11,11 @@ import { IProduct } from '../interfaces/product.interface';
   providedIn: 'root'
 })
 export class ProductService {
+  titleEdit: string;
+  subscribeEdit: string;
+  urlImgEdite: string;
+  productForEdit: any;
+  idProdEdit: string;
 
   category: string;
   title: string;
@@ -29,17 +34,42 @@ export class ProductService {
     this.getProducts();
   }
 
+
+  editeProd(id): void {
+    this.productForEdit = this.arrProduct.find(function (val) {
+      if (val.id === id) {
+        return val;
+      }
+    });
+    // console.log(this.productForEdit);
+    this.titleEdit = this.productForEdit.title;
+    this.subscribeEdit = this.productForEdit.subscribe;
+    this.urlImgEdite = this.productForEdit.imgUrl;
+    this.idProdEdit = id;
+  }
+
+
+
+  public saveEditeProduct(form2: NgForm) {
+
+    const data = Object.assign({}, form2.value);
+    this.firestore.doc('products/' + this.idProdEdit).update(data);
+    console.log(data);
+    console.log(this.arrProduct);
+    
+    
+    // this.resetForm();
+  }
+
+
   // public resetForm(form?: NgForm): void {
   //   if (form != null) {
   //     form.resetForm();
   //   }
   //   // this.id = null,
   //   this.title = '';
-  //   this.text = '';
-  //   this.brend = '';
-  //   this.logoUrl = '';
-  //   this.link = '';
-
+  //   this.subscribe = '';
+  //   this.imgUrl = '';
   // }
 
 
@@ -61,7 +91,7 @@ export class ProductService {
     // this.resetForm();
   }
 
- 
+
 
 
   public getProducts() {
@@ -73,7 +103,7 @@ export class ProductService {
             ...product.payload.doc.data()
           } as IProduct;
         });
-        console.log(this.arrProduct);
+        // console.log(this.arrProduct);
       }
     );
   }
@@ -91,6 +121,13 @@ export class ProductService {
     ).subscribe();
   }
 
+  onDelete(id: string) {
+    if (confirm('Are you sure to delete this record')) {
+      this.firestore.doc('products/' + id).delete();
+    }
+  }
 
-  
+
+
+
 }
