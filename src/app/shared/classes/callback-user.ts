@@ -7,6 +7,7 @@ export class CallbackUser implements ICallbackUser {
         public name: string,
         public email: string,
         public phone: string,
-        public text: string
+        public text: string,
+        public checkStatus: boolean,
     ) { }
 }

@@ -19,8 +19,9 @@
             <td>{{user.phone}}</td>
             <td>{{user.email}}</td>
             <td>{{user.text}}</td>
-            <td>
-              <input type="checkbox">
+            <td class="status">
+              <input type="checkbox" [checked]='user.checkStatus' (click)="callbackService.statusCheckedCallback(user)" >
+              <span *ngIf="user.checkStatus" >Опрацьовано</span>
             </td>
           </tr>
         </tbody>

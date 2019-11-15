@@ -5,4 +5,5 @@ export interface ICallbackUser {
     email: string;
     phone: string;
     text: string;
+    checkStatus: boolean;
 }

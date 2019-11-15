@@ -8,30 +8,36 @@ import { ICallbackUser } from '../interfaces/callback-user.interface';
   providedIn: 'root'
 })
 export class CallbackService {
-  checked = false;
-  indeterminate = false;
-  labelPosition = 'after';
-  disabled = false;
-
-
   arrCallbackList: any;
   name: string;
   email: string;
   phone: string;
   text: string;
   dateFull: Date = new Date();
+  checkStatus: boolean = false;
   // tslint:disable-next-line: max-line-length
   date = `${this.dateFull.getDate()}.${this.dateFull.getMonth() + 1}.${this.dateFull.getFullYear()}, ${this.dateFull.getHours()}:${this.dateFull.getMinutes()} `;
+
+
   constructor(private firestore: AngularFirestore) {
     this.getCallbackList();
-    console.log(this.date);
+  }
+
+
+  statusCheckedCallback(user) {
+    delete user[user.id];
+    if (user.checkStatus === true) {
+      user.checkStatus = false;
+    } else {
+      user.checkStatus = true;
+    }
+    
+    this.firestore.doc('callbacks/' + user.id).update(user);
 
   }
 
 
-
   public onSubmit(form: NgForm) {
-
     const data = Object.assign({}, form.value);
     delete data.id;
     if (form.value.id == null) {
@@ -39,7 +45,6 @@ export class CallbackService {
     } else {
       this.firestore.doc('callbacks/' + form.value.id).update(data);
     }
-    // console.log(this.arrCallbackList);
     this.resetForm();
   }
 
@@ -61,7 +66,7 @@ export class CallbackService {
             ...product.payload.doc.data()
           } as ICallbackUser;
         });
-        // console.log(this.arrCallbackList);
+        console.log(this.arrCallbackList);
       }
     );
   }
