@@ -2,19 +2,30 @@ import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ICallbackUser } from '../interfaces/callback-user.interface';
+// import { MaterialModule } from './material.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CallbackService {
+  checked = false;
+  indeterminate = false;
+  labelPosition = 'after';
+  disabled = false;
+
+
   arrCallbackList: any;
   name: string;
   email: string;
   phone: string;
   text: string;
-  data: string;
-  constructor(private firestore: AngularFirestore) { 
+  dateFull: Date = new Date();
+  // tslint:disable-next-line: max-line-length
+  date = `${this.dateFull.getDate()}.${this.dateFull.getMonth() + 1}.${this.dateFull.getFullYear()}, ${this.dateFull.getHours()}:${this.dateFull.getMinutes()} `;
+  constructor(private firestore: AngularFirestore) {
     this.getCallbackList();
+    console.log(this.date);
+
   }
 
 
@@ -28,7 +39,7 @@ export class CallbackService {
     } else {
       this.firestore.doc('callbacks/' + form.value.id).update(data);
     }
-    console.log(this.arrCallbackList);
+    // console.log(this.arrCallbackList);
     this.resetForm();
   }
 
@@ -38,6 +49,7 @@ export class CallbackService {
     this.email = '';
     this.phone = '';
     this.text = '';
+
   }
 
   public getCallbackList() {
@@ -49,7 +61,7 @@ export class CallbackService {
             ...product.payload.doc.data()
           } as ICallbackUser;
         });
-        console.log(this.arrCallbackList);
+        // console.log(this.arrCallbackList);
       }
     );
   }

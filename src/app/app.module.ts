@@ -62,7 +62,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HotpumpsPipe,
     AirPipe,
     // NgbdCarouselBasic
-    
+
   ],
   imports: [
     BrowserModule,
@@ -73,7 +73,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireModule.initializeApp(environment.firebase, 'bofi'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule, BrowserAnimationsModule // imports firebase/storage only needed for storage features
+    AngularFireStorageModule, BrowserAnimationsModule, // imports firebase/storage only needed for storage features
   ],
   // exports: [NgbdCarouselBasic],
   providers: [],

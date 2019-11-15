@@ -33,6 +33,7 @@
     <div class="callBackForm">
         <form action="" #form='ngForm' autocomplete="off" (submit)="callbackService.onSubmit(form)">
             <p>Звяжіться з нами</p>
+            <input type="hidden" name="date" [(ngModel)]="callbackService.date" >
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Ім'я..." aria-label="Username"
                     aria-describedby="basic-addon1" [(ngModel)]="callbackService.name" name="name" >
