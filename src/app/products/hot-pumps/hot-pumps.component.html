@@ -1,72 +1,64 @@
 <div class="pumpsContainer">
-    <div class="leftSideBar">
-        <h4>Фільтр</h4>
-        <!-- <div class="priceFilter">
-            <p>Діапазон цін: </p>
-            <div>
-                <p>від:</p>
-                <input type="text" placeholder="грн">
-
-                <p>до:</p>
-                <input type="text" placeholder="грн">
-            </div>
-        </div> -->
-
-        <div class="typeFilter">
-            <p>Вид: </p>
-            <input type="checkbox"><span>Побутові</span><br>
-            <input type="checkbox"><span>Промислові</span><br>
-        </div>
-
-        <div class="brendsFilter">
-            <p>Бренди: </p>
-            <input type="checkbox"><span>BeGreen ( Україна )  </span><br>
-        </div>
-
-        <div class="powerFilter">
-                <p>Потужність: </p>
-                <input type="checkbox"><span>10-20 Kwatt</span><br>
-                <input type="checkbox"><span>20-50 Kwatt</span><br>
-                <input type="checkbox"><span>50-100 Kwatt </span>
-            </div>
+  <div class="leftSideBar">
+    <h4>Фільтр</h4>
+    <div class="typeFilter">
+      <p>Вид: </p>
+      <input type="checkbox"><span>Побутові</span><br>
+      <input type="checkbox"><span>Промислові</span><br>
     </div>
-    <div class="products">
-        <div class="product" *ngFor="let product of prodService.arrProduct | hotpumps">
-            <table>
-                <tr>{{product.title}}</tr>
-                <!-- <tr>{{product.subscribe}}</tr> -->
-                <!-- <tr>{{product.category}}</tr> -->
-                <!-- <tr style="background-image: url({{product.imgUrl}});"></tr> -->
-                <tr><img src="{{product.imgUrl}}" alt=""></tr>
-                <tr><button (click)="productDetails.showProdDetails(product.id)" type="button" class="btn btn-success" data-toggle="modal" data-target="#prodDetails">Детальніше</button></tr>
-            </table>
-            
-        </div>
+
+    <div class="brendsFilter">
+      <p>Бренди: </p>
+      <input type="checkbox"><span>BeGreen ( Україна ) </span><br>
     </div>
+    <div class="typeFilter">
+      <p>Тип: </p>
+      <input type="checkbox"><span>грунт/вода</span><br>
+      <input type="checkbox"><span>воздух/вода</span><br>
+    </div>
+    <div class="powerFilter">
+      <p>Потужність: </p>
+      <input type="checkbox"><span>8-22 кВт</span><br>
+      <input type="checkbox"><span>40-105 кВт</span><br>
+      <input type="checkbox"><span>218-362 кВт </span>
+    </div>
+  </div>
+  <div class="products">
+    <div class="product" *ngFor="let product of prodService.arrProduct | hotpumps">
+      <table>
+        <tr>{{product.title}}</tr>
+        <tr><img src="{{product.imgUrl}}" alt=""></tr>
+        <tr><button (click)="productDetails.showProdDetails(product.id)" type="button" class="btn btn-success"
+            data-toggle="modal" data-target="#prodDetails">Детальніше</button></tr>
+      </table>
+
+    </div>
+  </div>
 
 
 </div>
 
 
- <!------------------ Modal ---------------->
- <div class="modal fade" id="prodDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{productDetails.modalTitle}}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="modalImg"><img src="{{productDetails.modalImg}}" alt=""></div>
-          <div class="modalSubskribe">{{productDetails.modalSubscribe}}</div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-        </div>
+<!------------------ Modal ---------------->
+<div class="modal fade" id="prodDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{productDetails.modalTitle}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modalImg"><img src="{{productDetails.modalImg}}" alt=""></div>
+        <div class="modalSubskribe">{{productDetails.modalSubscribe}}</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
-  <!-- ----------------------------------- -->
+</div>
+<!-- ----------------------------------- -->
