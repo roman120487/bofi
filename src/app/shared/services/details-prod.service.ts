@@ -9,6 +9,8 @@ export class DetailsProdService {
   modalTitle: string;
   modalImg: string;
   modalSubscribe: string;
+  modalType: string;
+  modalPower: string;
   constructor(private prodService: ProductService) { }
 
   showProdDetails(id): any {
@@ -20,5 +22,7 @@ export class DetailsProdService {
     this.modalTitle = this.prod.title;
     this.modalImg =  this.prod.imgUrl;
     this.modalSubscribe =  this.prod.subscribe;
+    this.modalType =  this.prod.type;
+    this.modalPower =  this.prod.power;
   }
 }

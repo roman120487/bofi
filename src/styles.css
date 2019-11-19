@@ -21,7 +21,41 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding-left: 7px;
     padding-top: 15px;
     border-bottom: 1px solid lightgray;
+    font-size: 25px;
+    line-height: 1.5;
 }
 .brendsFilter p, .typeFilter p, .powerFilter p{
     font-weight: bold;
+    font-size: 25px;
+}
+.modalImg{
+    width: 100%;
+    text-align: center;
+}
+.modalImg img{
+    width: 50%;
+}
+.modalSubskribe{
+    width: 90%;
+    font-size: 22px;
+    margin-top: 15px;
+    line-height: 1.3;
+}
+.modalSubskribe p{
+    font-weight: bold;
+}
+.modalFilter{
+    margin-top: 15px;
+    
+    font-size: 25px;
+}
+.modalFilter span{
+    font-weight: bold;
+    margin-right: 25px;
+}
+.modalTitle{
+    width: 100% !important;
+    font-size: 25px !important;
+    text-align: center !important;
+    font-weight: bold !important;
 }

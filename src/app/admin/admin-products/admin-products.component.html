@@ -1,15 +1,30 @@
 <div class="dataPlace">
     <form action="" #form='ngForm' autocomplete="off" (submit)="prodService.onSubmit(form)">
         <select class="custom-select" id="selectCategory" [(ngModel)]="prodService.category" name="category">
-            <option selected>Виберіть категорію товару...</option>
+            <option disabled selected>Виберіть категорію товару...</option>
             <option value="opalenya">Системи опалення</option>
             <option value="hotpumps">Теплові насоси</option>
             <option value="airsystems">Вентиляційні системи</option>
             <option value="frozensystems">Холодильне обладнання</option>
         </select>
         <input type="text" placeholder="Введіть назву товару..." [(ngModel)]="prodService.title" name="title">
+        <select class="custom-select" id="selectBrandName" [(ngModel)]="prodService.brandName" name="brandName">
+            <option disabled selected>Виберіть назву бренду</option>
+            <option *ngFor="let brend of brendsService.brends"  value="">{{brend.brend}}</option>
+        </select>
         <textarea name="" id="" cols="30" rows="0" placeholder="Введіть опис товару..."
             [(ngModel)]="prodService.subscribe" name="subscribe"></textarea>
+            <select class="custom-select" id="selectPower" [(ngModel)]="prodService.power" name="power">
+                <option disabled>Виберіть потужність приладу...</option>
+                <option value="8-22 кВт">8-22 кВт</option>
+                <option value="40-105 кВт">40-105 кВт</option>
+                <option value="218-362 кВт">218-362 кВт</option>
+            </select>
+            <select class="custom-select" id="selectType" [(ngModel)]="prodService.type" name="type">
+                <option disabled selected>Виберіть тип приладу...</option>
+                <option value="Грунт/вода">грунт/вода</option>
+                <option value="Воздух/вода">воздух/вода</option>
+            </select>
         <div class="form-group">
             <input type="hidden" name="imgUrl" [(ngModel)]="prodService.imgUrl">
         </div>

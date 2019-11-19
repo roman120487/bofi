@@ -6,6 +6,7 @@ import { AngularFireStorageReference, AngularFireUploadTask, AngularFireStorage 
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { IProduct } from '../interfaces/product.interface';
+import { UploadLogoBrendService } from './upload-logo-brend.service';
 
 @Injectable({
   providedIn: 'root'
