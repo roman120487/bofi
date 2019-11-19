@@ -22,6 +22,9 @@ export class ProductService {
   title: string;
   subscribe: string;
   imgUrl: string;
+  brandName: string;
+  power: string;
+  type: string;
 
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;

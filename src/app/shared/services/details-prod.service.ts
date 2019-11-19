@@ -11,6 +11,7 @@ export class DetailsProdService {
   modalSubscribe: string;
   modalType: string;
   modalPower: string;
+  modalBrandName: string;
   constructor(private prodService: ProductService) { }
 
   showProdDetails(id): any {
@@ -24,5 +25,6 @@ export class DetailsProdService {
     this.modalSubscribe =  this.prod.subscribe;
     this.modalType =  this.prod.type;
     this.modalPower =  this.prod.power;
+    this.modalBrandName =  this.prod.brandName;
   }
 }
