@@ -1,7 +1,7 @@
 <div class="dataPlace">
     <form action="" #form='ngForm' autocomplete="off" (submit)="prodService.onSubmit(form)">
         <select class="custom-select" id="selectCategory" [(ngModel)]="prodService.category" name="category">
-            <option disabled selected>Виберіть категорію товару...</option>
+            <option disabled>Виберіть категорію товару...</option>
             <option value="opalenya">Системи опалення</option>
             <option value="hotpumps">Теплові насоси</option>
             <option value="airsystems">Вентиляційні системи</option>

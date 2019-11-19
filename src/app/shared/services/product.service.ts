@@ -18,13 +18,13 @@ export class ProductService {
   productForEdit: any;
   idProdEdit: string;
 
-  category: string;
+  category: string = 'Виберіть категорію товару...';
   title: string;
   subscribe: string;
   imgUrl: string;
-  brandName: string;
-  power: string;
-  type: string;
+  brandName: string = 'Виберіть назву бренду';
+  power: string = 'Виберіть потужність приладу...';
+  type: string = 'Виберіть тип приладу...';
 
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
@@ -34,22 +34,23 @@ export class ProductService {
 
   arrProduct: Array<Product>;
 
-isChecked: boolean;
-powerVal: string ='';
+  // isChecked: boolean = false;
+  powerVal: string = '';
+  typeVal: string = '';
 
   constructor(private firestore: AngularFirestore, public firestorage: AngularFireStorage) {
     this.getProducts();
+    console.log(this.uploadProgress);
+    
+    
   }
 
-  filterPower(val){
-    this.powerVal = val;
-    console.log(this.powerVal);
-    if(this.isChecked === true){
-      this.isChecked = false;
-    } else{
-      this.isChecked = true;
-    }
-    
+  filterPower(val) {
+    this.powerVal = val; 
+  }
+
+  filterType(val){
+    this.typeVal = val;
   }
 
 
@@ -73,27 +74,33 @@ powerVal: string ='';
 
     const data = Object.assign({}, form2.value);
     this.firestore.doc('products/' + this.idProdEdit).update(data);
-    console.log(data);
-    console.log(this.arrProduct);
-    
-    
+    // console.log(data);
+    // console.log(this.arrProduct);
+
+
     // this.resetForm();
   }
 
 
-  // public resetForm(form?: NgForm): void {
-  //   if (form != null) {
-  //     form.resetForm();
-  //   }
-  //   // this.id = null,
-  //   this.title = '';
-  //   this.subscribe = '';
-  //   this.imgUrl = '';
-  // }
+  public resetForm(form?: NgForm): void {
+    if (form != null) {
+      form.resetForm();
+    }
+    // this.id = null,
+    this.title = '';
+    this.subscribe = '';
+    this.imgUrl = '';
+    this.brandName = 'Виберіть назву бренду';
+    this.power = 'Виберіть потужність приладу...';
+    this.type = 'Виберіть тип приладу...';
+    this.category = 'Виберіть категорію товару...';
+    // this.uploadProgress = 0;
+    this.downloadURL = undefined;
+  }
 
 
   public addProduct(): void {
-    console.log(this.urlImage);
+    // console.log(this.urlImage);
     this.imgUrl = this.urlImage;
   }
 
@@ -106,8 +113,9 @@ powerVal: string ='';
     } else {
       this.firestore.doc('products/' + form.value.id).update(data);
     }
-    console.log(this.arrProduct);
-    // this.resetForm();
+    // console.log(this.arrProduct);
+    this.resetForm();
+    console.log(this.uploadProgress);
   }
 
 

@@ -1,11 +1,11 @@
 <div class="pumpsContainer">
   <div class="leftSideBar">
     <h4>Фільтр</h4>
-    <div class="typeFilter">
+    <!-- <div class="typeFilter">
       <p>Вид: </p>
       <input type="checkbox"><span>Побутові</span><br>
       <input type="checkbox"><span>Промислові</span><br>
-    </div>
+    </div> -->
 
     <div class="brendsFilter">
       <p>Бренди: </p>
@@ -13,18 +13,20 @@
     </div>
     <div class="typeFilter">
       <p>Тип: </p>
-      <input type="checkbox"><span>грунт/вода</span><br>
-      <input type="checkbox"><span>воздух/вода</span><br>
+      <input type="checkbox" [(ngModel)]="isChecked3" (click)="prodService.filterType(isChecked3 ? '': 'Грунт/вода')"  ><span>грунт/вода</span><br>
+      <input type="checkbox" [(ngModel)]="isChecked4" (click)="prodService.filterType(isChecked4 ? '': 'Воздух/вода')"><span>воздух/вода</span><br>
+      <input type="checkbox" [(ngModel)]="isChecked5" (click)="prodService.filterType(isChecked5 ? '': 'Розсіл/вода')"><span>розсіл/вода</span><br>
+
     </div>
     <div class="powerFilter">
       <p>Потужність: </p>
-      <input type="checkbox" [(ngModel)]="prodService.isChecked"  (change)="prodService.filterPower( isChecked ? '' : '8-22 кВт' )" value="8-22 кВт"><span>8-22 кВт</span><br>
-      <input type="checkbox"><span>40-105 кВт</span><br>
-      <input type="checkbox"><span>218-362 кВт </span>
+      <input type="checkbox" [(ngModel)]="isChecked" (click)="prodService.filterPower( isChecked ? '' : '8-22 кВт' )"><span>8-22 кВт</span><br>
+      <input type="checkbox" [(ngModel)]="isChecked1" (click)="prodService.filterPower( isChecked1 ? '' : '40-105 кВт' )"><span>40-105 кВт</span><br>
+      <input type="checkbox" [(ngModel)]="isChecked2" (click)="prodService.filterPower( isChecked2 ? '' : '218-362 кВт' )"><span>218-362 кВт </span>
     </div>
   </div>
   <div class="products">
-    <div class="product" *ngFor="let product of prodService.arrProduct | hotpumps | power:prodService.powerVal">
+    <div class="product" *ngFor="let product of prodService.arrProduct | hotpumps | power:prodService.powerVal | type:prodService.typeVal ">
       <table>
         <tr>{{product.title}}</tr>
         <tr><img src="{{product.imgUrl}}" alt=""></tr>

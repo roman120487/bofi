@@ -35,6 +35,7 @@ import { HotpumpsPipe } from './shared/pipes/hotpumps.pipe';
 import { AirPipe } from './shared/pipes/air.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PowerPipe } from './shared/pipes/power.pipe';
+import { TypePipe } from './shared/pipes/type.pipe';
 
 // import { NgbdCarouselBasic } from './carousel-basic';
 
@@ -63,6 +64,7 @@ import { PowerPipe } from './shared/pipes/power.pipe';
     HotpumpsPipe,
     AirPipe,
     PowerPipe,
+    TypePipe,
     // NgbdCarouselBasic
 
   ],
