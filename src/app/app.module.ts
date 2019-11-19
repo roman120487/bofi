@@ -34,6 +34,7 @@ import { FrozenPipe } from './shared/pipes/frozen.pipe';
 import { HotpumpsPipe } from './shared/pipes/hotpumps.pipe';
 import { AirPipe } from './shared/pipes/air.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PowerPipe } from './shared/pipes/power.pipe';
 
 // import { NgbdCarouselBasic } from './carousel-basic';
 
@@ -61,6 +62,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FrozenPipe,
     HotpumpsPipe,
     AirPipe,
+    PowerPipe,
     // NgbdCarouselBasic
 
   ],

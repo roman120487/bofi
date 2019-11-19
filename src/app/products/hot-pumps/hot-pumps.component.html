@@ -18,13 +18,13 @@
     </div>
     <div class="powerFilter">
       <p>Потужність: </p>
-      <input type="checkbox"><span>8-22 кВт</span><br>
+      <input type="checkbox" [(ngModel)]="prodService.isChecked"  (change)="prodService.filterPower( isChecked ? '' : '8-22 кВт' )" value="8-22 кВт"><span>8-22 кВт</span><br>
       <input type="checkbox"><span>40-105 кВт</span><br>
       <input type="checkbox"><span>218-362 кВт </span>
     </div>
   </div>
   <div class="products">
-    <div class="product" *ngFor="let product of prodService.arrProduct | hotpumps">
+    <div class="product" *ngFor="let product of prodService.arrProduct | hotpumps | power:prodService.powerVal">
       <table>
         <tr>{{product.title}}</tr>
         <tr><img src="{{product.imgUrl}}" alt=""></tr>

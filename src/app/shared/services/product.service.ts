@@ -34,9 +34,24 @@ export class ProductService {
 
   arrProduct: Array<Product>;
 
+isChecked: boolean;
+powerVal: string ='';
+
   constructor(private firestore: AngularFirestore, public firestorage: AngularFireStorage) {
     this.getProducts();
   }
+
+  filterPower(val){
+    this.powerVal = val;
+    console.log(this.powerVal);
+    if(this.isChecked === true){
+      this.isChecked = false;
+    } else{
+      this.isChecked = true;
+    }
+    
+  }
+
 
 
   editeProd(id): void {
