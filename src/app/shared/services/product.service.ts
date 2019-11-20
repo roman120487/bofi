@@ -34,26 +34,44 @@ export class ProductService {
 
   arrProduct: Array<Product>;
 
-  // isChecked: boolean = false;
-  powerVal: string = '';
-  typeVal: string = '';
+
+  selectHotPumps: boolean = false;
+  selectCotels: boolean = false;
+  selectAir: boolean = false;
+  selectFrozen: boolean = false;
 
   constructor(private firestore: AngularFirestore, public firestorage: AngularFireStorage) {
     this.getProducts();
     console.log(this.uploadProgress);
-    
-    
+
+
   }
 
-  filterPower(val) {
-    this.powerVal = val; 
+  selectCategory(): void {
+    if (this.category === 'opalenya') {
+      this.selectCotels = true;
+      this.selectHotPumps = false;
+      this.selectAir = false;
+      this.selectFrozen = false;
+    } else if (this.category === 'hotpumps') {
+      this.selectCotels = false;
+      this.selectHotPumps = true;
+      this.selectAir = false;
+      this.selectFrozen = false;
+    } else if (this.category === 'airsystems') {
+      this.selectCotels = false;
+      this.selectHotPumps = false;
+      this.selectAir = true;
+      this.selectFrozen = false;
+    } else if (this.category === 'frozensystems') {
+      this.selectCotels = false;
+      this.selectHotPumps = false;
+      this.selectAir = false;
+      this.selectFrozen = true;
+    }
+    console.log(this.category);
+
   }
-
-  filterType(val){
-    this.typeVal = val;
-  }
-
-
 
   editeProd(id): void {
     this.productForEdit = this.arrProduct.find(function (val) {
@@ -61,7 +79,6 @@ export class ProductService {
         return val;
       }
     });
-    // console.log(this.productForEdit);
     this.titleEdit = this.productForEdit.title;
     this.subscribeEdit = this.productForEdit.subscribe;
     this.urlImgEdite = this.productForEdit.imgUrl;
@@ -74,11 +91,6 @@ export class ProductService {
 
     const data = Object.assign({}, form2.value);
     this.firestore.doc('products/' + this.idProdEdit).update(data);
-    // console.log(data);
-    // console.log(this.arrProduct);
-
-
-    // this.resetForm();
   }
 
 
@@ -86,7 +98,6 @@ export class ProductService {
     if (form != null) {
       form.resetForm();
     }
-    // this.id = null,
     this.title = '';
     this.subscribe = '';
     this.imgUrl = '';
@@ -94,13 +105,11 @@ export class ProductService {
     this.power = 'Виберіть потужність приладу...';
     this.type = 'Виберіть тип приладу...';
     this.category = 'Виберіть категорію товару...';
-    // this.uploadProgress = 0;
     this.downloadURL = undefined;
   }
 
 
   public addProduct(): void {
-    // console.log(this.urlImage);
     this.imgUrl = this.urlImage;
   }
 
@@ -113,9 +122,7 @@ export class ProductService {
     } else {
       this.firestore.doc('products/' + form.value.id).update(data);
     }
-    // console.log(this.arrProduct);
     this.resetForm();
-    console.log(this.uploadProgress);
   }
 
 
@@ -130,7 +137,6 @@ export class ProductService {
             ...product.payload.doc.data()
           } as IProduct;
         });
-        // console.log(this.arrProduct);
       }
     );
   }

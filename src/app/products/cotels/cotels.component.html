@@ -13,10 +13,9 @@
         </div> -->
 
         <div class="typeFilter" >
-            <p>Вид: </p>
+            <p>Тип котла: </p>
             <input type="checkbox"><span>Твердопаливні котли</span><br>
             <input type="checkbox"><span>Газові котли</span><br>
-            <input type="checkbox"><span>Теплові насоси</span>
         </div>
 
         <div class="brendsFilter">
@@ -27,7 +26,7 @@
         </div>
 
         <div class="powerFilter">
-                <p>Бренди: </p>
+                <p>Потужність: </p>
                 <input type="checkbox"><span>10-20 Kwatt</span><br>
                 <input type="checkbox"><span>20-50 Kwatt</span><br>
                 <input type="checkbox"><span>50-100 Kwatt </span>
@@ -47,28 +46,30 @@
 </div>
 
 
-    <!------------------ Modal ---------------->
+<!------------------ Modal ---------------->
 <div class="modal fade" id="prodDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog modal-lg" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title modalTitle" id="exampleModalLabel">{{productDetails.modalTitle}}</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="modalImg"><img src="{{productDetails.modalImg}}" alt=""></div>
-      <div class="modalSubskribe"><p>Опис: </p>{{productDetails.modalSubscribe}}</div>
-      <div class="modalFilter"><span>Тип:</span>{{productDetails.modalType}}</div>
-      <div class="modalFilter"><span>Потужність:</span>{{productDetails.modalPower}}</div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
-      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title modalTitle" id="exampleModalLabel">{{productDetails.modalTitle}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modalImg"><img src="{{productDetails.modalImg}}" alt=""></div>
+        <div class="modalFilter"><span>Бренд:</span>{{productDetails.modalBrandName}}</div>
+        <div class="modalSubskribe"><p>Опис: </p>{{productDetails.modalSubscribe}}</div>
+        <div class="modalFilter"><span>Тип:</span>{{productDetails.modalType}}</div>
+        <div class="modalFilter"><span>Потужність:</span>{{productDetails.modalPower}}</div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
     </div>
   </div>
-</div>
 </div>
 <!-- ----------------------------------- -->

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
-import { NgClass } from '@angular/common';
 import { DetailsProdService } from 'src/app/shared/services/details-prod.service';
+import { FilterService } from 'src/app/shared/services/filter.service';
 
 @Component({
   selector: 'app-cotels',
@@ -10,7 +10,7 @@ import { DetailsProdService } from 'src/app/shared/services/details-prod.service
 })
 export class CotelsComponent implements OnInit {
 
-  constructor(private prodService: ProductService, private productDetails: DetailsProdService) { }
+  constructor(private filterService: FilterService, private prodService: ProductService, private productDetails: DetailsProdService) { }
 
   ngOnInit() {
   }
