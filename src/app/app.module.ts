@@ -35,6 +35,8 @@ import { AirPipe } from './shared/pipes/air.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PowerPipe } from './shared/pipes/power.pipe';
 import { TypePipe } from './shared/pipes/type.pipe';
+import { BegreenComponent } from './reference/begreen/begreen.component';
+import { JevenComponent } from './reference/jeven/jeven.component';
 
 // import { NgbdCarouselBasic } from './carousel-basic';
 
@@ -63,6 +65,8 @@ import { TypePipe } from './shared/pipes/type.pipe';
     AirPipe,
     PowerPipe,
     TypePipe,
+    BegreenComponent,
+    JevenComponent,
     // NgbdCarouselBasic
 
   ],

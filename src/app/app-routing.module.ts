@@ -16,6 +16,8 @@ import { AdminСharacteristicsComponent } from './admin/admin-characteristics/ad
 import { AdminCallbackComponent } from './admin/admin-callback/admin-callback.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { HotPumpsComponent } from './products/hot-pumps/hot-pumps.component';
+import { BegreenComponent } from './reference/begreen/begreen.component';
+import { JevenComponent } from './reference/jeven/jeven.component';
 
 
 
@@ -27,7 +29,10 @@ const routes: Routes = [
   { path: 'frozen', component: FrozenComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'brends', component: BrendsComponent },
-  { path: 'reference', component: ReferenceComponent },
+  { path: 'reference', component: ReferenceComponent},
+  { path: 'ref-begreen', component: BegreenComponent },
+  { path: 'ref-jeven', component: JevenComponent },
+
   { path: 'hotPumps', component: HotPumpsComponent },
   { path: 'contacts', component: ContactsComponent },
   {
