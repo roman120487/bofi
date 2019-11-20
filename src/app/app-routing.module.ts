@@ -12,9 +12,8 @@ import { FrozenComponent } from './products/frozen/frozen.component';
 
 import { AdminBrendsComponent } from './admin/admin-brends/admin-brends.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { AdminPowerComponent } from './admin/admin-power/admin-power.component';
+import { AdminСharacteristicsComponent } from './admin/admin-characteristics/admin-characteristics.component';
 import { AdminCallbackComponent } from './admin/admin-callback/admin-callback.component';
-import { AdminCountryComponent } from './admin/admin-country/admin-country.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { HotPumpsComponent } from './products/hot-pumps/hot-pumps.component';
 
@@ -35,9 +34,8 @@ const routes: Routes = [
     path: 'admin', component: AdminComponent, children: [
       { path: 'admin-brends', component: AdminBrendsComponent },
       { path: 'admin-products', component: AdminProductsComponent },
-      { path: 'admin-power', component: AdminPowerComponent },
+      { path: 'admin-characteristics', component: AdminСharacteristicsComponent },
       { path: 'admin-callback', component: AdminCallbackComponent },
-      { path: 'admin-country', component: AdminCountryComponent }
 
     ]
   },

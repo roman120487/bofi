@@ -24,9 +24,8 @@ import { VentilationComponent } from './products/ventilation/ventilation.compone
 import { FrozenComponent } from './products/frozen/frozen.component';
 import { AdminBrendsComponent } from './admin/admin-brends/admin-brends.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { AdminPowerComponent } from './admin/admin-power/admin-power.component';
+import { AdminСharacteristicsComponent } from './admin/admin-characteristics/admin-characteristics.component';
 import { AdminCallbackComponent } from './admin/admin-callback/admin-callback.component';
-import { AdminCountryComponent } from './admin/admin-country/admin-country.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { HotPumpsComponent } from './products/hot-pumps/hot-pumps.component';
 import { CotelPipe } from './shared/pipes/cotel.pipe';
@@ -54,9 +53,8 @@ import { TypePipe } from './shared/pipes/type.pipe';
     FrozenComponent,
     AdminBrendsComponent,
     AdminProductsComponent,
-    AdminPowerComponent,
+    AdminСharacteristicsComponent,
     AdminCallbackComponent,
-    AdminCountryComponent,
     ReferenceComponent,
     HotPumpsComponent,
     CotelPipe,
