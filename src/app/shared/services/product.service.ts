@@ -43,9 +43,7 @@ export class ProductService {
 
   constructor(private firestore: AngularFirestore, public firestorage: AngularFireStorage) {
     this.getProducts();
-    // console.log(this.uploadProgress);
-
-
+    // console.log(this.arrProduct);
   }
 
   selectCategory(): void {
@@ -131,8 +129,8 @@ export class ProductService {
 
   public getProducts() {
     this.firestore.collection('products').snapshotChanges().subscribe(
-      arrayBlogs => {
-        this.arrProduct = arrayBlogs.map(product => {
+      arrayProducts => {
+        this.arrProduct = arrayProducts.map(product => {
           return {
             id: product.payload.doc.id,
             ...product.payload.doc.data()

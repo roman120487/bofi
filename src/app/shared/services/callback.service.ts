@@ -23,6 +23,9 @@ export class CallbackService {
     this.getCallbackList();
   }
 
+  order(title): void{
+    this.text = title;
+  }
 
   deleteFinishOrders(): void {
     // if (confirm('Ви впевнені щохочете видалити опрацьовані записи')) {

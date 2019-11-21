@@ -16,7 +16,5 @@ export class HotPumpsComponent implements OnInit {
   ngOnInit() {
     // this.callbackService.text = this.productDetails.modalTitle;
   }
-order(): void{
-  this.callbackService.text = this.productDetails.modalTitle;
-}
+
 }
