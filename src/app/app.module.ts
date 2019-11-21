@@ -37,6 +37,14 @@ import { PowerPipe } from './shared/pipes/power.pipe';
 import { TypePipe } from './shared/pipes/type.pipe';
 import { BegreenComponent } from './reference/begreen/begreen.component';
 import { JevenComponent } from './reference/jeven/jeven.component';
+import { ChillerComponent } from './reference/chiller/chiller.component';
+import { KlimorComponent } from './reference/klimor/klimor.component';
+import { AcvComponent } from './reference/acv/acv.component';
+import { SchakoComponent } from './reference/schako/schako.component';
+import { GetairComponent } from './reference/getair/getair.component';
+import { AlkoComponent } from './reference/alko/alko.component';
+import { ThermostalComponent } from './reference/thermostal/thermostal.component';
+import { LiketechnoComponent } from './reference/liketechno/liketechno.component';
 
 // import { NgbdCarouselBasic } from './carousel-basic';
 
@@ -67,6 +75,14 @@ import { JevenComponent } from './reference/jeven/jeven.component';
     TypePipe,
     BegreenComponent,
     JevenComponent,
+    ChillerComponent,
+    KlimorComponent,
+    AcvComponent,
+    SchakoComponent,
+    GetairComponent,
+    AlkoComponent,
+    ThermostalComponent,
+    LiketechnoComponent,
     // NgbdCarouselBasic
 
   ],

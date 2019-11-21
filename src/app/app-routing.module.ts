@@ -18,6 +18,15 @@ import { ReferenceComponent } from './reference/reference.component';
 import { HotPumpsComponent } from './products/hot-pumps/hot-pumps.component';
 import { BegreenComponent } from './reference/begreen/begreen.component';
 import { JevenComponent } from './reference/jeven/jeven.component';
+import { ChillerComponent } from './reference/chiller/chiller.component';
+import { KlimorComponent } from './reference/klimor/klimor.component';
+import { AcvComponent } from './reference/acv/acv.component';
+import { SchakoComponent } from './reference/schako/schako.component';
+import { GetairComponent } from './reference/getair/getair.component';
+import { AlkoComponent } from './reference/alko/alko.component';
+import { ThermostalComponent } from './reference/thermostal/thermostal.component';
+import { LiketechnoComponent } from './reference/liketechno/liketechno.component';
+
 
 
 
@@ -32,6 +41,14 @@ const routes: Routes = [
   { path: 'reference', component: ReferenceComponent},
   { path: 'ref-begreen', component: BegreenComponent },
   { path: 'ref-jeven', component: JevenComponent },
+  { path: 'ref-chiller', component: ChillerComponent },
+  { path: 'ref-klimor', component: KlimorComponent },
+  { path: 'ref-acv', component: AcvComponent },
+  { path: 'ref-schako', component: SchakoComponent },
+  { path: 'ref-getair', component: GetairComponent },
+  { path: 'ref-alko', component: AlkoComponent },
+  { path: 'ref-thermostal', component: ThermostalComponent },
+  { path: 'ref-liketechno', component: LiketechnoComponent },
 
   { path: 'hotPumps', component: HotPumpsComponent },
   { path: 'contacts', component: ContactsComponent },

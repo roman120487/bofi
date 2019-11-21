@@ -39,10 +39,11 @@ export class ProductService {
   selectCotels: boolean = false;
   selectAir: boolean = false;
   selectFrozen: boolean = false;
+  modalTitle: string;
 
   constructor(private firestore: AngularFirestore, public firestorage: AngularFireStorage) {
     this.getProducts();
-    console.log(this.uploadProgress);
+    // console.log(this.uploadProgress);
 
 
   }

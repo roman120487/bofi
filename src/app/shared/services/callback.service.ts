@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ICallbackUser } from '../interfaces/callback-user.interface';
+import { ProductService } from './product.service';
 // import { MaterialModule } from './material.module';
 
 @Injectable({
@@ -18,9 +19,20 @@ export class CallbackService {
   // tslint:disable-next-line: max-line-length
   date = `${this.dateFull.getDate()}.${this.dateFull.getMonth() + 1}.${this.dateFull.getFullYear()}, ${this.dateFull.getHours()}:${this.dateFull.getMinutes()} `;
 
-
-  constructor(private firestore: AngularFirestore) {
+  constructor(private firestore: AngularFirestore, private productDetails: ProductService) {
     this.getCallbackList();
+  }
+
+
+  deleteFinishOrders(): void {
+    // if (confirm('Ви впевнені щохочете видалити опрацьовані записи')) {
+    this.arrCallbackList.forEach(function (val) {
+      if (val.checkStatus === true) {
+        // val.checkStatus = false;
+        this.firestore.doc('callbacks/' + val.id).delete();
+      }
+    });
+    // }
   }
 
 
@@ -31,7 +43,7 @@ export class CallbackService {
     } else {
       user.checkStatus = true;
     }
-    
+
     this.firestore.doc('callbacks/' + user.id).update(user);
 
   }
@@ -66,7 +78,7 @@ export class CallbackService {
             ...product.payload.doc.data()
           } as ICallbackUser;
         });
-        console.log(this.arrCallbackList);
+        // console.log(this.arrCallbackList);
       }
     );
   }
