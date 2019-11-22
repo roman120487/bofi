@@ -6,6 +6,9 @@ export class Product implements IProduct {
         public title: string,
         public subscribe: string,
         public imgUrl: string,
-        public category: string
+        public category: string,
+        public brandName: string,
+        public power: string,
+        public type: string
     ) { }
 }

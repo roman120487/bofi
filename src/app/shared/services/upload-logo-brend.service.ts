@@ -21,6 +21,7 @@ export class UploadLogoBrendService {
   urlImage: string;
   constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore) {
     this.getBrends();
+    console.log(this.brends);
   }
 
 

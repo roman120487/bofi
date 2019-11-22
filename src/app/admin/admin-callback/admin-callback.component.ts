@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CallbackService } from 'src/app/shared/services/callback.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 // import { MaterialModule } from './material.module';
 
 @Component({
@@ -9,7 +10,7 @@ import { CallbackService } from 'src/app/shared/services/callback.service';
 })
 export class AdminCallbackComponent implements OnInit {
 
-  constructor(private callbackService: CallbackService) { }
+  constructor(private callbackService: CallbackService, private firestore: AngularFirestore) { }
 
   ngOnInit() {
   }

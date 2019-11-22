@@ -23,8 +23,14 @@ export class CallbackService {
     this.getCallbackList();
   }
 
-  order(title): void{
+  order(title): void {
     this.text = title;
+  }
+
+  deleteOrder(id): void {
+    if (confirm('Are you sure to delete this record')) {
+      this.firestore.doc('callbacks/' + id).delete();
+    }
   }
 
   deleteFinishOrders(): void {

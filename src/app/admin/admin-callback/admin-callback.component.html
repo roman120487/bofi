@@ -19,12 +19,12 @@
             <td>{{user.phone}}</td>
             <td>{{user.email}}</td>
             <td>{{user.text}}</td>
-            <td class="status">
-              <input type="checkbox" [checked]='user.checkStatus' (click)="callbackService.statusCheckedCallback(user)" >
-              <span *ngIf="user.checkStatus" >Опрацьовано</span>
+            <td class="status" [style.backgroundColor]="user.checkStatus==true?'#D2FFD2':'none'">
+              <input type="checkbox"   [checked]='user.checkStatus' (click)="callbackService.statusCheckedCallback(user)" >
+              <!-- <span *ngIf="user.checkStatus" >Опрацьовано</span> -->
+              <button *ngIf="user.checkStatus" type="button" class="btn btn-danger" (click)="callbackService.deleteOrder(user.id)" >Видалити запис</button>
             </td>
           </tr>
         </tbody>
       </table>
-      <button type="button" class="btn btn-danger" (click)="callbackService.deleteFinishOrders()" >Видалити опрацьовані</button>
 </div>

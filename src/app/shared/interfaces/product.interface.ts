@@ -4,5 +4,8 @@ export interface IProduct {
     subscribe: string;
     imgUrl: string;
     category: string;
+    brandName: string;
+    power: string;
+    type: string;
 }
 
