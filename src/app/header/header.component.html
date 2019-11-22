@@ -1,3 +1,4 @@
+<!-- <div class="header" [style.display]="adminServece.enterAdmin===true?'none':'block'"> -->
 <div class="header">
 
   <div class="phone">
@@ -18,17 +19,18 @@
   </div>
   <div class="signIn">
     <p>Кабінет Користувача:</p>
-    <button *ngIf="!trueValid" type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signInModal">Увійти</button>
+    <button *ngIf="!trueValid" type="button" class="btn btn-outline-dark" data-toggle="modal"
+      data-target="#signInModal">Увійти</button>
     <button *ngIf="!trueValid" type="button" class="btn btn-outline-dark" data-toggle="modal"
       data-target="#signUpModal">Зарееструватись</button>
     <div *ngIf="trueValid" class="btn btn-outline-dark">{{usernameActive}}</div>
-      <button *ngIf="trueValid" type="button" class="btn btn-outline-dark" (click)="exit() ">Вийти</button>
-      <button *ngIf="adminServece.enterAdmin" type="button" class="btn btn-outline-dark" (click)="routeAdmin() "
+    <button *ngIf="trueValid" type="button" class="btn btn-outline-dark" (click)="exit() ">Вийти</button>
+    <button *ngIf="adminServece.enterAdmin" type="button" class="btn btn-outline-dark" (click)="routeAdmin() "
       routerLink="admin">Увійти в адмінку</button>
   </div>
 </div>
 
-<div class="sliderHeader">
+<div class="sliderHeader" [ngClass]="{sliderHide:adminServece.adminActivate}">
   <div class="bd-example">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">

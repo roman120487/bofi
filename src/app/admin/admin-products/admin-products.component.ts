@@ -13,6 +13,7 @@ export class AdminProductsComponent implements OnInit {
   constructor(private prodService: ProductService, private brendsService: UploadLogoBrendService) { }
 
   ngOnInit() {
+    
   }
   
 
