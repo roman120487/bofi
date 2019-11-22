@@ -12,7 +12,7 @@
         aria-controls="nav-contact" aria-selected="false">Товар</a>
       <a routerLink="admin-callback" class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" role="tab"
         aria-controls="nav-contact" aria-selected="false">Хто замовив дзвінок</a>
-      <button type="button" class="btn btn-outline-dark" (click)="exitAdmin()">Вихід</button>
+      <button type="button" routerLink="/main" class="btn btn-outline-dark" (click)="exitAdmin()" >Вихід</button>
     </div>
 
   <div class="tab-content adminRoute" id="nav-tabContent">
