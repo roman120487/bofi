@@ -9,6 +9,7 @@ import { Product } from '../classes/product';
 export class FilterService {
   powerVal: string = '';
   typeVal: string = '';
+  brendVal: string = '';
 
   arrProduct: Array<Product>;
 
@@ -22,6 +23,10 @@ export class FilterService {
 
   filterType(val) {
     this.typeVal = val;
+  }
+
+  filterBrend(val) {
+    this.brendVal = val;
   }
 
 

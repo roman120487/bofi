@@ -23,9 +23,15 @@
             </select>
             <select *ngIf="prodService.selectCotels"  class="custom-select" id="powerCotels" [(ngModel)]="prodService.power" name="power">
                 <option disabled>Виберіть потужність приладу...</option>
+                <option value="23-32 кВт">23-32 кВт</option>
+                <option value="23-47 кВт">23-47 кВт</option>
+                <option value="23-69 кВт">23-69 кВт</option>
+                <option value="23-116 кВт">23-116 кВт</option>
+                <option value="23-140 кВт">23-140 кВт</option>
                 <option value="23-163 кВт">23-163 кВт</option>
-                <option value="0-0 кВт">0-0 кВт</option>
-                <option value="0-0 кВт">0-0 кВт</option>
+                <option value="23-581 кВт">23-581 кВт</option>
+                <option value="23-4650 кВт">23-4650 кВт</option>
+                
             </select>
             <select *ngIf="prodService.selectAir"  class="custom-select" id="powerAir" [(ngModel)]="prodService.power" name="power">
                 <option disabled>Виберіть потужність приладу...</option>
@@ -44,6 +50,7 @@
                 <option disabled selected>Виберіть тип приладу...</option>
                 <option value="Твердопаливні котли">Твердопаливні котли</option>
                 <option value="Газові котли">Газові котли</option>
+                <option value="Нафтогазові котли">Нафтогазові котли</option>
             </select>
             <select *ngIf="prodService.selectHotPumps" class="custom-select" id="selectType" [(ngModel)]="prodService.type" name="type">
                 <option disabled selected>Виберіть тип приладу...</option>
@@ -138,6 +145,9 @@
             <div class="modal-body">
                 <form action="" #form2='ngForm' autocomplete="off" (submit)="prodService.saveEditeProduct(form2)">
                     <input type="text" name="title" [(ngModel)]="prodService.titleEdit">
+                    <input type="text" name="brandName" [(ngModel)]="prodService.brandNameEdit">
+                    <input type="text" name="power" [(ngModel)]="prodService.powerEdit">
+                    <input type="text" name="type" [(ngModel)]="prodService.typeEdit">
                     <textarea class="subscribe" id="" cols="30" rows="10" name="subscribe"
                         [(ngModel)]="prodService.subscribeEdit"></textarea>
                     <div class="imageEdite"><img src="{{prodService.urlImgEdite}}" alt=""></div>

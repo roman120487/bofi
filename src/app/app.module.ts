@@ -45,6 +45,7 @@ import { GetairComponent } from './reference/getair/getair.component';
 import { AlkoComponent } from './reference/alko/alko.component';
 import { ThermostalComponent } from './reference/thermostal/thermostal.component';
 import { LiketechnoComponent } from './reference/liketechno/liketechno.component';
+import { BrendPipe } from './shared/pipes/brend.pipe';
 
 // import { NgbdCarouselBasic } from './carousel-basic';
 
@@ -83,6 +84,7 @@ import { LiketechnoComponent } from './reference/liketechno/liketechno.component
     AlkoComponent,
     ThermostalComponent,
     LiketechnoComponent,
+    BrendPipe,
     // NgbdCarouselBasic
 
   ],

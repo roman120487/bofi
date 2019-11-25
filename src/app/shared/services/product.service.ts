@@ -17,6 +17,9 @@ export class ProductService {
   urlImgEdite: string;
   productForEdit: any;
   idProdEdit: string;
+  brandNameEdit: string;
+  powerEdit: string;
+  typeEdit: string;
 
   category: string = 'Виберіть категорію товару...';
   title: string;
@@ -79,6 +82,9 @@ export class ProductService {
       }
     });
     this.titleEdit = this.productForEdit.title;
+    this.brandNameEdit = this.productForEdit.brandName;
+    this.powerEdit = this.productForEdit.power;
+    this.typeEdit = this.productForEdit.type;
     this.subscribeEdit = this.productForEdit.subscribe;
     this.urlImgEdite = this.productForEdit.imgUrl;
     this.idProdEdit = id;

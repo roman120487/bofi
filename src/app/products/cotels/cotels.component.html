@@ -14,26 +14,32 @@
 
         <div class="typeFilter" >
             <p>Тип котла: </p>
-            <input type="checkbox"><span>Твердопаливні котли</span><br>
-            <input type="checkbox"><span>Газові котли</span><br>
+            <input type="checkbox" [(ngModel)]="isChecked" (click)="filterService.filterType(isChecked ? '': 'Твердопаливні котли')"><span>Твердопаливні котли</span><br>
+            <input type="checkbox" [(ngModel)]="isChecked2" (click)="filterService.filterType(isChecked2 ? '': 'Газові котли')" ><span>Газові котли</span><br>
+            <input type="checkbox" [(ngModel)]="isChecked9" (click)="filterService.filterType(isChecked9 ? '': 'Нафтогазові котли')" ><span>Нафтогазові котли</span><br>
         </div>
 
         <div class="brendsFilter">
             <p>Бренди: </p>
-            <input type="checkbox"><span>ACV (Бельгія)</span><br>
-            <input type="checkbox"><span>Термосталь ( Греція )</span><br>
-            <input type="checkbox"><span>BeGreen ( Україна ) </span>
+            <input type="checkbox" [(ngModel)]="isChecked6" (click)="filterService.filterBrend(isChecked6 ? '': 'ACV')"><span>ACV (Бельгія)</span><br>
+            <input type="checkbox" [(ngModel)]="isChecked7" (click)="filterService.filterBrend(isChecked7 ? '': 'Термосталь')"><span>Термосталь ( Греція )</span><br>
+            <!-- <input type="checkbox" [(ngModel)]="isChecked8" (click)="filterService.filterBrend(isChecked8 ? '': 'BeGreen')"><span>BeGreen ( Україна ) </span> -->
         </div>
 
         <div class="powerFilter">
                 <p>Потужність: </p>
-                <input type="checkbox"><span>10-20 Kwatt</span><br>
-                <input type="checkbox"><span>20-50 Kwatt</span><br>
-                <input type="checkbox"><span>50-100 Kwatt </span>
+                <input type="checkbox" [(ngModel)]="isChecked12" (click)="filterService.filterPower(isChecked12 ? '': '23-47 кВт')"><span>23-47 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="isChecked14" (click)="filterService.filterPower(isChecked14 ? '': '23-32 кВт')"><span>23-32 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="isChecked13" (click)="filterService.filterPower(isChecked13 ? '': '23-69 кВт')"><span>23-69 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="isChecked5" (click)="filterService.filterPower(isChecked5 ? '': '23-116 кВт')"><span>23-116 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="isChecked11" (click)="filterService.filterPower(isChecked11 ? '': '23-140 кВт')"><span>23-140 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="isChecked3" (click)="filterService.filterPower(isChecked3 ? '': '23-163 кВт')"><span>23-163 кВт</span><br>
+                <input type="checkbox" [(ngModel)]="isChecked4" (click)="filterService.filterPower(isChecked4 ? '': '23-581 кВт')"><span>23-581 кВт</span><br>
+                <input type="checkbox" [(ngModel)]="isChecked10" (click)="filterService.filterPower(isChecked10 ? '': '23-4650 кВт')"><span>23-4650 кВт</span><br>
             </div>
     </div>
     <div class="products">
-        <div class="product" *ngFor="let product of prodService.arrProduct | cotel">
+        <div class="product" *ngFor="let product of prodService.arrProduct | cotel | power:filterService.powerVal | type:filterService.typeVal | brend:filterService.brendVal" >
             <table>
                 <tr>{{product.title}}</tr>
                 <tr><img src="{{product.imgUrl}}" alt=""></tr>
