@@ -101,3 +101,6 @@ h4 {
 .sliderHide{
     display: none;
 }
+.carousel-item{
+    cursor: pointer !important;
+}
