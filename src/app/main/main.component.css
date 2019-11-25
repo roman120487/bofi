@@ -102,5 +102,7 @@ li button {
     position: inherit;
     bottom: 0px;
     margin-top: 20px;
-    
+}
+h2{
+    font-size: 25px;
 }

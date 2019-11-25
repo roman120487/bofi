@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-around;
     padding-top: 25px;
-    font-family: 'Roboto Condensed', sans-serif;
+    /* font-family: 'Roboto Condensed', sans-serif; */
 }
 
 .logo {
@@ -24,12 +24,24 @@
     flex-wrap: wrap;
     /* border: 1px solid black; */
 }
+.phone ul{
+    width: 100%;
+}
+.phone li{
+    line-height: 1;
+    font-size: 16px;
+}
+
+li{
+    list-style: none;
+}
+i{
+    float: left;
+    margin-right: 15px;
+}
 
 .phone div {
     width: 100%;
-    /* border: 1px solid black; */
-    display: flex;
-    /* height: 10px; */
 }
 
 .phone div p {
@@ -40,12 +52,11 @@
 .worksHour {
     width: 300px;
     height: 100px;
-    display: flex;
-    /* align-items: center; */
 }
 
 .worksHour p {
     margin-left: 15px;
+    font-size: 16px;
 }
 
 .menu {
@@ -80,7 +91,7 @@ h4 {
     /* font-weight: bold; */
     color: #253982;
     /* padding-top: 0; */
-    font-family: 'Roboto Condensed', sans-serif;
+    /* font-family: 'Roboto Condensed', sans-serif; */
 }
 
 .active {
