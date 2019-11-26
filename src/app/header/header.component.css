@@ -115,3 +115,6 @@ h4 {
 .carousel-item{
     cursor: pointer !important;
 }
+.phone a{
+    color: black;
+}
