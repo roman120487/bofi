@@ -79,3 +79,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 60px;
 }
 
+
+.ng-valid[required], .ng-valid[required]{
+    border: 2px solid green;
+    background-image: url(assets/images/valid.png);
+    background-repeat: no-repeat;
+    /* background-position: right; */
+    background-size: 25px 25px;
+    background-position-x: 95%;
+    background-position-y: 5px;
+}
+.ng-invalid:not(form){
+    border: 2px solid red;
+}

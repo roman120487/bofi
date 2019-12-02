@@ -9,6 +9,7 @@ import { ProductService } from './product.service';
   providedIn: 'root'
 })
 export class CallbackService {
+  sendBTN: string = "Відправити"
   arrCallbackList: any;
   name: string;
   email: string;
@@ -67,6 +68,10 @@ export class CallbackService {
       this.firestore.doc('callbacks/' + form.value.id).update(data);
     }
     this.resetForm();
+    this.sendBTN = "Запит відправлено"
+    setTimeout(() => {
+      this.sendBTN = "Відправити"
+    }, 2000);
   }
 
 
