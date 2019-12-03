@@ -9,7 +9,7 @@ import { ProductService } from './product.service';
   providedIn: 'root'
 })
 export class CallbackService {
-  sendBTN: string = "Відправити"
+  sendBTN: string = ''
   arrCallbackList: any;
   name: string = '';
   email: string = '';
@@ -63,20 +63,28 @@ export class CallbackService {
     if (this.email === '' || this.name === '' || this.phone === '' || this.text === '') {
       this.sendBTN = "Ви не заповнили якесь поле"
     } else {
-      const data = Object.assign({}, form.value);
-      delete data.id;
-      if (form.value.id == null) {
-        this.firestore.collection('callbacks').add(data);
+      // tslint:disable-next-line: max-line-length
+      const regExpEmail = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
+      const regExpPhone = /^\d[\d\(\)\ -]{4,14}\d$/;
+      if (regExpEmail.test(this.email) === false) {
+        this.sendBTN = "невірний формат e-mail адреси"
+      } else if (regExpPhone.test(this.phone) === false) {
+        this.sendBTN = "невірний формат телефону"
       } else {
-        this.firestore.doc('callbacks/' + form.value.id).update(data);
+        const data = Object.assign({}, form.value);
+        delete data.id;
+        if (form.value.id == null) {
+          this.firestore.collection('callbacks').add(data);
+        } else {
+          this.firestore.doc('callbacks/' + form.value.id).update(data);
+        }
+        this.resetForm();
+        this.sendBTN = "Запит відправлено"
+        setTimeout(() => {
+          this.sendBTN = ''
+        }, 2000);
       }
-      this.resetForm();
-      this.sendBTN = "Запит відправлено"
-      setTimeout(() => {
-        this.sendBTN = "Відправити"
-      }, 2000);
     }
-    console.log(form.value);
 
   }
 

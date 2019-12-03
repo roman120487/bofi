@@ -42,12 +42,12 @@
                 <input type="email" required class="form-control" placeholder="E-mail..." [(ngModel)]="callbackService.email" name="email" >
             </div>
             <div class="input-group mb-3">
-                <input type="text" required class="form-control" placeholder="Номер телефону..." [(ngModel)]="callbackService.phone" name="phone" >
+                <input type="text" required class="form-control" placeholder="Номер телефону у форматі 097*******" [(ngModel)]="callbackService.phone" name="phone" >
             </div>
             <div class="input-group">
                 <textarea class="form-control" required placeholder="текст запиту..." [(ngModel)]="callbackService.text" name="text" ></textarea>
             </div>
-            <button type="button" (click)="callbackService.onSubmit(form)" class="btn btn-primary callBackBtn" >{{callbackService.sendBTN}}</button>
+            <button type="button" (click)="callbackService.onSubmit(form)" class="btn btn-primary callBackBtn" >Відправити</button> <br> <p class="warningCallback">{{callbackService.sendBTN}}</p>
 
         </form>
     </div>

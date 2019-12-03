@@ -78,13 +78,11 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  addUser(): void {
-
-
-  }
-
   public createNewUser(form: NgForm) {
-    console.log('work');
+
+
+
+    
     const data = Object.assign({}, form.value);
     delete data.id;
     if (form.value.id == null) {

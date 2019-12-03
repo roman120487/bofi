@@ -128,16 +128,16 @@
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Електронна пошта:</label>
-            <input type="email" [(ngModel)]="emailValid" name="emailValid" class="form-control" id="exampleInputEmail1"
+            <input type="email" required [(ngModel)]="emailValid" name="emailValid" class="form-control" id="exampleInputEmail1"
               aria-describedby="emailHelp" placeholder="введіть вашу email адресу...">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">введіть пароль...</label>
-            <input type="password" [(ngModel)]="passValid" name="passValid" class="form-control"
+            <input type="password" required [(ngModel)]="passValid" name="passValid" class="form-control"
               id="exampleInputPassword1" placeholder="Password">
           </div>
-          <div class="emptyPlace" *ngIf="isEmptyPlace">Some input is empty</div>
+          <div class="emptyPlace" *ngIf="isEmptyPlace">не заповнене якесь поле</div>
           <div class="emptyPlace" *ngIf="notValid">Неправильно введений логін або пароль</div>
         </form>
       </div>
@@ -166,18 +166,18 @@
         <form #form='ngForm' autocomplete="off" (submit)="createNewUser(form)">
           <div class="form-group">
             <label for="exampleInputUserName">Ім'я користувача: </label>
-            <input type="text" [(ngModel)]="userName" name="userName" class="form-control" id="exampleInputUserName"
+            <input type="text" required [(ngModel)]="userName" name="userName" class="form-control" id="exampleInputUserName"
               aria-describedby="emailHelp" placeholder="введіть ваше ім'я...">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail2">Електронна пошта: </label>
-            <input type="email" [(ngModel)]="userEmail" name="userEmail" class="form-control" id="exampleInputEmail2"
+            <input type="email" required [(ngModel)]="userEmail" name="userEmail" class="form-control" id="exampleInputEmail2"
               aria-describedby="emailHelp" placeholder="введіть вашу email адресу...">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Пароль: </label>
-            <input type="password" [(ngModel)]="userPassword" name="userPassword" class="form-control"
+            <input type="password" required [(ngModel)]="userPassword" name="userPassword" class="form-control"
               id="exampleInputPassword1" placeholder="введіть пароль...">
           </div>
           <div class="modal-footer">

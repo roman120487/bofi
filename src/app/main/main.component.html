@@ -93,19 +93,19 @@
             <div class="modal-body">
 
                 <div class="callBackForm">
-                    <form action="" #form='ngForm' autocomplete="off" (submit)="callbackService.onSubmit(form)">
+                    <form #form='ngForm' autocomplete="off" >
                         <input type="hidden" name="date" [(ngModel)]="callbackService.date">
                         <input type="hidden" name="checkStatus" [(ngModel)]="callbackService.checkStatus">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Ім'я..." aria-label="Username"
+                            <input type="text" required class="form-control" placeholder="Ім'я..." aria-label="Username"
                                 aria-describedby="basic-addon1" [(ngModel)]="callbackService.name" name="name">
                         </div>
                         <div class="input-group mb-3">
-                            <input type="email" class="form-control" placeholder="e-mail..." aria-label="Username"
+                            <input type="email" required class="form-control" placeholder="e-mail..." aria-label="Username"
                                 aria-describedby="basic-addon1" [(ngModel)]="callbackService.email" name="email">
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Номер телефону..."
+                            <input type="text" required class="form-control" placeholder="Номер телефону у форматі 097*******"
                                 aria-label="Username" aria-describedby="basic-addon1"
                                 [(ngModel)]="callbackService.phone" name="phone">
                         </div>
@@ -113,7 +113,7 @@
                             <textarea class="form-control" aria-label="With textarea" [(ngModel)]="callbackService.text"
                                 name="text"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary callBackBtn">Надіслати замовлення</button>
+                        <button type="button" (click)="callbackService.onSubmit(form)" class="btn btn-primary callBackBtn">Відправити запит</button> <p class="warningCallback">{{callbackService.sendBTN}}</p>
 
                     </form>
                 </div>
