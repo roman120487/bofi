@@ -11,10 +11,10 @@ import { ProductService } from './product.service';
 export class CallbackService {
   sendBTN: string = "Відправити"
   arrCallbackList: any;
-  name: string;
-  email: string;
-  phone: string;
-  text: string;
+  name: string = '';
+  email: string = '';
+  phone: string = '';
+  text: string = '';
   dateFull: Date = new Date();
   checkStatus: boolean = false;
   // tslint:disable-next-line: max-line-length
@@ -60,18 +60,24 @@ export class CallbackService {
 
 
   public onSubmit(form: NgForm) {
-    const data = Object.assign({}, form.value);
-    delete data.id;
-    if (form.value.id == null) {
-      this.firestore.collection('callbacks').add(data);
+    if (this.email === '' || this.name === '' || this.phone === '' || this.text === '') {
+      this.sendBTN = "Ви не заповнили якесь поле"
     } else {
-      this.firestore.doc('callbacks/' + form.value.id).update(data);
+      const data = Object.assign({}, form.value);
+      delete data.id;
+      if (form.value.id == null) {
+        this.firestore.collection('callbacks').add(data);
+      } else {
+        this.firestore.doc('callbacks/' + form.value.id).update(data);
+      }
+      this.resetForm();
+      this.sendBTN = "Запит відправлено"
+      setTimeout(() => {
+        this.sendBTN = "Відправити"
+      }, 2000);
     }
-    this.resetForm();
-    this.sendBTN = "Запит відправлено"
-    setTimeout(() => {
-      this.sendBTN = "Відправити"
-    }, 2000);
+    console.log(form.value);
+
   }
 
 
