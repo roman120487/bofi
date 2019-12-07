@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of callbackService.arrCallbackList; let i = index" >
+          <tr *ngFor="let user of arrCallbackList; let i = index" >
             <th scope="row">{{i+1}}</th>
             <td>{{user.date}}</td>
             <td>{{user.name}}</td>
@@ -20,9 +20,9 @@
             <td>{{user.email}}</td>
             <td>{{user.text}}</td>
             <td class="status" [style.backgroundColor]="user.checkStatus==true?'#D2FFD2':'none'">
-              <input type="checkbox"   [checked]='user.checkStatus' (click)="callbackService.statusCheckedCallback(user)" >
+              <input type="checkbox"   [checked]='user.checkStatus' (click)="statusCheckedCallback(user)" >
               <!-- <span *ngIf="user.checkStatus" >Опрацьовано</span> -->
-              <button *ngIf="user.checkStatus" type="button" class="btn btn-danger" (click)="callbackService.deleteOrder(user.id)" >Видалити запис</button>
+              <button *ngIf="user.checkStatus" type="button" class="btn btn-danger" (click)="deleteOrder(user.id)" >Видалити запис</button>
             </td>
           </tr>
         </tbody>
