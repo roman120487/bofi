@@ -29,6 +29,11 @@ export class MainComponent implements OnInit {
   modalPower: string;
   modalBrandName: string;
   prod: any;
+  checkStatus: boolean = false;
+
+  // tslint:disable-next-line: max-line-length
+  date = `${this.dateFull.getDate()}.${this.dateFull.getMonth() + 1}.${this.dateFull.getFullYear()}, ${this.dateFull.getHours()}:${this.dateFull.getMinutes()} `;
+
 
   // tslint:disable-next-line: max-line-length
   constructor(private firestore: AngularFirestore) {

@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   userName: string;
   userEmail: string;
   userPassword: string;
-  constructor(private adminServece: AdminService, private firestore: AngularFirestore) {
+  constructor(public adminServece: AdminService, private firestore: AngularFirestore) {
     this.getUsers();
   }
 
@@ -105,8 +105,11 @@ export class HeaderComponent implements OnInit {
             ...brend.payload.doc.data()
           } as IUser;
         });
-        // console.log(this.arrUsers);
       }
     );
+  }
+
+  addUser(): void{
+    
   }
 }

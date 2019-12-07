@@ -11,7 +11,7 @@ export class AdminComponent implements OnInit {
   adminActive: boolean;
 
   // adminActivate: boolean = true;
-  constructor(private adminService: AdminService) { }
+  constructor(public adminService: AdminService) { }
 
 
   ngOnInit() {

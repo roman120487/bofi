@@ -31,6 +31,13 @@ export class HotPumpsComponent implements OnInit {
   typeVal: string = '';
   brendVal: string = '';
 
+  soilType: boolean;
+  airType: boolean;
+  brineType: boolean;
+  power105: boolean;
+  power22: boolean;
+  power362: boolean;
+
   constructor(private firestore: AngularFirestore) { 
     this.getProducts();
   }
