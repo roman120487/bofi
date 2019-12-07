@@ -9,11 +9,10 @@ export class TypePipe implements PipeTransform {
     if (!value) { return []; }
     if (typeVal === '') { return value; }
     // if (value) { return value; }
-    return value.filter(function (val) {
+    return value.filter(function(val) {
       if (val.type === typeVal) {
         return val;
       }
-    })
+    });
   }
-
 }

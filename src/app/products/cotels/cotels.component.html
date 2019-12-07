@@ -14,28 +14,28 @@
 
         <div class="typeFilter" >
             <p>Тип котла: </p>
-            <input type="checkbox" [(ngModel)]="isChecked" (click)="filterType(isChecked ? '': 'Твердопаливні котли')"><span>Твердопаливні котли</span><br>
-            <input type="checkbox" [(ngModel)]="isChecked2" (click)="filterType(isChecked2 ? '': 'Газові котли')" ><span>Газові котли</span><br>
-            <input type="checkbox" [(ngModel)]="isChecked9" (click)="filterType(isChecked9 ? '': 'Нафтогазові котли')" ><span>Нафтогазові котли</span><br>
+            <input type="checkbox" [(ngModel)]="firmCotel" (click)="filterType(firmCotel ? '': 'Твердопаливні котли')"><span>Твердопаливні котли</span><br>
+            <input type="checkbox" [(ngModel)]="gasCotel" (click)="filterType(gasCotel ? '': 'Газові котли')" ><span>Газові котли</span><br>
+            <input type="checkbox" [(ngModel)]="oilCotel" (click)="filterType(oilCotel ? '': 'Нафтогазові котли')" ><span>Нафтогазові котли</span><br>
         </div>
 
         <div class="brendsFilter">
             <p>Бренди: </p>
-            <input type="checkbox" [(ngModel)]="isChecked6" (click)="filterBrend(isChecked6 ? '': 'ACV')"><span>ACV (Бельгія)</span><br>
-            <input type="checkbox" [(ngModel)]="isChecked7" (click)="filterBrend(isChecked7 ? '': 'Термосталь')"><span>Термосталь ( Греція )</span><br>
+            <input type="checkbox" [(ngModel)]="ACVBrend" (click)="filterBrend(ACVBrend ? '': 'ACV')"><span>ACV (Бельгія)</span><br>
+            <input type="checkbox" [(ngModel)]="termBrend" (click)="filterBrend(termBrend ? '': 'Термосталь')"><span>Термосталь ( Греція )</span><br>
         </div>
 
         <div class="powerFilter">
                 <p>Потужність: </p>
-                <input type="checkbox" [(ngModel)]="isChecked12" (click)="filterPower(isChecked12 ? '': '23-47 кВт')"><span>23-47 кВт </span><br>
-                <input type="checkbox" [(ngModel)]="isChecked14" (click)="filterPower(isChecked14 ? '': '23-32 кВт')"><span>23-32 кВт </span><br>
-                <input type="checkbox" [(ngModel)]="isChecked13" (click)="filterPower(isChecked13 ? '': '23-69 кВт')"><span>23-69 кВт </span><br>
-                <input type="checkbox" [(ngModel)]="isChecked5" (click)="filterPower(isChecked5 ? '': '23-116 кВт')"><span>23-116 кВт </span><br>
-                <input type="checkbox" [(ngModel)]="isChecked11" (click)="filterPower(isChecked11 ? '': '23-140 кВт')"><span>23-140 кВт </span><br>
-                <input type="checkbox" [(ngModel)]="isChecked3" (click)="filterPower(isChecked3 ? '': '23-163 кВт')"><span>23-163 кВт</span><br>
-                <input type="checkbox" [(ngModel)]="isChecked4" (click)="filterPower(isChecked4 ? '': '23-581 кВт')"><span>23-581 кВт</span><br>
-                <input type="checkbox" [(ngModel)]="isChecked15" (click)="filterPower(isChecked15 ? '': '23-1600 кВт')"><span>23-1600 кВт</span><br>
-                <input type="checkbox" [(ngModel)]="isChecked10" (click)="filterPower(isChecked10 ? '': '23-4650 кВт')"><span>23-4650 кВт</span><br>
+                <input type="checkbox" [(ngModel)]="power47" (click)="filterPower(power47 ? '': '23-47 кВт')"><span>23-47 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="power32" (click)="filterPower(power32 ? '': '23-32 кВт')"><span>23-32 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="power69" (click)="filterPower(power69 ? '': '23-69 кВт')"><span>23-69 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="power116" (click)="filterPower(power116 ? '': '23-116 кВт')"><span>23-116 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="power140" (click)="filterPower(power140 ? '': '23-140 кВт')"><span>23-140 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="power163" (click)="filterPower(power163 ? '': '23-163 кВт')"><span>23-163 кВт</span><br>
+                <input type="checkbox" [(ngModel)]="power581" (click)="filterPower(power581 ? '': '23-581 кВт')"><span>23-581 кВт</span><br>
+                <input type="checkbox" [(ngModel)]="power1600" (click)="filterPower(power1600 ? '': '23-1600 кВт')"><span>23-1600 кВт</span><br>
+                <input type="checkbox" [(ngModel)]="power4650" (click)="filterPower(power4650 ? '': '23-4650 кВт')"><span>23-4650 кВт</span><br>
             </div>
     </div>
     <div class="products">
