@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { UploadLogoBrendService } from 'src/app/shared/services/upload-logo-brend.service';
 import { IBrend } from 'src/app/shared/interfaces/brend.interface';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AdminService } from 'src/app/shared/services/admin.service';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 
 @Component({
@@ -18,9 +20,15 @@ export class AdminBrendsComponent implements OnInit {
   text: string;
   title: string;
   logoUrl: string;
-  // formData: IBrend;
+  brends: Array<IBrend>;
 
-  constructor(private uploadLogoBrend: UploadLogoBrendService, private firestore: AngularFirestore, private adminServece: AdminService) {
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  uploadProgress: Observable<number>;
+  downloadURL: Observable<string>;
+  urlImage: string;
+  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore, private adminServece: AdminService) {
+    this.getBrends();
   }
 
   ngOnInit() {
@@ -40,7 +48,7 @@ export class AdminBrendsComponent implements OnInit {
 
   addBrend(): void {
     // console.log(this.uploadLogoBrend.urlImage);
-    this.logoUrl = this.uploadLogoBrend.urlImage;
+    this.logoUrl = this.urlImage;
   }
 
   public onSubmit(form: NgForm) {
@@ -55,5 +63,41 @@ export class AdminBrendsComponent implements OnInit {
     // console.log(this.formData);
     this.resetForm();
   }
+
+
+  public upload(event): void {
+    const id = Math.random().toString(36).substring(2);
+    this.ref = this.firestorage.ref(`brendsLogo/${id}`);
+    this.task = this.ref.put(event.target.files[0]);
+    this.uploadProgress = this.task.percentageChanges();
+    this.task.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadURL = this.ref.getDownloadURL()
+        this.downloadURL.subscribe(url => this.urlImage = url);
+      })
+    ).subscribe();
+  }
+
+
+  public getBrends() {
+    this.firestore.collection('brends').snapshotChanges().subscribe(
+      arrayBlogs => {
+        this.brends = arrayBlogs.map(brend => {
+          return {
+            id: brend.payload.doc.id,
+            ...brend.payload.doc.data()
+          } as IBrend;
+        });
+        console.log(this.brends);
+      }
+    );
+  }
+
+  onDelete(id: string) {
+    if (confirm('Are you sure to delete this record')) {
+      this.firestore.doc('brends/' + id).delete();
+    }
+  }
+
 
 }

@@ -15,16 +15,16 @@
         <div class="form-group row">
             <div class="card-body">
                 <h5 class="card-title">Виберіть логотип бренду:</h5>
-                <input type="file" (change)="uploadLogoBrend.upload($event)" accept=".png,.jpg" value="Виберіть файл" />
+                <input type="file" (change)="upload($event)" accept=".png,.jpg" value="Виберіть файл" />
                 <br><br>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
-                        [style.width]="(uploadLogoBrend.uploadProgress | async) + '%'"
-                        [attr.aria-valuenow]="(uploadLogoBrend.uploadProgress | async)" aria-valuemin="0"
+                        [style.width]="(uploadProgress | async) + '%'"
+                        [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0"
                         aria-valuemax="100"></div>
                 </div>
                 <br>
-                <div *ngIf="uploadLogoBrend.downloadURL | async; let downloadSrc;" class="alert alert-info"
+                <div *ngIf="downloadURL | async; let downloadSrc;" class="alert alert-info"
                     role="alert">
                     File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
                 </div>
@@ -39,7 +39,7 @@
 
 
     
-    <div class="brends" *ngFor="let brend of uploadLogoBrend.brends">
+    <div class="brends" *ngFor="let brend of brends">
         <div class="logo">
             <a href="https://{{brend.link}}" target="_blank"><img src="{{brend.logoUrl}}" alt=""></a>
         </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="editBrends">
             <button type="button" class="btn btn-warning">Edit</button>
-            <button type="button" class="btn btn-danger" (click)="uploadLogoBrend.onDelete(brend.id)">Delete</button>
+            <button type="button" class="btn btn-danger" (click)="onDelete(brend.id)">Delete</button>
         </div>
     </div>
 </div>

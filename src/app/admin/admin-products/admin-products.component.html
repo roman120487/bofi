@@ -10,7 +10,7 @@
         <input type="text" placeholder="Введіть назву товару..." [(ngModel)]="title" name="title">
         <select class="custom-select" id="selectBrandName" [(ngModel)]="brandName" name="brandName">
             <option disabled>Виберіть назву бренду</option>
-            <option *ngFor="let brend of brendsService.brends"  value="{{brend.brend}}">{{brend.brend}}</option>
+            <option *ngFor="let brend of brends"  value="{{brend.brend}}">{{brend.brend}}</option>
         </select>
         <textarea name="" id="" cols="30" rows="0" placeholder="Введіть опис товару..."
             [(ngModel)]="subscribe" name="subscribe"></textarea>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UploadLogoBrendService } from 'src/app/shared/services/upload-logo-brend.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
@@ -7,6 +6,7 @@ import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask 
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/shared/classes/product';
+import { IBrend } from 'src/app/shared/interfaces/brend.interface';
 
 @Component({
   selector: 'app-admin-products',
@@ -46,8 +46,10 @@ export class AdminProductsComponent implements OnInit {
   selectAir: boolean = false;
   selectFrozen: boolean = false;
   modalTitle: string;
-  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore, private brendsService: UploadLogoBrendService) {
+  brends: Array<IBrend>;
+  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore) {
     this.getProducts();
+    this.getBrends();
   }
 
   ngOnInit() {
@@ -167,6 +169,21 @@ export class AdminProductsComponent implements OnInit {
     if (confirm('Are you sure to delete this record')) {
       this.firestore.doc('products/' + id).delete();
     }
+  }
+
+
+  public getBrends() {
+    this.firestore.collection('brends').snapshotChanges().subscribe(
+      arrayBlogs => {
+        this.brends = arrayBlogs.map(brend => {
+          return {
+            id: brend.payload.doc.id,
+            ...brend.payload.doc.data()
+          } as IBrend;
+        });
+        console.log(this.brends);
+      }
+    );
   }
 
 }
