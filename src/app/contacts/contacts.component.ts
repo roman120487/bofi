@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ProductService } from '../shared/services/product.service';
 import { NgForm } from '@angular/forms';
 import { ICallbackUser } from '../shared/interfaces/callback-user.interface';
 
@@ -21,7 +20,7 @@ export class ContactsComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   date = `${this.dateFull.getDate()}.${this.dateFull.getMonth() + 1}.${this.dateFull.getFullYear()}, ${this.dateFull.getHours()}:${this.dateFull.getMinutes()} `;
 
-  constructor(private firestore: AngularFirestore, private productDetails: ProductService) { 
+  constructor(private firestore: AngularFirestore) {
     this.getCallbackList();
   }
 

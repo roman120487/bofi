@@ -1,27 +1,27 @@
 <div class="dataPlace">
-    <form action="" #form='ngForm' autocomplete="off" (submit)="prodService.onSubmit(form)">
-        <select (change)="prodService.selectCategory()" class="custom-select" id="selectCategory" [(ngModel)]="prodService.category" name="category">
+    <form action="" #form='ngForm' autocomplete="off" (submit)="onSubmit(form)">
+        <select (change)="selectCategory()" class="custom-select" id="selectCategory" [(ngModel)]="category" name="category">
             <option disabled>Виберіть категорію товару...</option>
             <option value="opalenya">Системи опалення</option>
             <option value="hotpumps">Теплові насоси</option>
             <option value="airsystems">Вентиляційні системи</option>
             <option value="frozensystems">Холодильне обладнання</option>
         </select>
-        <input type="text" placeholder="Введіть назву товару..." [(ngModel)]="prodService.title" name="title">
-        <select class="custom-select" id="selectBrandName" [(ngModel)]="prodService.brandName" name="brandName">
+        <input type="text" placeholder="Введіть назву товару..." [(ngModel)]="title" name="title">
+        <select class="custom-select" id="selectBrandName" [(ngModel)]="brandName" name="brandName">
             <option disabled>Виберіть назву бренду</option>
             <option *ngFor="let brend of brendsService.brends"  value="{{brend.brend}}">{{brend.brend}}</option>
         </select>
         <textarea name="" id="" cols="30" rows="0" placeholder="Введіть опис товару..."
-            [(ngModel)]="prodService.subscribe" name="subscribe"></textarea>
+            [(ngModel)]="subscribe" name="subscribe"></textarea>
 
-            <select *ngIf="prodService.selectHotPumps"  class="custom-select" id="powerHotPumps" [(ngModel)]="prodService.power" name="power">
+            <select *ngIf="selectHotPumps"  class="custom-select" id="powerHotPumps" [(ngModel)]="power" name="power">
                 <option disabled>Виберіть потужність приладу...</option>
                 <option value="8-22 кВт">8-22 кВт</option>
                 <option value="40-105 кВт">40-105 кВт</option>
                 <option value="218-362 кВт">218-362 кВт</option>
             </select>
-            <select *ngIf="prodService.selectCotels"  class="custom-select" id="powerCotels" [(ngModel)]="prodService.power" name="power">
+            <select *ngIf="selectCotels"  class="custom-select" id="powerCotels" [(ngModel)]="power" name="power">
                 <option disabled>Виберіть потужність приладу...</option>
                 <option value="23-32 кВт">23-32 кВт</option>
                 <option value="23-47 кВт">23-47 кВт</option>
@@ -34,65 +34,65 @@
                 <option value="23-4650 кВт">23-4650 кВт</option>
                 
             </select>
-            <select *ngIf="prodService.selectAir"  class="custom-select" id="powerAir" [(ngModel)]="prodService.power" name="power">
+            <select *ngIf="selectAir"  class="custom-select" id="powerAir" [(ngModel)]="power" name="power">
                 <option disabled>Виберіть потужність приладу...</option>
                 <option value="8-22 кВт">123 кВт</option>
                 <option value="40-105 кВт">123 кВт</option>
                 <option value="218-362 кВт">123 кВт</option>
             </select>
-            <select *ngIf="prodService.selectFrozen"  class="custom-select" id="arrProduct" [(ngModel)]="prodService.power" name="power">
+            <select *ngIf="selectFrozen"  class="custom-select" id="arrProduct" [(ngModel)]="power" name="power">
                 <option disabled>Виберіть потужність приладу...</option>
                 <option value="8-22 кВт">789 кВт</option>
                 <option value="40-105 кВт">789 кВт</option>
                 <option value="218-362 кВт">789 кВт</option>
             </select>
 
-            <select *ngIf="prodService.selectCotels" class="custom-select" id="selectType" [(ngModel)]="prodService.type" name="type">
+            <select *ngIf="selectCotels" class="custom-select" id="selectType" [(ngModel)]="type" name="type">
                 <option disabled selected>Виберіть тип приладу...</option>
                 <option value="Твердопаливні котли">Твердопаливні котли</option>
                 <option value="Газові котли">Газові котли</option>
                 <option value="Нафтогазові котли">Нафтогазові котли</option>
             </select>
-            <select *ngIf="prodService.selectHotPumps" class="custom-select" id="selectType" [(ngModel)]="prodService.type" name="type">
+            <select *ngIf="selectHotPumps" class="custom-select" id="selectType" [(ngModel)]="type" name="type">
                 <option disabled selected>Виберіть тип приладу...</option>
                 <option value="Грунт/вода">грунт/вода</option>
                 <option value="Воздух/вода">воздух/вода</option>
                 <option value="Розсіл/вода">розсіл/вода</option>
             </select>
-            <select *ngIf="prodService.selectAir" class="custom-select" id="selectType" [(ngModel)]="prodService.type" name="type">
+            <select *ngIf="selectAir" class="custom-select" id="selectType" [(ngModel)]="type" name="type">
                 <option disabled selected>Виберіть тип приладу...</option>
                 <option value="Побудова вентиляція">Побудова вентиляція</option>
                 <option value="Промислова вентиляція">Промислова вентиляція</option>
             </select>
-            <select *ngIf="prodService.selectFrozen" class="custom-select" id="selectType" [(ngModel)]="prodService.type" name="type">
+            <select *ngIf="selectFrozen" class="custom-select" id="selectType" [(ngModel)]="type" name="type">
                 <option disabled selected>Виберіть тип приладу...</option>
                 <option value="Побудова система">Побудова система</option>
                 <option value="Промислова система">Промислова система</option>
             </select>
         <div class="form-group">
-            <input type="hidden" name="imgUrl" [(ngModel)]="prodService.imgUrl">
+            <input type="hidden" name="imgUrl" [(ngModel)]="imgUrl">
         </div>
 
         <!-- upload image -->
         <div class="form-group row uploadBrendLogo">
             <div class="card-body">
                 <h5 class="card-title">Виберіть логотип бренду:</h5>
-                <input type="file" (change)="prodService.upload($event)" accept=".png,.jpg" value="Виберіть файл" />
+                <input type="file" (change)="upload($event)" accept=".png,.jpg" value="Виберіть файл" />
                 <br><br>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
-                        [style.width]="(prodService.uploadProgress | async) + '%'"
+                        [style.width]="(uploadProgress | async) + '%'"
                         [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <br>
-                <div *ngIf="prodService.downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+                <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
                     File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
                 </div>
                 <br>
             </div>
         </div>
         <!-- ------- -->
-        <button type="submit" class="btn btn-outline-dark" (click)='prodService.addProduct()'>Додати</button>
+        <button type="submit" class="btn btn-outline-dark" (click)='addProduct()'>Додати</button>
     </form>
 
 
@@ -112,18 +112,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of prodService.arrProduct; let i = index">
+            <tr *ngFor="let product of arrProduct; let i = index">
                 <th scope="row">{{i+1}}</th>
                 <td>{{product.title}}</td>
                 <td>{{product.subscribe}}</td>
                 <td>{{product.category}}</td>
                 <td><img src="{{product.imgUrl}}" alt=""></td>
                 <td>
-                    <button type="button" class="btn btn-warning" (click)="prodService.editeProd(product.id)"
+                    <button type="button" class="btn btn-warning" (click)="editeProd(product.id)"
                         data-toggle="modal" data-target="#prodEdit">Edit</button>
                 </td>
                 <td><button type="button" class="btn btn-danger"
-                        (click)="prodService.onDelete(product.id)">Delete</button></td>
+                        (click)="onDelete(product.id)">Delete</button></td>
             </tr>
         </tbody>
     </table>
@@ -144,32 +144,32 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" #form2='ngForm' autocomplete="off" (submit)="prodService.saveEditeProduct(form2)">
-                    <input type="text" name="title" [(ngModel)]="prodService.titleEdit">
-                    <input type="text" name="brandName" [(ngModel)]="prodService.brandNameEdit">
-                    <input type="text" name="power" [(ngModel)]="prodService.powerEdit">
-                    <input type="text" name="type" [(ngModel)]="prodService.typeEdit">
+                <form action="" #form2='ngForm' autocomplete="off" (submit)="saveEditeProduct(form2)">
+                    <input type="text" name="title" [(ngModel)]="titleEdit">
+                    <input type="text" name="brandName" [(ngModel)]="brandNameEdit">
+                    <input type="text" name="power" [(ngModel)]="powerEdit">
+                    <input type="text" name="type" [(ngModel)]="typeEdit">
                     <textarea class="subscribe" id="" cols="30" rows="10" name="subscribe"
-                        [(ngModel)]="prodService.subscribeEdit"></textarea>
-                    <div class="imageEdite"><img src="{{prodService.urlImgEdite}}" alt=""></div>
-                    <input type="hidden" name="imgUrl" [(ngModel)]="prodService.urlImgEdite">
+                        [(ngModel)]="subscribeEdit"></textarea>
+                    <div class="imageEdite"><img src="{{urlImgEdite}}" alt=""></div>
+                    <input type="hidden" name="imgUrl" [(ngModel)]="urlImgEdite">
 
                     <!-- upload image -->
                     <div class="form-group row uploadImmageEdit">
                         <div class="card-body">
                             <h5 class="card-title">Виберіть картинку як що потрібно замінити:</h5>
-                            <input type="file" (change)="prodService.upload($event)" accept=".png,.jpg"
+                            <input type="file" (change)="upload($event)" accept=".png,.jpg"
                                 value="Виберіть файл" />
                             <br><br>
                             <div class="progress">
                                 <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
-                                    [style.width]="(prodService.uploadProgress | async) + '%'"
+                                    [style.width]="(uploadProgress | async) + '%'"
                                     [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0"
                                     aria-valuemax="100">
                                 </div>
                             </div>
                             <br>
-                            <div *ngIf="prodService.downloadURL | async; let downloadSrc" class="alert alert-info"
+                            <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info"
                                 role="alert">
                                 File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
                             </div>

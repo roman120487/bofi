@@ -72,9 +72,7 @@ export class HeaderComponent implements OnInit {
   }
 
   routeAdmin(): void {
-    // console.log(this.adminServece.adminActivate);
     this.adminServece.adminActivate = true;
-    // console.log(this.adminServece.adminActivate);
 
   }
 

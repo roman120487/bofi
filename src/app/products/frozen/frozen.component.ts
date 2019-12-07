@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/shared/services/product.service';
 import { DetailsProdService } from 'src/app/shared/services/details-prod.service';
 import { FilterService } from 'src/app/shared/services/filter.service';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { IProduct } from 'src/app/shared/interfaces/product.interface';
+import { Product } from 'src/app/shared/classes/product';
 
 @Component({
   selector: 'app-frozen',
@@ -20,8 +22,12 @@ export class FrozenComponent implements OnInit {
   name = '';
   email = '';
   phone = '';
+  arrProduct: Array<Product>;
+
   // tslint:disable-next-line: max-line-length
-  constructor(private firestore: AngularFirestore, private filterService: FilterService, private prodService: ProductService, private productDetails: DetailsProdService) { }
+  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore, private filterService: FilterService, private productDetails: DetailsProdService) { 
+    this.getProducts();
+  }
 
   ngOnInit() {
     // this.callbackService.text = this.productDetails.modalTitle;
@@ -64,6 +70,21 @@ export class FrozenComponent implements OnInit {
         }, 2000);
       }
     }
+  }
+
+
+
+  public getProducts() {
+    this.firestore.collection('products').snapshotChanges().subscribe(
+      arrayProducts => {
+        this.arrProduct = arrayProducts.map(product => {
+          return {
+            id: product.payload.doc.id,
+            ...product.payload.doc.data()
+          } as IProduct;
+        });
+      }
+    );
   }
 
 }

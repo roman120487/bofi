@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/shared/services/product.service';
 import { DetailsProdService } from 'src/app/shared/services/details-prod.service';
 import { FilterService } from 'src/app/shared/services/filter.service';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { IProduct } from 'src/app/shared/interfaces/product.interface';
+import { Product } from 'src/app/shared/classes/product';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-cotels',
@@ -20,8 +22,11 @@ export class CotelsComponent implements OnInit {
   name: string = '';
   email: string = '';
   phone: string = '';
+  arrProduct: Array<Product>;
   // tslint:disable-next-line: max-line-length
-  constructor(private firestore: AngularFirestore, private filterService: FilterService, private prodService: ProductService, private productDetails: DetailsProdService) { }
+  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore, private filterService: FilterService, private productDetails: DetailsProdService) {
+    this.getProducts();
+  }
 
   ngOnInit() {
   }
@@ -63,7 +68,23 @@ export class CotelsComponent implements OnInit {
         }, 2000);
       }
     }
-
-
   }
+
+
+  public getProducts() {
+    this.firestore.collection('products').snapshotChanges().subscribe(
+      arrayProducts => {
+        this.arrProduct = arrayProducts.map(product => {
+          return {
+            id: product.payload.doc.id,
+            ...product.payload.doc.data()
+          } as IProduct;
+        });
+      }
+    );
+  }
+
+
+
+
 }
