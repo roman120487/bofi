@@ -14,36 +14,36 @@
 
         <div class="typeFilter" >
             <p>Тип котла: </p>
-            <input type="checkbox" [(ngModel)]="isChecked" (click)="filterService.filterType(isChecked ? '': 'Твердопаливні котли')"><span>Твердопаливні котли</span><br>
-            <input type="checkbox" [(ngModel)]="isChecked2" (click)="filterService.filterType(isChecked2 ? '': 'Газові котли')" ><span>Газові котли</span><br>
-            <input type="checkbox" [(ngModel)]="isChecked9" (click)="filterService.filterType(isChecked9 ? '': 'Нафтогазові котли')" ><span>Нафтогазові котли</span><br>
+            <input type="checkbox" [(ngModel)]="isChecked" (click)="filterType(isChecked ? '': 'Твердопаливні котли')"><span>Твердопаливні котли</span><br>
+            <input type="checkbox" [(ngModel)]="isChecked2" (click)="filterType(isChecked2 ? '': 'Газові котли')" ><span>Газові котли</span><br>
+            <input type="checkbox" [(ngModel)]="isChecked9" (click)="filterType(isChecked9 ? '': 'Нафтогазові котли')" ><span>Нафтогазові котли</span><br>
         </div>
 
         <div class="brendsFilter">
             <p>Бренди: </p>
-            <input type="checkbox" [(ngModel)]="isChecked6" (click)="filterService.filterBrend(isChecked6 ? '': 'ACV')"><span>ACV (Бельгія)</span><br>
-            <input type="checkbox" [(ngModel)]="isChecked7" (click)="filterService.filterBrend(isChecked7 ? '': 'Термосталь')"><span>Термосталь ( Греція )</span><br>
+            <input type="checkbox" [(ngModel)]="isChecked6" (click)="filterBrend(isChecked6 ? '': 'ACV')"><span>ACV (Бельгія)</span><br>
+            <input type="checkbox" [(ngModel)]="isChecked7" (click)="filterBrend(isChecked7 ? '': 'Термосталь')"><span>Термосталь ( Греція )</span><br>
         </div>
 
         <div class="powerFilter">
                 <p>Потужність: </p>
-                <input type="checkbox" [(ngModel)]="isChecked12" (click)="filterService.filterPower(isChecked12 ? '': '23-47 кВт')"><span>23-47 кВт </span><br>
-                <input type="checkbox" [(ngModel)]="isChecked14" (click)="filterService.filterPower(isChecked14 ? '': '23-32 кВт')"><span>23-32 кВт </span><br>
-                <input type="checkbox" [(ngModel)]="isChecked13" (click)="filterService.filterPower(isChecked13 ? '': '23-69 кВт')"><span>23-69 кВт </span><br>
-                <input type="checkbox" [(ngModel)]="isChecked5" (click)="filterService.filterPower(isChecked5 ? '': '23-116 кВт')"><span>23-116 кВт </span><br>
-                <input type="checkbox" [(ngModel)]="isChecked11" (click)="filterService.filterPower(isChecked11 ? '': '23-140 кВт')"><span>23-140 кВт </span><br>
-                <input type="checkbox" [(ngModel)]="isChecked3" (click)="filterService.filterPower(isChecked3 ? '': '23-163 кВт')"><span>23-163 кВт</span><br>
-                <input type="checkbox" [(ngModel)]="isChecked4" (click)="filterService.filterPower(isChecked4 ? '': '23-581 кВт')"><span>23-581 кВт</span><br>
-                <input type="checkbox" [(ngModel)]="isChecked15" (click)="filterService.filterPower(isChecked15 ? '': '23-1600 кВт')"><span>23-1600 кВт</span><br>
-                <input type="checkbox" [(ngModel)]="isChecked10" (click)="filterService.filterPower(isChecked10 ? '': '23-4650 кВт')"><span>23-4650 кВт</span><br>
+                <input type="checkbox" [(ngModel)]="isChecked12" (click)="filterPower(isChecked12 ? '': '23-47 кВт')"><span>23-47 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="isChecked14" (click)="filterPower(isChecked14 ? '': '23-32 кВт')"><span>23-32 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="isChecked13" (click)="filterPower(isChecked13 ? '': '23-69 кВт')"><span>23-69 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="isChecked5" (click)="filterPower(isChecked5 ? '': '23-116 кВт')"><span>23-116 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="isChecked11" (click)="filterPower(isChecked11 ? '': '23-140 кВт')"><span>23-140 кВт </span><br>
+                <input type="checkbox" [(ngModel)]="isChecked3" (click)="filterPower(isChecked3 ? '': '23-163 кВт')"><span>23-163 кВт</span><br>
+                <input type="checkbox" [(ngModel)]="isChecked4" (click)="filterPower(isChecked4 ? '': '23-581 кВт')"><span>23-581 кВт</span><br>
+                <input type="checkbox" [(ngModel)]="isChecked15" (click)="filterPower(isChecked15 ? '': '23-1600 кВт')"><span>23-1600 кВт</span><br>
+                <input type="checkbox" [(ngModel)]="isChecked10" (click)="filterPower(isChecked10 ? '': '23-4650 кВт')"><span>23-4650 кВт</span><br>
             </div>
     </div>
     <div class="products">
-        <div class="product" *ngFor="let product of arrProduct | cotel | power:filterService.powerVal | type:filterService.typeVal | brend:filterService.brendVal" >
+        <div class="product" *ngFor="let product of arrProduct | cotel | power:powerVal | type:typeVal | brend:brendVal" >
             <table>
                 <tr>{{product.title}}</tr>
                 <tr><img src="{{product.imgUrl}}" alt=""></tr>
-                <tr><button (click)="productDetails.showProdDetails(product.id)" type="button" class="btn btn-success" data-toggle="modal" data-target="#prodDetails">Детальніше</button></tr>
+                <tr><button (click)="showProdDetails(product.id)" type="button" class="btn btn-success" data-toggle="modal" data-target="#prodDetails">Детальніше</button></tr>
               </table>
             
         </div>
@@ -58,22 +58,22 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title modalTitle" id="exampleModalLabel">{{productDetails.modalTitle}}</h5>
+        <h5 class="modal-title modalTitle" id="exampleModalLabel">{{modalTitle}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="modalImg"><img src="{{productDetails.modalImg}}" alt=""></div>
-        <div class="modalFilter"><span>Бренд:</span>{{productDetails.modalBrandName}}</div>
-        <div class="modalSubskribe"><p>Опис: </p>{{productDetails.modalSubscribe}}</div>
-        <div class="modalFilter"><span>Тип:</span>{{productDetails.modalType}}</div>
-        <div class="modalFilter"><span>Потужність:</span>{{productDetails.modalPower}}</div>
+        <div class="modalImg"><img src="{{modalImg}}" alt=""></div>
+        <div class="modalFilter"><span>Бренд:</span>{{modalBrandName}}</div>
+        <div class="modalSubskribe"><p>Опис: </p>{{modalSubscribe}}</div>
+        <div class="modalFilter"><span>Тип:</span>{{modalType}}</div>
+        <div class="modalFilter"><span>Потужність:</span>{{modalPower}}</div>
         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prodOrder" (click)="order(productDetails.modalTitle)" >Замовити</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prodOrder" (click)="order(modalTitle)" >Замовити</button>
       </div>
     </div>
   </div>
@@ -86,7 +86,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title modalTitle" id="exampleModalLabel">{{productDetails.modalTitle}}</h5>
+                <h5 class="modal-title modalTitle" id="exampleModalLabel">{{modalTitle}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -114,7 +114,7 @@
                             <textarea class="form-control" aria-label="With textarea" [(ngModel)]="text"
                                 name="text"></textarea>
                         </div>
-                        <button type="button" (click)="onSubmit(form)" class="btn btn-primary callBackBtn">Відправити запит</button> <p class="warningCallback">{{callbackService.sendBTN}}</p>
+                        <button type="button" (click)="onSubmit(form)" class="btn btn-primary callBackBtn">Відправити запит</button> <p class="warningCallback">{{sendBTN}}</p>
 
                     </form>
                 </div>

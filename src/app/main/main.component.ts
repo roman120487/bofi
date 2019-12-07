@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DetailsProdService } from '../shared/services/details-prod.service';
 import { IProduct } from '../shared/interfaces/product.interface';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Product } from '../shared/classes/product';
@@ -23,9 +22,16 @@ export class MainComponent implements OnInit {
   dateFull: Date = new Date();
   sendBTN: string = '';
   text: string = '';
+  modalTitle: string;
+  modalImg: string;
+  modalSubscribe: string;
+  modalType: string;
+  modalPower: string;
+  modalBrandName: string;
+  prod: any;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private firestore: AngularFirestore, private productDetails: DetailsProdService) {
+  constructor(private firestore: AngularFirestore) {
     this.getProducts();
 
   }
@@ -96,11 +102,20 @@ export class MainComponent implements OnInit {
   }
 
 
+  showProdDetails(id): any {
+    this.prod = this.arrProduct.find(function (val) {
+      if (val.id === id) {
+        return val;
+      }
+    });
+    this.modalTitle = this.prod.title;
+    this.modalImg = this.prod.imgUrl;
+    this.modalSubscribe = this.prod.subscribe;
+    this.modalType = this.prod.type;
+    this.modalPower = this.prod.power;
+    this.modalBrandName = this.prod.brandName;
+  }
+
+
 }
 
-// setTimeout(() => {
-//   console.log(this.arrProduct.length);
-//   this.finishNum = this.randomNum + 4;
-//   this.randomNum = Math.floor((Math.random() * (5 - 0) + 0));
-//   console.log(this.randomNum);
-// }, 5000);

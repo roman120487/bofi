@@ -1,16 +1,6 @@
 <div class="cotelsContainer">
   <div class="leftSideBar">
     <h4>Фільтр</h4>
-    <!-- <div class="priceFilter">
-                <p>Діапазон цін: </p>
-                <div>
-                    <p>від:</p>
-                    <input type="text" placeholder="грн">
-    
-                    <p>до:</p>
-                    <input type="text" placeholder="грн">
-                </div>
-            </div> -->
 
     <div class="typeFilter">
       <p>Вид: </p>
@@ -38,11 +28,8 @@
     <div class="product" *ngFor="let product of arrProduct | air">
       <table>
         <tr>{{product.title}}</tr>
-        <!-- <tr>{{product.subscribe}}</tr> -->
-        <!-- <tr>{{product.category}}</tr> -->
-        <!-- <tr style="background-image: url({{product.imgUrl}});"></tr> -->
         <tr><img src="{{product.imgUrl}}" alt=""></tr>
-        <tr><button (click)="productDetails.showProdDetails(product.id)" type="button" class="btn btn-success"
+        <tr><button (click)="showProdDetails(product.id)" type="button" class="btn btn-success"
             data-toggle="modal" data-target="#prodDetails">Детальніше</button></tr>
       </table>
 
@@ -57,22 +44,22 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title modalTitle" id="exampleModalLabel">{{productDetails.modalTitle}}</h5>
+        <h5 class="modal-title modalTitle" id="exampleModalLabel">{{modalTitle}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="modalImg"><img src="{{productDetails.modalImg}}" alt=""></div>
-        <div class="modalFilter"><span>Бренд:</span>{{productDetails.modalBrandName}}</div>
-        <div class="modalSubskribe"><p>Опис: </p>{{productDetails.modalSubscribe}}</div>
-        <div class="modalFilter"><span>Тип:</span>{{productDetails.modalType}}</div>
-        <div class="modalFilter"><span>Потужність:</span>{{productDetails.modalPower}}</div>
+        <div class="modalImg"><img src="{{modalImg}}" alt=""></div>
+        <div class="modalFilter"><span>Бренд:</span>{{modalBrandName}}</div>
+        <div class="modalSubskribe"><p>Опис: </p>{{modalSubscribe}}</div>
+        <div class="modalFilter"><span>Тип:</span>{{modalType}}</div>
+        <div class="modalFilter"><span>Потужність:</span>{{modalPower}}</div>
         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prodOrder" (click)="order(productDetails.modalTitle)" >Замовити</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#prodOrder" (click)="order(modalTitle)" >Замовити</button>
       </div>
     </div>
   </div>
@@ -85,7 +72,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title modalTitle" id="exampleModalLabel">{{productDetails.modalTitle}}</h5>
+                <h5 class="modal-title modalTitle" id="exampleModalLabel">{{modalTitle}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -113,7 +100,7 @@
                             <textarea class="form-control" aria-label="With textarea" [(ngModel)]="text"
                                 name="text"></textarea>
                         </div>
-                        <button type="button" (click)="onSubmit(form)" class="btn btn-primary callBackBtn">Відправити запит</button> <p class="warningCallback">{{callbackService.sendBTN}}</p>
+                        <button type="button" (click)="onSubmit(form)" class="btn btn-primary callBackBtn">Відправити запит</button> <p class="warningCallback">{{sendBTN}}</p>
 
                     </form>
                 </div>
@@ -121,7 +108,6 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
-                <!-- <button type="button" class="btn btn-primary">Надіслати замовлення</button> -->
             </div>
         </div>
     </div>

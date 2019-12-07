@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterService } from 'src/app/shared/services/filter.service';
 
 @Component({
   selector: 'app-admin-characteristics',
@@ -8,7 +7,7 @@ import { FilterService } from 'src/app/shared/services/filter.service';
 })
 export class AdminСharacteristicsComponent implements OnInit {
 
-  constructor(private filterService: FilterService) { }
+  constructor() { }
 
   ngOnInit() {
   }

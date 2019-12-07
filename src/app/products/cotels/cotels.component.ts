@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DetailsProdService } from 'src/app/shared/services/details-prod.service';
-import { FilterService } from 'src/app/shared/services/filter.service';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
@@ -23,12 +21,35 @@ export class CotelsComponent implements OnInit {
   email: string = '';
   phone: string = '';
   arrProduct: Array<Product>;
+
+  prod: any;
+  modalTitle: string;
+  modalImg: string;
+  modalSubscribe: string;
+  modalType: string;
+  modalPower: string;
+  modalBrandName: string;
+
+  powerVal: string = '';
+  typeVal: string = '';
+  brendVal: string = '';
   // tslint:disable-next-line: max-line-length
-  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore, private filterService: FilterService, private productDetails: DetailsProdService) {
+  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore) {
     this.getProducts();
   }
 
   ngOnInit() {
+  }
+  filterPower(val) {
+    this.powerVal = val;
+  }
+
+  filterType(val) {
+    this.typeVal = val;
+  }
+
+  filterBrend(val) {
+    this.brendVal = val;
   }
 
   order(title): void {
@@ -85,6 +106,18 @@ export class CotelsComponent implements OnInit {
   }
 
 
-
+  showProdDetails(id): any {
+    this.prod = this.arrProduct.find(function (val) {
+      if (val.id === id) {
+        return val;
+      }
+    });
+    this.modalTitle = this.prod.title;
+    this.modalImg = this.prod.imgUrl;
+    this.modalSubscribe = this.prod.subscribe;
+    this.modalType = this.prod.type;
+    this.modalPower = this.prod.power;
+    this.modalBrandName = this.prod.brandName;
+  }
 
 }

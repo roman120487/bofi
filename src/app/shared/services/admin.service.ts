@@ -7,6 +7,4 @@ export class AdminService {
   adminActivate: boolean = false;
   enterAdmin: boolean;
   constructor() { }
-
-  
 }
