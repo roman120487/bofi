@@ -1,19 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { ArrayType } from '@angular/compiler';
 
 @Pipe({
-  name: 'power'
+  name: 'power',
+  pure: false
 })
 export class PowerPipe implements PipeTransform {
 
-  transform(value: any[], powerVal: string): any {
+  transform(value: any[], masPowerFilter: any[]): any {
+    return value;
     if (!value) { return []; }
-    if (powerVal === '') { return value; }
+    if (masPowerFilter == []) { return value; }
     // if (value) { return value; }
-    return value.filter(function (val) {
-      if (val.power === powerVal) {
-        return val;
-      }
-    })
+    // return value.filter(function (val) {
+    //   if (val.power === masPowerFilter) {
+    //     return val;
+    //   }
+    // })
   }
 
 }

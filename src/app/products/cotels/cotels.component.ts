@@ -35,20 +35,7 @@ export class CotelsComponent implements OnInit {
   typeVal: string = '';
   brendVal: string = '';
 
-  firmCotel: boolean;
-  gasCotel: boolean;
-  oilCotel: boolean;
-  ACVBrend: boolean;
-  termBrend: boolean;
-  power47: boolean;
-  power32: boolean;
-  power69: boolean;
-  power116: boolean;
-  power140: boolean;
-  power163: boolean;
-  power581: boolean;
-  power1600: boolean;
-  power4650: boolean;
+  masPowerFilter = [];
 
   // tslint:disable-next-line: max-line-length
   constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore, private route: ActivatedRoute) {
@@ -61,7 +48,9 @@ export class CotelsComponent implements OnInit {
 
   }
   filterPower(val) {
-    this.powerVal = val;
+    this.masPowerFilter.push(val);
+    console.log(this.masPowerFilter);
+    
   }
 
   filterType(val) {
