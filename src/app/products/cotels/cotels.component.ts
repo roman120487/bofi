@@ -31,11 +31,9 @@ export class CotelsComponent implements OnInit {
   modalPower: string;
   modalBrandName: string;
 
-  powerVal: string = '';
-  typeVal: string = '';
-  brendVal: string = '';
-
-  masPowerFilter = [];
+  masPowerFilter: Array<string> = [];
+  masTypeFilter: Array<string> = [];
+  masBrendFilter: Array<string> = [];
 
   // tslint:disable-next-line: max-line-length
   constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore, private route: ActivatedRoute) {
@@ -44,21 +42,46 @@ export class CotelsComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.route.paramMap);
-    
-
-  }
-  filterPower(val) {
-    this.masPowerFilter.push(val);
-    console.log(this.masPowerFilter);
-    
   }
 
-  filterType(val) {
-    this.typeVal = val;
+
+  filterPower(val: string) {
+    const existElement = this.masPowerFilter.some(function (element) {
+      return element === val;
+    });
+
+    if (existElement) {
+      this.masPowerFilter.splice(this.masPowerFilter.indexOf(val), 1);
+    } else {
+      this.masPowerFilter.push(val);
+    }
+  }
+
+  filterType(val: string) {
+    const existElement = this.masTypeFilter.some(function (element) {
+      return element === val;
+    });
+
+    if (existElement) {
+      this.masTypeFilter.splice(this.masTypeFilter.indexOf(val), 1);
+    } else {
+      this.masTypeFilter.push(val);
+    }
+    
   }
 
   filterBrend(val) {
-    this.brendVal = val;
+    const existElement = this.masBrendFilter.some(function (element) {
+      return element === val;
+    });
+
+    if (existElement) {
+      this.masBrendFilter.splice(this.masBrendFilter.indexOf(val), 1);
+    } else {
+      this.masBrendFilter.push(val);
+    }
+    console.log(this.masBrendFilter);
+    
   }
 
   order(title): void {
@@ -74,15 +97,15 @@ export class CotelsComponent implements OnInit {
 
   public onSubmit(form: NgForm) {
     if (this.email === '' || this.name === '' || this.phone === '' || this.text === '') {
-      this.sendBTN = "Ви не заповнили якесь поле"
+      this.sendBTN = 'Ви не заповнили якесь поле'
     } else {
       // tslint:disable-next-line: max-line-length
       const regExpEmail = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
       const regExpPhone = /^\d[\d\(\)\ -]{4,14}\d$/;
       if (regExpEmail.test(this.email) === false) {
-        this.sendBTN = "невірний формат e-mail адреси"
+        this.sendBTN = 'невірний формат e-mail адреси';
       } else if (regExpPhone.test(this.phone) === false) {
-        this.sendBTN = "невірний формат телефону"
+        this.sendBTN = 'невірний формат телефону';
       } else {
         const data = Object.assign({}, form.value);
         delete data.id;
@@ -92,9 +115,9 @@ export class CotelsComponent implements OnInit {
           this.firestore.doc('callbacks/' + form.value.id).update(data);
         }
         this.resetForm();
-        this.sendBTN = "Запит відправлено"
+        this.sendBTN = 'Запит відправлено';
         setTimeout(() => {
-          this.sendBTN = ''
+          this.sendBTN = '';
         }, 2000);
       }
     }

@@ -7,16 +7,26 @@ import { ArrayType } from '@angular/compiler';
 })
 export class PowerPipe implements PipeTransform {
 
-  transform(value: any[], masPowerFilter: any[]): any {
-    return value;
-    if (!value) { return []; }
-    if (masPowerFilter == []) { return value; }
-    // if (value) { return value; }
-    // return value.filter(function (val) {
-    //   if (val.power === masPowerFilter) {
-    //     return val;
-    //   }
-    // })
+  transform(value: any[], masPowerFilter: string[]): any {
+    // if (!value) { return []; }
+    if (masPowerFilter.length === 0) { return value; }
+    // if (value) { return []; }
+    return value.filter(function (val) {
+      
+    // не працює церез forEach
+      // masPowerFilter.forEach(elem => {
+      //   if (val.power === elem) {
+      //         return val;
+      //       }
+      // });
+
+      // tslint:disable-next-line: prefer-for-of
+      for (let i = 0; i < masPowerFilter.length; i++) {
+        if (val.power === masPowerFilter[i]) {
+          return val;
+        }
+      }
+    });
   }
 
 }

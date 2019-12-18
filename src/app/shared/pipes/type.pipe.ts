@@ -1,18 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'type'
+  name: 'type',
+  pure: false
 })
 export class TypePipe implements PipeTransform {
 
-  transform(value: any[], typeVal: string): any {
-    if (!value) { return []; }
-    if (typeVal === '') { return value; }
-    // if (value) { return value; }
-    return value.filter(function(val) {
-      if (val.type === typeVal) {
-        return val;
+  transform(value: any[], masTypeFilter: string[]): any {
+    // if (!value) { return []; }
+    if (masTypeFilter.length === 0) { return value; }
+    // if (value) { return []; }
+    return value.filter(function (val) {
+      // tslint:disable-next-line: prefer-for-of
+      for (let i = 0; i < masTypeFilter.length; i++) {
+        if (val.type === masTypeFilter[i]) {
+          return val;
+        }
       }
-    });
+    })
   }
 }
