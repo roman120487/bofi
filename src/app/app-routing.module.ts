@@ -32,8 +32,9 @@ import { LiketechnoComponent } from './reference/liketechno/liketechno.component
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/main', pathMatch: 'full' },
   { path: 'main', component: MainComponent },
-  { path: 'cotels', component: CotelsComponent },
+  { path: 'cotels/:name', component: CotelsComponent },
   { path: 'ventilation', component: VentilationComponent },
   { path: 'frozen', component: FrozenComponent },
   { path: 'about-us', component: AboutUsComponent },

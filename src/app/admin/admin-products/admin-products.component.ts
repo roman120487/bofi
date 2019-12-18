@@ -7,6 +7,7 @@ import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/shared/classes/product';
 import { IBrend } from 'src/app/shared/interfaces/brend.interface';
+import { AdminService } from 'src/app/shared/services/admin.service';
 
 @Component({
   selector: 'app-admin-products',
@@ -47,7 +48,7 @@ export class AdminProductsComponent implements OnInit {
   selectFrozen: boolean = false;
   modalTitle: string;
   brends: Array<IBrend>;
-  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore) {
+  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore, adminService: AdminService) {
     this.getProducts();
     this.getBrends();
   }
@@ -82,7 +83,7 @@ export class AdminProductsComponent implements OnInit {
   }
 
   editeProd(id): void {
-    this.productForEdit = this.arrProduct.find(function (val) {
+    this.productForEdit = this.arrProduct.find(val => {
       if (val.id === id) {
         return val;
       }
@@ -102,6 +103,7 @@ export class AdminProductsComponent implements OnInit {
 
     const data = Object.assign({}, form2.value);
     this.firestore.doc('products/' + this.idProdEdit).update(data);
+    // this.adminService.saveProduct(this.idProdEdit, data);
   }
 
 

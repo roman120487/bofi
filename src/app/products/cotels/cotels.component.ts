@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { Product } from 'src/app/shared/classes/product';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cotels',
@@ -50,11 +51,14 @@ export class CotelsComponent implements OnInit {
   power4650: boolean;
 
   // tslint:disable-next-line: max-line-length
-  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore) {
+  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore, private route: ActivatedRoute) {
     this.getProducts();
   }
 
   ngOnInit() {
+    console.log(this.route.paramMap);
+    
+
   }
   filterPower(val) {
     this.powerVal = val;
