@@ -1,0 +1,54 @@
+<div class="containerContacts">
+    <div class="ContactInfo">
+        <div class="address">
+            <i class="fas fa-map-marked-alt fa-lg"></i>
+            <p>Україні, м.Львів, 79053, вул.В.Великого 18, офіс 825</p>
+        </div>
+        <div class="phone">
+            <div><i class="fas fa-phone-volume fa-lg"></i></div>
+            <p>тел./факс: (032) 241-70-01, моб. +38(067) 236-11-19</p>
+        </div>
+
+        <div class="email">
+            <i class="fas fa-envelope fa-lg"></i>
+            <p>info@bofi.com.ua</p>
+        </div>
+
+
+        <!-- <br>
+        <p>Ukraine, 79053, Lviv, 18, Volodymyra Velykogo Str.,Office 825</p>
+        <p>tel./fax: +38(032) 241-70-01, handy: +38(067) 236-11-19</p> -->
+    </div>
+    <div class="infoBlaBla">
+        <p>Якщо у вас виникають питання з придбанням товару
+            або технічні питання, наші фахівці і менеджери
+            завжди раді вам відповісти і допомогти з вибором!</p>
+    </div>
+    <div class="map">
+        <p>ВИ НАС ЛЕГКО МОЖЕТЕ ЗНАЙТИ:</p>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d910.2916158848398!2d24.00243023191465!3d49.81062970771227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae797a76fe6e9%3A0xdc27fc456e39b628!2z0LLRg9C70LjRhtGPINCS0L7Qu9C-0LTQuNC80LjRgNCwINCS0LXQu9C40LrQvtCz0L4sIDE4LCDQm9GM0LLRltCyLCDQm9GM0LLRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDc5MDAw!5e0!3m2!1suk!2sua!4v1571860596517!5m2!1suk!2sua"
+            width="100%" height="87%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+    <div class="callBackForm">
+        <form #form='ngForm' autocomplete="off" >
+            <p>Звяжіться з нами</p>
+            <input type="hidden" name="date" [(ngModel)]="date" >
+            <input type="hidden" name="checkStatus" [(ngModel)]="checkStatus" >
+            <div class="input-group mb-3">
+                <input type="text" required class="form-control" placeholder="Ім'я..." [(ngModel)]="name" name="name" >
+            </div>
+            <div class="input-group mb-3">
+                <input type="email" required class="form-control" placeholder="E-mail..." [(ngModel)]="email" name="email" >
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" required class="form-control" placeholder="Номер телефону у форматі 097*******" [(ngModel)]="phone" name="phone" >
+            </div>
+            <div class="input-group">
+                <textarea class="form-control" required placeholder="текст запиту..." [(ngModel)]="text" name="text" ></textarea>
+            </div>
+            <button type="button" (click)="onSubmit(form)" class="btn btn-primary callBackBtn" >Відправити</button> <br> <p class="warningCallback">{{sendBTN}}</p>
+
+        </form>
+    </div>
+</div>

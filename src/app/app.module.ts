@@ -10,24 +10,24 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { BrendsComponent } from './brends/brends.component';
+import { MainComponent } from './pages/main/main.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { BrendsComponent } from './pages/brends/brends.component';
 import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CotelsComponent } from './products/cotels/cotels.component';
-import { VentilationComponent } from './products/ventilation/ventilation.component';
-import { FrozenComponent } from './products/frozen/frozen.component';
+import { CotelsComponent } from './pages/products/cotels/cotels.component';
+import { VentilationComponent } from './pages/products/ventilation/ventilation.component';
+import { FrozenComponent } from './pages/products/frozen/frozen.component';
 import { AdminBrendsComponent } from './admin/admin-brends/admin-brends.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminСharacteristicsComponent } from './admin/admin-characteristics/admin-characteristics.component';
 import { AdminCallbackComponent } from './admin/admin-callback/admin-callback.component';
-import { ReferenceComponent } from './reference/reference.component';
-import { HotPumpsComponent } from './products/hot-pumps/hot-pumps.component';
+import { ReferenceComponent } from './pages/reference/reference.component';
+import { HotPumpsComponent } from './pages/products/hot-pumps/hot-pumps.component';
 import { CotelPipe } from './shared/pipes/cotel.pipe';
 import { FrozenPipe } from './shared/pipes/frozen.pipe';
 import { HotpumpsPipe } from './shared/pipes/hotpumps.pipe';
@@ -35,16 +35,6 @@ import { AirPipe } from './shared/pipes/air.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PowerPipe } from './shared/pipes/power.pipe';
 import { TypePipe } from './shared/pipes/type.pipe';
-import { BegreenComponent } from './reference/begreen/begreen.component';
-import { JevenComponent } from './reference/jeven/jeven.component';
-import { ChillerComponent } from './reference/chiller/chiller.component';
-import { KlimorComponent } from './reference/klimor/klimor.component';
-import { AcvComponent } from './reference/acv/acv.component';
-import { SchakoComponent } from './reference/schako/schako.component';
-import { GetairComponent } from './reference/getair/getair.component';
-import { AlkoComponent } from './reference/alko/alko.component';
-import { ThermostalComponent } from './reference/thermostal/thermostal.component';
-import { LiketechnoComponent } from './reference/liketechno/liketechno.component';
 import { BrendPipe } from './shared/pipes/brend.pipe';
 
 // import { NgbdCarouselBasic } from './carousel-basic';
@@ -74,18 +64,7 @@ import { BrendPipe } from './shared/pipes/brend.pipe';
     AirPipe,
     PowerPipe,
     TypePipe,
-    BegreenComponent,
-    JevenComponent,
-    ChillerComponent,
-    KlimorComponent,
-    AcvComponent,
-    SchakoComponent,
-    GetairComponent,
-    AlkoComponent,
-    ThermostalComponent,
-    LiketechnoComponent,
     BrendPipe,
-    // NgbdCarouselBasic
 
   ],
   imports: [

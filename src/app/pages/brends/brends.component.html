@@ -1,0 +1,12 @@
+<div class="containerBrands">
+      <div class="brends" *ngFor="let brend of brends">
+        <div class="logo">
+            <a href="http://{{brend.link}}" target="_blank"><img src="{{brend.logoUrl}}" alt=""></a>
+        </div>
+        <div class="brandInfo">
+            <!-- <h4>{{brend.id}}</h4> -->
+            <h4>{{brend.title}}</h4>
+            <p>{{brend.text}}</p>
+        </div>
+    </div>
+</div>
