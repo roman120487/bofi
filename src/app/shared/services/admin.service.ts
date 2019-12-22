@@ -10,15 +10,6 @@ export class AdminService {
   enterAdmin: boolean;
   constructor(private firestore: AngularFirestore) { }
 
-
-  public getProducts(): any {
-    return this.firestore.collection('products').snapshotChanges();
-  }
-
-  public saveProduct(id, data): void {
-    this.firestore.doc('products/' + id).update(data);
-  }
-
 }
 
 
