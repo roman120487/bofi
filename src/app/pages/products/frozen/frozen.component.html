@@ -1,21 +1,12 @@
 <div class="cotelsContainer">
         <div class="leftSideBar">
             <h4>Фільтр</h4>
-            <!-- <div class="priceFilter">
-                <p>Діапазон цін: </p>
-                <div>
-                    <p>від:</p>
-                    <input type="text" placeholder="грн">
-    
-                    <p>до:</p>
-                    <input type="text" placeholder="грн">
-                </div>
-            </div> -->
+
     
             <div class="typeFilter">
                 <p>Вид: </p>
-                <input type="checkbox"><span>Побутове</span><br>
-                <input type="checkbox"><span>Промислове</span><br>
+                <input type="checkbox" (click)="filterType('Побутове')"><span>Побутове</span><br>
+                <input type="checkbox" (click)="filterType('Промислове')"><span>Промислове</span><br>
             </div>
     
             <div class="brendsFilter">
@@ -25,18 +16,15 @@
     
             <div class="powerFilter">
                     <p>Бренди: </p>
-                    <input type="checkbox"><span>10-20 Kwatt</span><br>
-                    <input type="checkbox"><span>20-50 Kwatt</span><br>
-                    <input type="checkbox"><span>50-100 Kwatt </span>
+                    <input type="checkbox" (click)="filterPower('10-20 кВт')"><span>10-20 кВт</span><br>
+                    <input type="checkbox" (click)="filterPower('20-50 кВт')"><span>20-50 кВт</span><br>
+                    <input type="checkbox" (click)="filterPower('50-100 кВт')"><span>50-100 кВт </span>
                 </div>
         </div>
         <div class="products">
-            <div class="product" *ngFor="let product of arrProduct | frozen">
+            <div class="product" *ngFor="let product of arrProduct | frozen | power:masPowerFilter | type:masTypeFilter | brend:masBrendFilter">
                 <table>
                     <tr>{{product.title}}</tr>
-                    <!-- <tr>{{product.subscribe}}</tr> -->
-                    <!-- <tr>{{product.category}}</tr> -->
-                    <!-- <tr style="background-image: url({{product.imgUrl}});"></tr> -->
                     <tr><img src="{{product.imgUrl}}" alt=""></tr>
                     <tr><button (click)="showProdDetails(product.id)" type="button" class="btn btn-success" data-toggle="modal" data-target="#prodDetails">Детальніше</button></tr>
                 </table>

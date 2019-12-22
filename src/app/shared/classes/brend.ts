@@ -8,7 +8,6 @@ export class Brend implements IBrend {
         public link: string,
         public logoUrl: string,
         public text: string,
-        public title: string,
-        public viewStatus: boolean
+        public title: string
     ) { }
 }

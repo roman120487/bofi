@@ -19,11 +19,11 @@ export class ReferenceComponent implements OnInit {
   ngOnInit() {
   }
 
-  public setBrendPDF(val) {
-    console.log(val);
+  public setBrendPDF(val: string, title: string) {
+    // console.log(val);
     this.viewReference.brend = val;
-    this.titleBrend = val;
-    console.log(this.viewReference);
+    this.titleBrend = title;
+    // console.log(this.viewReference);
   }
 
   public getBrends() {
@@ -35,7 +35,7 @@ export class ReferenceComponent implements OnInit {
             ...brend.payload.doc.data()
           } as IBrend;
         });
-        console.log(this.brends);
+        // console.log(this.brends);
       }
     );
   }

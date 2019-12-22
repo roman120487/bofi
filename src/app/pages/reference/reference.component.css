@@ -27,10 +27,13 @@ img {
     width: 100%;
     /* height: 140px; */
 }
-.modal-body{
+
+.modal-body {
     height: 800px !important;
 }
-.modal-title{
-font-size: 25px;
-padding-left: 45%;
+
+.modal-title {
+    height: auto;
+    font-size: 25px;
+    line-height: 1.2;
 }

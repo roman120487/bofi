@@ -13,26 +13,20 @@
     </div>
     <div class="typeFilter">
       <p>Тип: </p>
-      <input type="checkbox" [(ngModel)]="soilType"
-        (click)="filterType(soilType ? '': 'Грунт/вода')"><span>грунт/вода</span><br>
-      <input type="checkbox" [(ngModel)]="airType"
-        (click)="filterType(airType ? '': 'Воздух/вода')"><span>воздух/вода</span><br>
-      <input type="checkbox" [(ngModel)]="brineType"
-        (click)="filterType(brineType ? '': 'Розсіл/вода')"><span>розсіл/вода</span><br>
+      <input type="checkbox" (click)="filterType('Грунт/вода')"><span>грунт/вода</span><br>
+      <input type="checkbox" (click)="filterType('Воздух/вода')"><span>воздух/вода</span><br>
+      <input type="checkbox" (click)="filterType('Розсіл/вода')"><span>розсіл/вода</span><br>
 
     </div>
     <div class="powerFilter">
       <p>Потужність: </p>
-      <input type="checkbox" [(ngModel)]="power22" (click)="filterPower(power22 ? '' : '8-22 кВт' )"><span>8-22
-        кВт</span><br>
-      <input type="checkbox" [(ngModel)]="power105" (click)="filterPower(power105 ? '' : '40-105 кВт' )"><span>40-105
-        кВт</span><br>
-      <input type="checkbox" [(ngModel)]="power362" (click)="filterPower(power362 ? '' : '218-362 кВт' )"><span>218-362
-        кВт </span>
+      <input type="checkbox" (click)="filterPower('8-22 кВт')"><span>8-22 кВт</span><br>
+      <input type="checkbox" (click)="filterPower('40-105 кВт')"><span>40-105 кВт</span><br>
+      <input type="checkbox" (click)="filterPower('218-362 кВт')"><span>218-362 кВт </span>
     </div>
   </div>
   <div class="products">
-    <div class="product" *ngFor="let product of arrProduct | hotpumps | power:powerVal | type:typeVal ">
+    <div class="product" *ngFor="let product of arrProduct | hotpumps | power:masPowerFilter | type:masTypeFilter ">
       <table>
         <tr>{{product.title}}</tr>
         <tr><img src="{{product.imgUrl}}" alt=""></tr>

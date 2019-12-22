@@ -31,12 +31,9 @@ export class HotPumpsComponent implements OnInit {
   typeVal: string = '';
   brendVal: string = '';
 
-  soilType: boolean;
-  airType: boolean;
-  brineType: boolean;
-  power105: boolean;
-  power22: boolean;
-  power362: boolean;
+  masPowerFilter: Array<string> = [];
+  masTypeFilter: Array<string> = [];
+
 
   constructor(private firestore: AngularFirestore) { 
     this.getProducts();
@@ -46,12 +43,29 @@ export class HotPumpsComponent implements OnInit {
     // this.callbackService.text = this.productDetails.modalTitle;
   }
 
-  filterPower(val) {
-    this.powerVal = val;
+  filterPower(val: string) {
+    const existElement = this.masPowerFilter.some(function (element) {
+      return element === val;
+    });
+
+    if (existElement) {
+      this.masPowerFilter.splice(this.masPowerFilter.indexOf(val), 1);
+    } else {
+      this.masPowerFilter.push(val);
+    }
   }
 
-  filterType(val) {
-    this.typeVal = val;
+  filterType(val: string) {
+    const existElement = this.masTypeFilter.some(function (element) {
+      return element === val;
+    });
+
+    if (existElement) {
+      this.masTypeFilter.splice(this.masTypeFilter.indexOf(val), 1);
+    } else {
+      this.masTypeFilter.push(val);
+    }
+    
   }
 
   filterBrend(val) {

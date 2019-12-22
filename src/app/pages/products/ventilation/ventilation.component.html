@@ -4,28 +4,28 @@
 
     <div class="typeFilter">
       <p>Вид: </p>
-      <input type="checkbox"><span>Побутова</span><br>
-      <input type="checkbox"><span>Промислова</span><br>
+      <input type="checkbox" (click)="filterType('Побутова')"><span>Побутова</span><br>
+      <input type="checkbox" (click)="filterType('Промислова')"><span>Промислова</span><br>
     </div>
 
     <div class="brendsFilter">
       <p>Бренди: </p>
-      <input type="checkbox"><span>Klimor ( Польща ) </span><br>
-      <input type="checkbox"><span>AL-KO ( Німеччина ) </span><br>
-      <input type="checkbox"><span>Schako ( Німеччина ) </span>
-      <input type="checkbox"><span>Getair ( Німеччина ) </span>
-      <input type="checkbox"><span>Jeven ( Німеччина ) </span>
+      <input type="checkbox" (click)="filterBrend('Klimor')"><span>Klimor ( Польща ) </span><br>
+      <input type="checkbox" (click)="filterBrend('Al-Ko')"><span>Al-Ko ( Німеччина ) </span><br>
+      <input type="checkbox" (click)="filterBrend('Schako')"><span>Schako ( Німеччина ) </span>
+      <input type="checkbox" (click)="filterBrend('GetAir')"><span>GetAir ( Німеччина ) </span>
+      <input type="checkbox" (click)="filterBrend('Jeven')"><span>Jeven ( Німеччина ) </span>
     </div>
 
     <div class="powerFilter">
       <p>Потужність: </p>
-      <input type="checkbox"><span>10-20 Kwatt</span><br>
-      <input type="checkbox"><span>20-50 Kwatt</span><br>
-      <input type="checkbox"><span>50-100 Kwatt </span>
+      <input type="checkbox" (click)="filterPower('10-20 кВт')"><span>10-20 кВт</span><br>
+      <input type="checkbox" (click)="filterPower('20-50 кВт')"><span>20-50 кВт</span><br>
+      <input type="checkbox" (click)="filterPower('50-100 кВт')"><span>50-100 кВт </span>
     </div>
   </div>
   <div class="products">
-    <div class="product" *ngFor="let product of arrProduct | air">
+    <div class="product" *ngFor="let product of arrProduct | air | power:masPowerFilter | type:masTypeFilter | brend:masBrendFilter">
       <table>
         <tr>{{product.title}}</tr>
         <tr><img src="{{product.imgUrl}}" alt=""></tr>

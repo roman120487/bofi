@@ -28,9 +28,9 @@ export class VentilationComponent implements OnInit {
   modalPower: string;
   modalBrandName: string;
 
-  powerVal: string = '';
-  typeVal: string = '';
-  brendVal: string = '';
+  masPowerFilter: Array<string> = [];
+  masTypeFilter: Array<string> = [];
+  masBrendFilter: Array<string> = [];
 
   // tslint:disable-next-line: max-line-length
   constructor( private firestore: AngularFirestore) {
@@ -40,16 +40,43 @@ export class VentilationComponent implements OnInit {
   ngOnInit() {
   }
 
-  filterPower(val) {
-    this.powerVal = val;
+  filterPower(val: string) {
+    const existElement = this.masPowerFilter.some(function (element) {
+      return element === val;
+    });
+
+    if (existElement) {
+      this.masPowerFilter.splice(this.masPowerFilter.indexOf(val), 1);
+    } else {
+      this.masPowerFilter.push(val);
+    }
   }
 
-  filterType(val) {
-    this.typeVal = val;
+  filterType(val: string) {
+    const existElement = this.masTypeFilter.some(function (element) {
+      return element === val;
+    });
+
+    if (existElement) {
+      this.masTypeFilter.splice(this.masTypeFilter.indexOf(val), 1);
+    } else {
+      this.masTypeFilter.push(val);
+    }
+    
   }
 
   filterBrend(val) {
-    this.brendVal = val;
+    const existElement = this.masBrendFilter.some(function (element) {
+      return element === val;
+    });
+
+    if (existElement) {
+      this.masBrendFilter.splice(this.masBrendFilter.indexOf(val), 1);
+    } else {
+      this.masBrendFilter.push(val);
+    }
+    console.log(this.masBrendFilter);
+    
   }
 
 
