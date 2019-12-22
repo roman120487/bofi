@@ -27,3 +27,6 @@ img {
     width: 100%;
     /* height: 140px; */
 }
+.modal-body{
+    height: 800px !important;
+}
