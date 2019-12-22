@@ -10,12 +10,20 @@ import { IBrend } from '../../shared/interfaces/brend.interface';
 })
 export class ReferenceComponent implements OnInit {
   brends: Array<IBrend>;
-
-  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore) { 
+  titleBrend: string;
+  viewReference: any = {};
+  constructor(public firestorage: AngularFireStorage, private firestore: AngularFirestore) {
     this.getBrends();
   }
 
   ngOnInit() {
+  }
+
+  public setBrendPDF(val) {
+    console.log(val);
+    this.viewReference.brend = val;
+    this.titleBrend = val;
+    console.log(this.viewReference);
   }
 
   public getBrends() {

@@ -6,4 +6,5 @@ export interface IBrend {
     logoUrl: string;
     text: string;
     title: string;
+    viewStatus: boolean;
 }

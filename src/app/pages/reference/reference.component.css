@@ -30,3 +30,7 @@ img {
 .modal-body{
     height: 800px !important;
 }
+.modal-title{
+font-size: 25px;
+padding-left: 45%;
+}
