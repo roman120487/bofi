@@ -11,7 +11,6 @@ import { NgForm } from '@angular/forms';
 })
 export class MainComponent implements OnInit {
   massLength: number;
-  // randomNum: number;
   startNum: number;
   finishNum: number;
   arrProduct: Array<Product>;
@@ -31,11 +30,9 @@ export class MainComponent implements OnInit {
   prod: any;
   checkStatus: boolean = false;
 
-  // tslint:disable-next-line: max-line-length
   date = `${this.dateFull.getDate()}.${this.dateFull.getMonth() + 1}.${this.dateFull.getFullYear()}, ${this.dateFull.getHours()}:${this.dateFull.getMinutes()} `;
 
 
-  // tslint:disable-next-line: max-line-length
   constructor(private firestore: AngularFirestore) {
     this.getProducts();
 
@@ -57,9 +54,6 @@ export class MainComponent implements OnInit {
         this.massLength = this.arrProduct.length;
         this.startNum = Math.floor((Math.random() * ((this.massLength - 4) - 0) + 0));
         this.finishNum = this.startNum + 4;
-        console.log(this.massLength);
-        console.log(this.startNum);
-        console.log(this.finishNum);
       }
     );
   }

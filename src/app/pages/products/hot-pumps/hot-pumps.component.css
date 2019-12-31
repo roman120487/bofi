@@ -86,3 +86,26 @@ tr:nth-child(3) button{
     max-height: 200px;
     /* border: 1px solid black; */
 }
+
+@media screen and (max-width: 1366px) and (min-width: 961px) {
+    .pumpsContainer {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 960px) and (min-width: 768px) {
+    .pumpsContainer {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 486px){
+    .pumpsContainer {
+        width: 100%;
+    } 
+}
+@media screen and (max-width: 485px){
+    .pumpsContainer {
+        width: 100%;
+    }
+}

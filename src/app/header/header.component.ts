@@ -18,23 +18,29 @@ export class HeaderComponent implements OnInit {
   notValid: boolean;
   trueValid: boolean;
   usernameActive: string;
-  // enterAdmin: boolean;
   arrUsers: Array<User>;
   userName: string;
   userEmail: string;
   userPassword: string;
+  menuActive: boolean;
   constructor(public adminServece: AdminService, private firestore: AngularFirestore) {
     this.getUsers();
   }
 
   ngOnInit() {
   }
+  public menuMinActive(): void {
+    if (this.menuActive) {
+      this.menuActive = false;
+    } else {
+      this.menuActive = true;
+    }
+  }
 
   public resetForm(form?: NgForm): void {
     if (form != null) {
       form.resetForm();
     }
-    // this.id = null,
     this.userName = '';
     this.userEmail = '';
     this.userPassword = '';
@@ -55,9 +61,7 @@ export class HeaderComponent implements OnInit {
           this.usernameActive = val.userName;
           this.trueValid = true;
 
-          // console.log('ok');
         } else {
-          // console.log('not ok');
         }
       });
     }
@@ -80,7 +84,7 @@ export class HeaderComponent implements OnInit {
 
 
 
-    
+
     const data = Object.assign({}, form.value);
     delete data.id;
     if (form.value.id == null) {
@@ -88,9 +92,6 @@ export class HeaderComponent implements OnInit {
     } else {
       this.firestore.doc('users/' + form.value.id).update(data);
     }
-    // console.log(this.formData);
-    // this.resetForm();
-    console.log(this.arrUsers);
     this.resetForm();
 
   }
@@ -109,7 +110,7 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  addUser(): void{
-    
+  addUser(): void {
+
   }
 }

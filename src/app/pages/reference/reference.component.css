@@ -37,3 +37,49 @@ img {
     font-size: 25px;
     line-height: 1.2;
 }
+.modal-lg{
+    max-width: 90%;
+}
+
+
+@media screen and (max-width: 1366px) and (min-width: 961px) {
+    .containerReferences {
+        width: 100%;
+    }
+    .brends {
+        width: 45%;
+        margin: 35px auto;
+    }
+}
+
+@media screen and (max-width: 960px) and (min-width: 768px) {
+    .containerReferences {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .brends{
+        width: 60%;
+        margin: 35px auto;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 486px){
+    .containerReferences {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .brends{
+        width: 80%;
+        margin: 35px auto;
+    }
+}
+@media screen and (max-width: 485px){
+    .containerReferences {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .brends{
+        width: 90%;
+        margin: 35px auto;
+    }
+}

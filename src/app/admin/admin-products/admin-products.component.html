@@ -36,9 +36,11 @@
             </select>
             <select *ngIf="selectAir"  class="custom-select" id="powerAir" [(ngModel)]="power" name="power">
                 <option disabled>Виберіть потужність приладу...</option>
-                <option value="8-22 кВт">123 кВт</option>
-                <option value="40-105 кВт">123 кВт</option>
-                <option value="218-362 кВт">123 кВт</option>
+                <option value="0-1000 m3">0-1000 m3</option>
+                <option value="1000-2000 m3">1000-2000 m3</option>
+                <option value="2000-3000 m3">2000-3000 m3</option>
+                <option value="3000-5000 m3">3000-5000 m3</option>
+                <option value="5000-10000 m3">5000-10000 m3</option>
             </select>
             <select *ngIf="selectFrozen"  class="custom-select" id="arrProduct" [(ngModel)]="power" name="power">
                 <option disabled>Виберіть потужність приладу...</option>

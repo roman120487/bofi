@@ -1,4 +1,4 @@
-.cotelsContainer {
+.ventilationContainer {
     width: 1300px;
     margin: 15px auto;
     /* height: 500px; */
@@ -84,4 +84,26 @@ tr:nth-child(3) button{
     max-width: 250px;
     max-height: 200px;
     /* border: 1px solid black; */
+}
+@media screen and (max-width: 1366px) and (min-width: 961px) {
+    .ventilationContainer {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 960px) and (min-width: 768px) {
+    .ventilationContainer {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 486px){
+    .ventilationContainer {
+        width: 100%;
+    } 
+}
+@media screen and (max-width: 485px){
+    .ventilationContainer {
+        width: 100%;
+    }
 }

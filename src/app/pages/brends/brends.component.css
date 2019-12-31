@@ -39,3 +39,56 @@ img{
     font-size: 25px;
     margin-left: 15px;
 } 
+
+@media screen and (max-width: 1366px) and (min-width: 961px) {
+    .containerBrands {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 960px) and (min-width: 768px) {
+    .containerBrands {
+        width: 100%;
+    }
+    .brends {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .logo{
+        width: 250px;
+    }
+    .brandInfo{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 486px){
+    .containerBrands {
+        width: 100%;
+    }
+    .brends {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .logo{
+        width: 250px;
+    }
+    .brandInfo{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 485px){
+    .containerBrands {
+        width: 100%;
+    }
+    .brends {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .logo{
+        width: 250px;
+    }
+    .brandInfo{
+        width: 100%;
+    }
+}

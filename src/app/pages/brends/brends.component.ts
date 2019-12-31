@@ -27,7 +27,6 @@ export class BrendsComponent implements OnInit {
             ...brend.payload.doc.data()
           } as IBrend;
         });
-        console.log(this.brends);
       }
     );
   }

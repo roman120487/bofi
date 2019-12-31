@@ -13,13 +13,15 @@
   </div>
 
   <div class="logo" routerLink="main">
-    <img src="assets/images/logo.png" alt="">
+    <img src="assets/images/logo.png" alt=""><br>
     <span> Кліматичне </span> <span> еобладнання</span>
   </div>
   
   <div class="worksHour">
     <i class="fas fa-clock fa-lg"></i>
     <p>Працюємо: пн-птн 9:00 - 18:00</p>
+    <i class="fas fa-map-marked-alt fa-lg"></i>
+    <p>Адреса: м.Львів вул.Володимира Великого 18 офіс 825</p>
   </div>
   <div class="signIn">
     <p>Кабінет Користувача:</p>
@@ -46,21 +48,21 @@
         <div class="carousel-item active" routerLink="cotels">
           <img src="assets/images/kotel11.jpg" class="d-block w-100" alt="Опалювальне оладнання">
           <div class="carousel-caption d-none d-md-block">
-            <h4>Опалювальне обладнання</h4>
+            <p>Опалювальне обладнання</p>
             <p>Твердопаливні та газові котли</p>
           </div>
         </div>
         <div class="carousel-item" routerLink="ventilation">
           <img src="assets/images/vent11.jpg" class="d-block w-100" alt="Вентиляційне обладнання">
           <div class="carousel-caption d-none d-md-block">
-            <h4>Вентиляційне обладнання</h4>
+            <p>Вентиляційне обладнання</p>
             <p>Промислові та побутові вентиляційні системи</p>
           </div>
         </div>
         <div class="carousel-item" routerLink="frozen">
           <img src="assets/images/frozen11.jpg" class="d-block w-100" alt="Холодильне обладнання">
           <div class="carousel-caption d-none d-md-block">
-            <h4>Холодильне обладнання</h4>
+            <p>Холодильне обладнання</p>
             <p>побутове та промислове</p>
           </div>
         </div>
@@ -107,10 +109,44 @@
     <li class="nav-item">
       <a class="nav-link" routerLink="contacts" routerLinkActive='active'>Контакти</a>
     </li>
+  </ul>
+</div>
 
-    <!-- <li class="nav-item" *ngIf="enterAdmin">
-      <a class="nav-link" routerLink="admin" routerLinkActive='active'>Адмінка</a>
-    </li> -->
+<div class="menu-min" [ngClass]="{menuMinHight:menuActive}" >
+  <div class="menuBtn" (click)="menuMinActive()" [ngClass]="{menuMinActive:menuActive}">
+    <span></span> 
+  </div>
+  <div class="menuMinTitle">
+    <span>Меню</span>
+  </div>
+  <ul class="nav nav1" [ngClass]="{menuMinHide:menuActive}" >
+    <li   class="nav-item">
+      <a class="nav-link" routerLink="main" routerLinkActive='active'>Головна</a>
+    </li>
+    <li    class="nav-item">
+      <a class="nav-link" routerLink="about-us" routerLinkActive='active'>Про нас</a>
+    </li>
+    <li    class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Продукція
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="nav-link" routerLink="cotels" routerLinkActive='active'>Системи опалення</a>
+        <a class="nav-link" routerLink="hotPumps" routerLinkActive='active'>Теплові Насоси</a>
+        <a class="nav-link" routerLink="ventilation" routerLinkActive='active'>Вентиляційні системи</a>
+        <a class="nav-link" routerLink="frozen" routerLinkActive='active'>Холодильне обладнання</a>
+      </div>
+    </li>
+    <li    class="nav-item">
+      <a class="nav-link" routerLink="brends" routerLinkActive='active'>Бренди</a>
+    </li>
+    <li    class="nav-item">
+      <a class="nav-link" routerLink="reference" routerLinkActive='active'>Референс</a>
+    </li>
+    <li  class="nav-item">
+      <a class="nav-link" routerLink="contacts" routerLinkActive='active'>Контакти</a>
+    </li>
   </ul>
 </div>
 
