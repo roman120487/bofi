@@ -54,11 +54,13 @@ h3{
     font-weight: bold;
     font-size: 22px;
 }
+
 .contactsFooter li{
     list-style: none;
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
+
 i{
     float: left;
     margin-right: 15px;
