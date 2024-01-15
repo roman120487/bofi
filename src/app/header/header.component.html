@@ -1,77 +1,141 @@
 <!-- <div class="header" [style.display]="adminServece.enterAdmin===true?'none':'block'"> -->
 <div class="header">
-
   <div class="phone">
     <ul>
-      <i class="fas fa-phone-volume fa-lg"></i>
-      <li>тел/факс: +38(032) 241 70 01</li><br>
       <i class="fas fa-mobile-alt fa-lg"></i>
-      <li>моб.: +38(067) 236 11 19</li><br>
+      <li>моб.: +38(066) 648 07 22</li>
+      <br />
+      <i class="fas fa-mobile-alt fa-lg"></i>
+      <li>моб.: +38(067) 236 11 19</li>
+      <br />
       <i class="fas fa-envelope-open-text fa-lg"></i>
       <a href="mailto:info@bofi.com.ua"><li>info@bofi.com.ua</li></a>
     </ul>
   </div>
 
   <div class="logo" routerLink="main">
-    <img src="assets/images/logo.png" alt=""><br>
+    <img src="assets/images/logo.png" alt="" /><br />
     <span> Кліматичне </span> <span> обладнання</span>
   </div>
-  
+
   <div class="worksHour">
-    <i class="fas fa-clock fa-lg"></i>
-    <p>Працюємо: пн-птн 9:00 - 18:00</p>
+    <!-- <i class="fas fa-clock fa-lg"></i>
+    <p>Працюємо: пн-птн 9:00 - 18:00</p> -->
     <i class="fas fa-map-marked-alt fa-lg"></i>
-    <p>Адреса: м.Львів вул.Володимира Великого 18 офіс 825</p>
+    <p>Адреса: 79053, м.Львів вул.Володимира Великого 18 офіс 1012</p>
   </div>
   <div class="signIn">
     <p>Кабінет Користувача:</p>
-    <button *ngIf="!trueValid" type="button" class="btn btn-outline-dark" data-toggle="modal"
-      data-target="#signInModal">Увійти</button>
-    <button *ngIf="!trueValid" type="button" class="btn btn-outline-dark" data-toggle="modal"
-      data-target="#signUpModal">Зарееструватись</button>
-    <div *ngIf="trueValid" class="btn btn-outline-dark">{{usernameActive}}</div>
-    <button *ngIf="trueValid" type="button" class="btn btn-outline-dark" (click)="exit() ">Вийти</button>
-    <button *ngIf="adminServece.enterAdmin" type="button" class="btn btn-outline-dark" (click)="routeAdmin() "
-      routerLink="admin">Увійти в адмінку</button>
+    <button
+      *ngIf="!trueValid"
+      type="button"
+      class="btn btn-outline-dark"
+      data-toggle="modal"
+      data-target="#signInModal"
+    >
+      Увійти
+    </button>
+    <button
+      *ngIf="!trueValid"
+      type="button"
+      class="btn btn-outline-dark"
+      data-toggle="modal"
+      data-target="#signUpModal"
+    >
+      Зарееструватись
+    </button>
+    <div *ngIf="trueValid" class="btn btn-outline-dark">
+      {{ usernameActive }}
+    </div>
+    <button
+      *ngIf="trueValid"
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="exit()"
+    >
+      Вийти
+    </button>
+    <button
+      *ngIf="adminServece.enterAdmin"
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="routeAdmin()"
+      routerLink="admin"
+    >
+      Увійти в адмінку
+    </button>
   </div>
 </div>
 
-<div class="sliderHeader" [ngClass]="{sliderHide:adminServece.adminActivate}">
+<div
+  class="sliderHeader"
+  [ngClass]="{ sliderHide: adminServece.adminActivate }"
+>
   <div class="bd-example">
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <div
+      id="carouselExampleCaptions"
+      class="carousel slide"
+      data-ride="carousel"
+    >
       <ol class="carousel-indicators">
-        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li
+          data-target="#carouselExampleCaptions"
+          data-slide-to="0"
+          class="active"
+        ></li>
         <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
         <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active" routerLink="cotels">
-          <img src="assets/images/kotel11.jpg" class="d-block w-100" alt="Опалювальне оладнання">
+          <img
+            src="assets/images/kotel11.jpg"
+            class="d-block w-100"
+            alt="Опалювальне оладнання"
+          />
           <div class="carousel-caption d-none d-md-block">
             <p>Опалювальне обладнання</p>
             <p>Твердопаливні та газові котли</p>
           </div>
         </div>
         <div class="carousel-item" routerLink="ventilation">
-          <img src="assets/images/vent11.jpg" class="d-block w-100" alt="Вентиляційне обладнання">
+          <img
+            src="assets/images/vent11.jpg"
+            class="d-block w-100"
+            alt="Вентиляційне обладнання"
+          />
           <div class="carousel-caption d-none d-md-block">
             <p>Вентиляційне обладнання</p>
             <p>Промислові та побутові вентиляційні системи</p>
           </div>
         </div>
         <div class="carousel-item" routerLink="frozen">
-          <img src="assets/images/frozen11.jpg" class="d-block w-100" alt="Холодильне обладнання">
+          <img
+            src="assets/images/frozen11.jpg"
+            class="d-block w-100"
+            alt="Холодильне обладнання"
+          />
           <div class="carousel-caption d-none d-md-block">
             <p>Холодильне обладнання</p>
             <p>побутове та промислове</p>
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <a
+        class="carousel-control-prev"
+        href="#carouselExampleCaptions"
+        role="button"
+        data-slide="prev"
+      >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <a
+        class="carousel-control-next"
+        href="#carouselExampleCaptions"
+        role="button"
+        data-slide="next"
+      >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
@@ -82,74 +146,127 @@
 <div class="menu">
   <ul class="nav nav1">
     <li class="nav-item menuBtn">
-      <a class="nav-link" routerLink="main" routerLinkActive='active'>Головна</a>
+      <a class="nav-link" routerLink="main" routerLinkActive="active"
+        >Головна</a
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="about-us" routerLinkActive='active'>Про нас</a>
+      <a class="nav-link" routerLink="about-us" routerLinkActive="active"
+        >Про нас</a
+      >
     </li>
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
+      <a
+        class="nav-link dropdown-toggle"
+        routerLink="#"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
         Продукція
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <!-- <a [routerLink]="['/cotels, 'cc'']">Системи опалення</a> -->
-        <a class="nav-link" routerLink="cotels" routerLinkActive='active'>Системи опалення</a>
-        <a class="nav-link" routerLink="hotPumps" routerLinkActive='active'>Теплові Насоси</a>
-        <a class="nav-link" routerLink="ventilation" routerLinkActive='active'>Вентиляційні системи</a>
-        <a class="nav-link" routerLink="frozen" routerLinkActive='active'>Холодильне обладнання</a>
+        <a class="nav-link" routerLink="cotels" routerLinkActive="active"
+          >Системи опалення</a
+        >
+        <a class="nav-link" routerLink="hotPumps" routerLinkActive="active"
+          >Теплові Насоси</a
+        >
+        <a class="nav-link" routerLink="ventilation" routerLinkActive="active"
+          >Вентиляційні системи</a
+        >
+        <a class="nav-link" routerLink="frozen" routerLinkActive="active"
+          >Холодильне обладнання</a
+        >
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="brends" routerLinkActive='active'>Бренди</a>
+      <a class="nav-link" routerLink="brends" routerLinkActive="active"
+        >Бренди</a
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="reference" routerLinkActive='active'>Референс</a>
+      <a class="nav-link" routerLink="reference" routerLinkActive="active"
+        >Референс</a
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="contacts" routerLinkActive='active'>Контакти</a>
+      <a class="nav-link" routerLink="contacts" routerLinkActive="active"
+        >Контакти</a
+      >
     </li>
   </ul>
 </div>
 
-<div class="menu-min" [ngClass]="{menuMinHight:menuActive}" >
-  <div class="menuBtn" (click)="menuMinActive()" [ngClass]="{menuMinActive:menuActive}">
-    <span></span> 
+<div class="menu-min" [ngClass]="{ menuMinHight: menuActive }">
+  <div
+    class="menuBtn"
+    (click)="menuMinActive()"
+    [ngClass]="{ menuMinActive: menuActive }"
+  >
+    <span></span>
   </div>
   <div class="menuMinTitle">
     <span>Меню</span>
   </div>
-  <ul class="nav nav1" [ngClass]="{menuMinHide:menuActive}" >
-    <li   class="nav-item">
-      <a class="nav-link" routerLink="main" routerLinkActive='active'>Головна</a>
+  <ul class="nav nav1" [ngClass]="{ menuMinHide: menuActive }">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="main" routerLinkActive="active"
+        >Головна</a
+      >
     </li>
-    <li    class="nav-item">
-      <a class="nav-link" routerLink="about-us" routerLinkActive='active'>Про нас</a>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="about-us" routerLinkActive="active"
+        >Про нас</a
+      >
     </li>
-    <li    class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        routerLink="#"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
         Продукція
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="nav-link" routerLink="cotels" routerLinkActive='active'>Системи опалення</a>
-        <a class="nav-link" routerLink="hotPumps" routerLinkActive='active'>Теплові Насоси</a>
-        <a class="nav-link" routerLink="ventilation" routerLinkActive='active'>Вентиляційні системи</a>
-        <a class="nav-link" routerLink="frozen" routerLinkActive='active'>Холодильне обладнання</a>
+        <a class="nav-link" routerLink="cotels" routerLinkActive="active"
+          >Системи опалення</a
+        >
+        <a class="nav-link" routerLink="hotPumps" routerLinkActive="active"
+          >Теплові Насоси</a
+        >
+        <a class="nav-link" routerLink="ventilation" routerLinkActive="active"
+          >Вентиляційні системи</a
+        >
+        <a class="nav-link" routerLink="frozen" routerLinkActive="active"
+          >Холодильне обладнання</a
+        >
       </div>
     </li>
-    <li    class="nav-item">
-      <a class="nav-link" routerLink="brends" routerLinkActive='active'>Бренди</a>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="brends" routerLinkActive="active"
+        >Бренди</a
+      >
     </li>
-    <li    class="nav-item">
-      <a class="nav-link" routerLink="reference" routerLinkActive='active'>Референс</a>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="reference" routerLinkActive="active"
+        >Референс</a
+      >
     </li>
-    <li  class="nav-item">
-      <a class="nav-link" routerLink="contacts" routerLinkActive='active'>Контакти</a>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="contacts" routerLinkActive="active"
+        >Контакти</a
+      >
     </li>
   </ul>
 </div>
-
 
 <!------------------------------------------------------------- Modal Sign In ------------------------->
 <div class="modal" tabindex="-1" role="dialog" id="signInModal">
@@ -157,7 +274,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Вхід</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -165,28 +287,52 @@
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Електронна пошта:</label>
-            <input type="email" required [(ngModel)]="emailValid" name="emailValid" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp" placeholder="введіть вашу email адресу...">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input
+              type="email"
+              required
+              [(ngModel)]="emailValid"
+              name="emailValid"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="введіть вашу email адресу..."
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your email with anyone else.</small
+            >
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">введіть пароль...</label>
-            <input type="password" required [(ngModel)]="passValid" name="passValid" class="form-control"
-              id="exampleInputPassword1" placeholder="Password">
+            <input
+              type="password"
+              required
+              [(ngModel)]="passValid"
+              name="passValid"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password"
+            />
           </div>
-          <div class="emptyPlace" *ngIf="isEmptyPlace">не заповнене якесь поле</div>
-          <div class="emptyPlace" *ngIf="notValid">Неправильно введений логін або пароль</div>
+          <div class="emptyPlace" *ngIf="isEmptyPlace">
+            не заповнене якесь поле
+          </div>
+          <div class="emptyPlace" *ngIf="notValid">
+            Неправильно введений логін або пароль
+          </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="validUser()">Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="validUser()">
+          Submit
+        </button>
       </div>
     </div>
   </div>
 </div>
 <!--  -->
-
 
 <!-------------------------------------------------------------- Modal Sign Up ----------------------->
 <div class="modal" tabindex="-1" role="dialog" id="signUpModal">
@@ -194,32 +340,69 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Реестрація користувача</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-
-        <form #form='ngForm' autocomplete="off" (submit)="createNewUser(form)">
+        <form #form="ngForm" autocomplete="off" (submit)="createNewUser(form)">
           <div class="form-group">
             <label for="exampleInputUserName">Ім'я користувача: </label>
-            <input type="text" required [(ngModel)]="userName" name="userName" class="form-control" id="exampleInputUserName"
-              aria-describedby="emailHelp" placeholder="введіть ваше ім'я...">
+            <input
+              type="text"
+              required
+              [(ngModel)]="userName"
+              name="userName"
+              class="form-control"
+              id="exampleInputUserName"
+              aria-describedby="emailHelp"
+              placeholder="введіть ваше ім'я..."
+            />
           </div>
           <div class="form-group">
             <label for="exampleInputEmail2">Електронна пошта: </label>
-            <input type="email" required [(ngModel)]="userEmail" name="userEmail" class="form-control" id="exampleInputEmail2"
-              aria-describedby="emailHelp" placeholder="введіть вашу email адресу...">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input
+              type="email"
+              required
+              [(ngModel)]="userEmail"
+              name="userEmail"
+              class="form-control"
+              id="exampleInputEmail2"
+              aria-describedby="emailHelp"
+              placeholder="введіть вашу email адресу..."
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your email with anyone else.</small
+            >
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Пароль: </label>
-            <input type="password" required [(ngModel)]="userPassword" name="userPassword" class="form-control"
-              id="exampleInputPassword1" placeholder="введіть пароль...">
+            <input
+              type="password"
+              required
+              [(ngModel)]="userPassword"
+              name="userPassword"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="введіть пароль..."
+            />
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
-            <button type="submit" class="btn btn-primary" (click)="addUser()">Підтвердити</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Закрити
+            </button>
+            <button type="submit" class="btn btn-primary" (click)="addUser()">
+              Підтвердити
+            </button>
           </div>
         </form>
       </div>
